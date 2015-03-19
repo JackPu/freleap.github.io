@@ -1,0 +1,378 @@
+@charset utf-8;
+/**css reset**/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+	display:block
+}
+ol,ul {
+	list-style:none
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+img {
+	vertical-align:middle
+}
+input[type="text"],input[type="search"] {
+	-webkit-appearance:none;
+	appearance:none;
+	border-radius:0
+}
+body {
+	max-width:480px;
+	min-width:320px;
+	margin:0 auto;
+	background-
+	font-size:16px;
+	font-family:sans-serif;
+	line-height:40px;
+	color:#333
+}
+a {
+	color:#333;
+	text-decoration:none
+}
+.clearfix:after {
+	content:"";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:none
+}
+.doc-ft {
+	height:100px;
+	background-color:#f2f2f2;
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.2)
+}
+.footer-nav {
+	padding-top:10px;
+	text-align:center
+}
+.footer-nav ul {
+	display:inline-block
+}
+.footer-nav li {
+	position:relative;
+	float:left
+}
+.footer-nav li + li:after {
+	content:"";
+	position:absolute;
+	left:0;
+	top:12px;
+	width:1px;
+	height:16px;
+	background-color:#e8e7e6
+}
+.footer-nav a {
+	display:inline-block;
+	height:40px;
+	line-height:40px;
+	padding:0 10px
+}
+.copyright {
+	font-size:12px;
+	text-align:center
+}
+body {
+	background-color:#ddd;
+	font-size:14px;
+	max-width:100%;
+	line-height:1.2;
+	-webkit-font-smoothing:antialiased;
+	font-family:"microsoft yahei",Helvetica,arial;
+	font-size-adjust:none;
+	-webkit-text-size-adjust:none
+}
+.index header,.forum header {
+	height:46px;
+	line-height:46px;
+	width:100%;
+	background-color:#69c62f;
+	position:fixed;
+	-webkit-box-shadow:0 1px 2px rgba(94,181,53,.39);
+	box-shadow:0 1px 2px rgba(94,181,53,.39);
+	top:0;
+	z-index:10
+}
+.index header h2,.forum header h2 {
+	color:#fff;
+	text-align:center;
+	font-size:20px;
+	font-family:"Microsoft YaHei";
+	font-weight:normal
+}
+.index .home {
+	position:absolute;
+	left:34px;
+	top:0;
+	color:#fff
+}
+.index .home:before {
+	position:absolute;
+	left:-25px;
+	top:14px;
+	width:24px;
+	height:18px;
+	content:"";
+	background:url("http://p2.qhimg.com/t015875c91e8a7d7989.png") no-repeat;
+	background-size:24px
+}
+.index-forum-list {
+	padding-top:46px;
+	margin:0 10px
+}
+.refresh-content {
+	text-align:center;
+	color:#999;
+	margin:20px
+}
+.btn-refresh {
+	border:1px solid #bb251c;
+	width:80px;
+	height:30px;
+	line-height:30px;
+	display:inline-block;
+	margin-top:15px;
+	color:#fff;
+	background:-webkit-gradient(linear,0% 0%, 0% 100%, from(#ea9a7f), to(#e1543d), color-stop(0.5,#e5785e));
+	border-radius:5px
+}
+.inner-loading {
+	text-align:center;
+	padding:15px;
+	color:#999
+}
+.inner-loading .load-img {
+	width:19px;
+	height:19px;
+	display:inline-block;
+	background:url(http://p2.qhimg.com/t019d08046422f2d2c2.png) no-repeat center;
+	-webkit-background-size:19px;
+	background-size:19px;
+	vertical-align:middle;
+	margin-right:5px;
+	-webkit-animation:inner-loading 1s linear infinite;
+	animation:inner-loading 1s linear infinite
+}
+@-webkit-keyframes "inner-loading" {
+	0% {
+	-webkit-transform:rotate(0);
+}
+100% {
+	-webkit-transform:rotate(360deg);
+}
+}@keyframes "inner-loading" {
+	0% {
+	transform:rotate(0);
+}
+100% {
+	transform:rotate(360deg);
+}
+}.forum-item {
+	background-color:#fff;
+	border-radius:5px;
+	border:1px solid #d2d3d5;
+	margin-top:10px;
+	padding:10px
+}
+.forum-item .tit {
+	font-size:18px;
+	line-height:24px;
+	color:#333
+}
+.forum-item .cont {
+	margin:10px 0
+}
+.forum-item .tag:before {
+	color:#fff;
+	padding:3px 4px;
+	font-size:14px
+}
+.forum-item .gossip:before {
+	background-color:#4fbf97;
+	content:"最八卦"
+}
+.forum-item .funny:before {
+	background-color:#ee7655;
+	content:"最搞笑"
+}
+.forum-item .cont .pics {
+	display:-webkit-box;
+	-webkit-box-pack:justify
+}
+.forum-item .cont .pics .pic-1 {
+	width:100%
+}
+.forum-item .cont .pics .pic-2 {
+	width:49.2%
+}
+.forum-item .cont .pics li,.forum-item .cont .pics .pic-3 {
+	width:32.5%
+}
+.forum-item .cont .pics img {
+	width:100%
+}
+.forum-item .footer {
+	color:#ababab
+}
+.forum-item .footer .count {
+	background:url("http://p2.qhimg.com/t015875c91e8a7d7989.png") no-repeat 0 -36px;
+	background-size:20px;
+	padding-left:22px;
+	margin-left:15px
+}
+.index .loading-next,.index .loading-more {
+	line-height:50px;
+	color:#333;
+	text-align:center
+}
+.index .loading-next {
+	display:none
+}
+.forum .return {
+	position:absolute;
+	top:0;
+	left:0;
+	height:46px;
+	width:50px
+}
+.forum .return>span {
+	display:block;
+	height:22px;
+	width:24px;
+	margin:12px 14px;
+	background:url("http://p2.qhimg.com/t015875c91e8a7d7989.png") no-repeat 0 -16px;
+	background-size:20px auto
+}
+.forum .sort {
+	position:absolute;
+	right:0;
+	top:0;
+	height:46px;
+	width:88px
+}
+.forum .sort>span {
+	display:block;
+	margin:12px;
+	border:2px solid #fff;
+	color:#fff;
+	line-height:1;
+	padding:2px;
+	border-radius:3px
+}
+.forum-main {
+	padding-top:46px
+}
+.forum-tit {
+	background-color:#fff;
+	padding:20px
+}
+.forum-tit h3 {
+	font-weight:normal;
+	font-size:18px
+}
+.forum-tit .info {
+	color:#ababab;
+	padding:10px 10px 0
+}
+.forum-tit .source-url {
+	float:right;
+	background:url("http://p2.qhimg.com/t015875c91e8a7d7989.png") no-repeat 0 -82px;
+	padding-left:28px;
+	background-size:30px
+}
+.comment-list {
+	margin:10px
+}
+.comment {
+	border:1px solid #d1d3d4;
+	box-shadow:0 2px 2px #cfd1d3;
+	margin-bottom:10px
+}
+.comment-hd {
+	background-color:#f6f3f1;
+	padding:6px 10px;
+	color:#ababab;
+	border-bottom:1px solid #dfe5eb;
+	display:-webkit-box;
+	-webkit-box-pack:justify
+}
+.comment-hd .floor {
+	background-color:#ccc;
+	color:#fff;
+	display:inline-block;
+	padding:3px 6px
+}
+.comment-hd .floor.owner {
+	background-color:#ee7655
+}
+.comment-hd .timer {
+	padding-top:4px
+}
+.comment-bd {
+	background-color:#fff;
+	padding:10px;
+	line-height:22px;
+	font-size:16px
+}
+.comment-bd img {
+	display:block;
+	max-width:100%;
+	padding:5px 0
+}
+.pagination ul {
+	display:-webkit-box;
+	background-color:#f6f3f1;
+	margin-bottom:20px
+}
+.pagination ul li {
+	-webkit-box-flex:1;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:#3a3a3a;
+	border-right:1px solid #e4e2e0;
+	position:relative
+}
+.pagination li.disabled {
+	color:#c1c1c1
+}
+.page-select {
+	position:absolute;
+	opacity:0;
+	right:0;
+	bottom:0;
+	top:0;
+	left:0;
+	margin:0;
+	padding:0
+}
+.page-arrow-down {
+	position:relative;
+	top:3px;
+	left:3px
+}
+.gotop {
+	background:url("http://p2.qhimg.com/t015875c91e8a7d7989.png") no-repeat center -81px;
+	background-size:25px;
+	width:44px;
+	height:41px;
+	border-radius:5px;
+	position:fixed;
+	right:20px;
+	bottom:20px;
+	background-color:rgba(210,210,210,.8);
+	display:none
+}
+.doc-ft {
+	display:none
+}
+.copyright {
+	text-align:center;
+	color:#3a3a3a
+}

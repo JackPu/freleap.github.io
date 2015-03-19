@@ -1,0 +1,228 @@
+@charset utf-8;
+
+	@font-face {
+	    font-family: 'Segoe WP';
+	    src: url('./fonts/segoeuil.eot');
+	    src: url('./fonts/segoeuil.eot?#iefix') format('embedded-opentype'),
+	         url('./css/fonts/segoeuil.woff') format('woff'),
+	         url('./fonts/segoeuil.ttf') format('truetype');
+	    font-weight: lighter;
+	    font-style: normal;
+	}
+
+/** css reset **/
+html,body{overflow: hidden; width: 100%; height: 100%;}
+body{font-size:14px;color:#666;font-family:Segoe WP, Microsoft Yahei, arial,sans-serif;}
+body,ul,ol,div,dl,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,img{margin:0;padding:0}
+ul{list-style:none}
+table{border-collapse:collapse;border-spacing:0}
+img{border:none}
+img,select,input,textarea,button{vertical-align:middle}
+a{color:#fdfdfd;text-decoration:none;cursor:pointer; transition:all .2s ease-in;-webkit-transition:all .2s ease-in;}
+a:hover{color:#dc4f35; }
+.gclearfix:after,#channel:after,.hd:after,.bd:after,.ft:after,.gmodule:after{display:block;clear:both;visibility:hidden;height:0;content:''}
+.gclearfix,#channel,.hd,.bd,.ft,.gmodule{zoom:1}
+.doc-hd,.doc-bd,.doc-ft{ position:relative; }
+.wrap{z-index:1;position:relative;width:100%; height:100%;}
+.clear{height:0; clear:both;}
+/** end css reset **/
+
+.doc-hd{ 
+	overflow:hidden;
+	position: absolute;
+	left:0;
+	top:0;
+	right: 0;
+	bottom: 0;
+	color:#f9f9f9;
+	font-size:38px;
+	word-spacing: 15px;
+	text-align:center;
+}
+ #three-js{ 
+	overflow:hidden;
+	position: relative;
+	left:0;
+	top:0;
+	width:150%;
+	height:150%;
+	background-color: #000;
+	color:#f9f9f9;
+	font-size:30px;
+	text-align:center;
+	z-index: 0;
+}
+.doc-hd .container{
+	position: absolute;
+	top:50%;
+	left:50%;
+	width: 960px;
+	height:220px;
+	margin-left: -480px;
+	margin-top:-110px;
+}
+.doc-hd p{
+	width:960px;
+	margin:0px auto;
+}
+.doc-hd a{
+	display: inline-block;
+	margin-top:80px;
+	padding: 5px 30px;
+	border:3px solid #f3f3f3;
+}
+.doc-hd a:hover{
+	background-color: #f3f3f3;
+	color:#1ba1e2;
+}
+.doc-bd{
+	overflow: auto;
+	height:100%;
+}
+.doc-bd .container{
+	margin:10px auto;
+}
+
+@media (min-width: 480px) {
+  .container {
+    width: 480px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+.doc-bd header{
+	color:#1ba1e2;
+	font-family: arial;
+	font-size: 24px;
+	line-height: 45px;
+
+}
+.doc-bd blockquote{
+	position: relative;
+	height:150px;
+	margin-top: 15px;
+	padding:30px 40px;
+	padding-left: 50px;
+	border-radius:5px;
+	box-sizing:border-box;
+	font-size: 25px;
+}
+.doc-bd blockquote:before{
+	content: "";
+	position: absolute;
+	left:50%;
+	bottom: -10px;
+	width:25%;
+	border-top:1px solid #999;
+}
+.doc-bd blockquote:after{
+	content: "Mark Zuckerberg";
+	position: absolute;
+	right:45px;
+	bottom: -20px;
+	font-size: 20px;
+}
+
+.doc-bd ul{
+	overflow: hidden;
+	margin-top: 45px;
+}
+.doc-bd ul li{
+	float: left;
+	width:280px;
+	margin:10px 20px;
+	padding:10px 0 15px; 
+	text-align: center;
+	font-family:Arial;	
+	cursor: pointer;
+
+}
+.doc-bd ul li:hover{
+	box-shadow:1px 1px 0 rgba(0,0,0,.1),-1px -1px 0 rgba(0,0,0,.1);
+}
+.doc-bd ul li .head{
+	width:150px;
+	height: 150px;
+	border-radius: 50%;
+}
+.doc-bd ul li p{ 
+	margin-top: 8px;
+
+}
+.doc-bd ul li .name{
+	font-size: 20px;
+	color:#333;
+}
+.doc-bd ul li p.company{
+	margin-top: 0px;
+}
+.doc-bd ul li p.job{
+	color:#1ba1e2;
+	font-size: 16px;
+}
+.doc-bd ul li .tag{
+	margin-bottom: 4px;
+	margin-left:5px;
+	padding: 1px 5px;
+	background-color:#1bae12;
+	color:#fdfdfd;
+	line-height:25px;
+}
+.doc-bd ul li .tag:hover{
+	background-color: #e3e3e3;
+	color:#666;
+}
+.doc-bd ul li .icon{
+	display: inline-block;
+	position: relative;
+	width:16px;
+	margin-right:10px;
+	height: 16px;
+	color:#888;
+}
+.icon-weibo,.icon-github,.icon-ins{
+	fill:#888;
+}
+.doc-bd ul li .icon:hover .text{
+	display: block;
+}
+.doc-bd ul li .icon .text{
+	display: none;
+	position: absolute;
+	top:-38px;
+	left:-52px;
+	width: 120px;
+	height:28px;
+	background-color: #e74c3c;
+	border-radius:3px;
+	color:#f3f3f3;
+	font-size: 12px;
+	line-height: 28px;
+}
+.doc-bd ul li .icon .text:after{
+	content: '';
+	display: block;
+	position: absolute;
+	left:50%;
+	margin-left: -4px;
+	border-width: 5px;
+	border-style: solid solid dashed dashed;
+	border-color:#e74c3c transparent transparent transparent;
+}
+
+.doc-bd footer{
+	margin-top: 30px;
+	border-top: 1px solid #ccc;
+	text-align: center;
+	font-family:Arial;	
+	line-height: 34px;
+}

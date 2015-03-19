@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>专属照片，让爱随行</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css"/>
+    
+</head>
+<body>
+    <div id="doc">
+        <div class="contents">
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            <section class="page page1">
+                <div class="details">
+                    电影名称
+                </div>
+            </section>
+            
+            
+        </div>
+    </div>
+<script src="./static/js/Animate.js"></script>   
+
+<script src="./static/js/Scroller.js"></script>
+    <script src="./static/js/render.js"></script>
+<script src="./static/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    var H = $(window).height();
+    $('.contents').height(H * 9);
+    $('.contents .page').height(H);
+    var container = document.querySelector('#doc');
+    var content = document.querySelector('.contents');
+    var scroller = new Scroller(render, {
+		scrollingX: false,
+		paging: true
+	});
+    
+    // Setup Scroller
+
+	var rect = container.getBoundingClientRect();
+    console.log(rect.left);
+
+	scroller.setPosition(rect.left+container.clientLeft, rect.top+container.clientTop);
+	scroller.setDimensions(container.clientWidth, container.clientHeight, content.offsetWidth, content.offsetHeight);
+	
+	
+	// Event Handler
+	
+	if ('ontouchstart' in window) {
+		
+		container.addEventListener("touchstart", function(e) {
+			// Don't react if initial down happens on a form element
+			if (e.target.tagName.match(/input|textarea|select/i)) {
+				return;
+			}
+			
+			scroller.doTouchStart(e.touches, e.timeStamp);
+			e.preventDefault();
+		}, false);
+
+		document.addEventListener("touchmove", function(e) {
+            scroller.doTouchMove(e.touches, e.timeStamp);
+		}, false);
+
+		document.addEventListener("touchend", function(e) {
+			$(e.target).next().find('.details').addClass('show');
+            scroller.doTouchEnd(e.timeStamp);
+		}, false);
+		
+	} else {
+		
+		var mousedown = false;
+
+		container.addEventListener("mousedown", function(e) {
+			// Don't react if initial down happens on a form element
+			if (e.target.tagName.match(/input|textarea|select/i)) {
+				return;
+			}
+			
+			scroller.doTouchStart([{
+				pageX: e.pageX,
+				pageY: e.pageY
+			}], e.timeStamp);
+
+			mousedown = true;
+		}, false);
+
+		document.addEventListener("mousemove", function(e) {
+			if (!mousedown) {
+				return;
+			}
+
+			scroller.doTouchMove([{
+				pageX: e.pageX,
+				pageY: e.pageY
+			}], e.timeStamp);
+
+			mousedown = true;
+		}, false);
+
+		document.addEventListener("mouseup", function(e) {
+			if (!mousedown) {
+				return;
+			}
+
+			scroller.doTouchEnd(e.timeStamp);
+
+			mousedown = false;
+		}, false);
+		
+	}
+    
+</script>
+</body>
+</html>
