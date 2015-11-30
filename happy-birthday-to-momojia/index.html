@@ -1,23 +1,65 @@
-
-<!DOCTYPE html>
-<html lang="zh-cn">
+<!doctype html>
+<html lang="en">
 <head>
     <title>HAPPT-BIRTHDAY-TO-MOMOJIA</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="description" content="HAPPT-BIRTHDAY-TO-MOMOJIA">
-<link rel="icon" href="/public/favicon.ico" type="image/x-icon"/>
-<link rel="stylesheet" href="css/style.css">
-<link class="library" rel="stylesheet" type="text/css" href="/public/css/style.css?v=20151203">
-<script src="http://s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="HAPPT-BIRTHDAY-TO-MOMOJIA">
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
 </head>
+
 <body class="doc">
-  <div class="header"></div>
-  <div class="doc-main">
-    <img src="images/birthday-to-momojia-2015-03.jpg" />
-  </div>
+    <div class="doc-loading">
+        <div class="fav fav_active"></div>
+        <p>加载中...</p>
+    </div>
+
+    <div class="doc-hd">
+        <div class="big-house"></div>
+        <div class="little-house"></div>
+    </div>
+    <div class="doc-main">
+        <h3>Happy Birthday!</h3>
+        <p>拜启!</p>
+        <p>终于再次用了<span class="red">《飞屋》</span>。其实12年就想尝试，但是那个时候貌似想法还不是很明确，希望等素材全部都找好了再弄了会好点吧！</p>
+        <p>哈哈～</p>
+        <p>哈哈～</p>
+        <p>哈哈～</p>
+        <p>哈哈～</p>
+        <p>哈哈～</p>
+        
 
 
+
+    </div>
+    <div>
+        <img src="images/birthday-to-momojia-2015-03.jpg" />
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            
+            var init = function() {
+                $('.doc-loading').hide();
+                $('.big-house').addClass('animated to-top');
+                $('.big-house').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+                    $('.little-house').animate({'top':'45%'},850,function(){
+                        $('.little-house').addClass('animated to-top-bottom');
+                        $('.doc-main').children().addClass('animated fadeInUp');
+                    });
+                    
+                });
+            }
+            
+            
+            window.setTimeout(function(){
+                init();    
+            },5000)
+        })
+    </script>
 </body>
+
 </html>
