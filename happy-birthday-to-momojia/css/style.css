@@ -27,18 +27,21 @@ body{
     bottom: 0;
     right:0;
     left:0;
-    padding-top: 50%;
     background: #fff;
     text-align: center;
     font-size: 1.2rem;
 }
 .fav {
+    position: absolute;
+    top:50%;
+    left:50%;
   display: block;
-  background: url(../images/web_heart_animation.png) 0 0 no-repeat;
+  background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123web_heart_animation.png') 0 0 no-repeat;
   width: 100px;
-  height: 100px;
-    margin: 0 auto 20px;
-  vertical-align: middle;
+  height: 150px;
+    margin-top: -50px;
+    margin-left: -50px;
+    padding-top: 100px;
 }
 
 
@@ -58,9 +61,12 @@ body{
   position: relative;
   background: #000 url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123water-bg%20(1).png') no-repeat 0 100%;
   height: 63%;
-    animation: scroll 60s linear infinite;
+   
 }
-
+.anim {
+	 animation: scroll 60s linear infinite;
+    -webkit-animation: scroll 60s linear infinite;
+}
 @keyframes scroll{
     from{
         background-position: 0 100%;
@@ -69,7 +75,14 @@ body{
         background-position: -700px 100%;
     }
 }
-
+@-webkit-keyframes scroll{
+    from{
+        background-position: 0 100%;
+    }
+    to{
+        background-position: -700px 100%;
+    }
+}
 .doc-main{
     padding: 40px 20px 40px 20px;
     font-size: 1.2rem;
@@ -114,7 +127,7 @@ h3{
     height: 120px;
     margin-top: -60px;
     margin-left: -30px;
-    background: url(../images/house-little.png) no-repeat 0 0;
+    background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123house-little%20(1).png') no-repeat 0 0;
     background-size: 60px 120px;
 }
 

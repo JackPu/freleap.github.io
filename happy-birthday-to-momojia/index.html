@@ -12,9 +12,9 @@
 </head>
 
 <body class="doc">
-    <div class="doc-loading">
-        <div class="fav"></div>
-        <p>加载中...</p>
+    <div class="doc-loading anim">
+        <div class="fav"><p>加载中...</p></div>
+        
     </div>
 
     <div class="doc-hd">
@@ -41,8 +41,10 @@
     <audio autoplay style="display:none;" src="http://7xjgcu.media1.z0.glb.clouddn.com/Married%20Life%20-Michael%20Giacchino.mp3"></audio>
     <script type="text/javascript">
         $(function () {
+            
+            document.querySelector('audio').play();
             var p = 0;
-            window.setInterval(function(){
+            var iv = window.setInterval(function(){
                 if(p>25){
                     p=0;
                 }
@@ -53,6 +55,7 @@
             
             var init = function() {
                 $('.doc-loading').hide();
+                clearInterval(iv);
                 $('.big-house').addClass('animated to-top');
                 $('.big-house').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
                     $('.little-house').animate({'top':'45%'},850,function(){
