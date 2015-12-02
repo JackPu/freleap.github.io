@@ -63,10 +63,13 @@ body{
   height: 63%;
    
 }
-.anim {
-	 animation: scroll 60s linear infinite;
-    -webkit-animation: scroll 60s linear infinite;
+@media all and (max-width:768px){
+    .anim {
+         animation: scroll 60s linear infinite;
+        -webkit-animation: scroll 60s linear infinite;
+    }
 }
+
 @keyframes scroll{
     from{
         background-position: 0 100%;
