@@ -1,3 +1,11 @@
+@font-face {
+	font-family: 'Conv_CaviarDreams';
+	src: url('fonts/CaviarDreams.eot');
+	src: local('☺'), url('fonts/CaviarDreams.woff') format('woff'), url('fonts/CaviarDreams.ttf') format('truetype'), url('fonts/CaviarDreams.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,6 +13,15 @@
 body,html{
     width: 100%;
     height: 100%;
+}
+body{
+    font-size: 16px;
+    color: #454545;
+    font-family: 'Conv_CaviarDreams',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 100;
+}
+h1,h2,h3.h4,h5,p{
+    font-weight: 100;
 }
 img{
     max-width: 100%;
@@ -33,4 +50,12 @@ img{
     font-size: 40px;
     letter-spacing: 2px;
     line-height: 120px;
+    font-weight: 200;
+}
+.quote{
+    position: relative;
+    line-height: 50px;
+    font-size: 20px;    
+    font-family: "Helvetica Neue";
+    letter-spacing: 1px;
 }
