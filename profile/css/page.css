@@ -59,3 +59,144 @@ img{
     font-family: "Helvetica Neue";
     letter-spacing: 1px;
 }
+.main{
+    min-height: 360px;
+    padding: 20px;
+    background: #f2f2f2;
+}
+.main .tab{
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+}
+.main .tab .title{
+    text-align: center;
+    padding: 20px 0 40px;
+    font-weight: 500;
+}
+.main .tab p{
+    padding: 20px 0;
+    font-weight: 200;
+    color: #555;
+}
+.main .tab p .pre-label{
+    display: inline-block;
+    padding-right: 20px;
+    color: #999;
+    width: 80px;
+}
+.main .tab p .pre-label .icon{
+    width: 1em;
+    height: 1em;
+}
+.tag{
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0 3px;
+    border-radius: 2px;
+    color: #444;
+}
+.tag:hover{
+    background: #e3e3e3;
+    color:#1583c9;
+}
+.tab-icon {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	fill: currentColor;
+}
+
+.social-sites{
+    height: 400px;
+    text-align: center;
+}
+
+.sns-icon,.tab-item{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    margin: 200px 20px 40px;
+    border-radius: 4px;
+    line-height: 80px;
+    transition: all .25s ease;   
+    color: #fff;
+}
+.tab-item{
+    margin: 40px 20px 40px;
+}
+.icon{
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    background: url('../images/sns-png.png') no-repeat 0 0;
+    background-size: 40px auto;
+}
+.icon.svg-icon{
+    width: 30px;
+    height: 30px;
+    background: none;
+    fill: currentColor;
+}
+.tab-item:hover,.tab-item.active{
+    background: #fff;
+}
+.tab-item:hover .svg-icon,.tab-item.active  .svg-icon{
+    fill: #1583c9;
+}
+.icon-fb{
+    background-position: 0 -200px;
+}
+.sns-icon:hover .icon-fb{
+    background-position: 0 0;
+}
+.sns-icon.fb:hover{
+    background-color: #3b5998;
+}
+.icon-gp{
+    background-position: 0 -240px;
+}
+.sns-icon:hover .icon-gp{
+    background-position: 0 -40px;
+}
+.sns-icon.gp:hover{
+    background-color: #ed5651;
+}
+.icon-github{
+    background-position: 0 -280px;
+}
+.sns-icon:hover .icon-github{
+    background-position: 0 -80px;
+}
+.sns-icon.github:hover{
+    background-color: #010101;
+}
+.icon-ins{
+    background-position: 0 -320px;
+}
+.sns-icon:hover .icon-ins{
+    background-position: 0 -120px;
+}
+.sns-icon.ins:hover{
+    background-color: #1583c9;
+}
+.icon-be{
+    background-position: 0 -360px;
+}
+.sns-icon:hover .icon-be{
+    background-position: 0 -160px;
+}
+.sns-icon.be:hover{
+    background-color: #4486f6;
+}
+
+
+.copyright{
+    padding-top: 60px;
+    line-height: 40px;
+    color:#c2d2e2;
+    font-size: 13px;
+    text-align: center;
+}
