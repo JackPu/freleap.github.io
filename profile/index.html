@@ -103,7 +103,7 @@
     </div>
 </div>
 <div class="main">
-    <div class="tab" style="max-width:480px">
+    <div class="tab active" style="max-width:480px">
         <h2 class="title">Just a Capricorn Man</h2>    
         <p><span class="pre-label">Name</span>Jack Pu (蒲 欢 / カカシ)</p>
         <p><span class="pre-label">Email</span>760341479@qq.com</p>
@@ -115,18 +115,62 @@
         <p><span class="pre-label"><svg class="icon svg-icon icon-study"><use xlink:href="#icon-study"></use></svg></span>Central South University</p>
         <p><span class="pre-label"><svg class="icon svg-icon icon-food"><use xlink:href="#icon-food"></use></svg></span> Sicunan Food(川菜),Xiang Food(湘菜)</p>
         <p><span class="pre-label"><svg class="icon svg-icon icon-shop"><use xlink:href="#icon-shop"></use></svg></span>
-            Vanthink Edu Tech .incs<br/>
+            Vanthink Edu Tech inc.<br/>
         </p>
     </div>
     <div class="tab">
         <h2 class="title">My Childhood Dream Is To Be a Painter</h2>
+        <div class="albums">
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/36336969/Stephen-Chow-lowpoly">
+                    <img src="http://www.7xi3rt.com1.z0.glb.clouddn.com/4ef4a736336969.Y3JvcCw4NzYsNjg1LDQwMywyOA.jpg" />              
+                </a>
+            </div>
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/36056367/Journey-to-The-West-2">
+                    <img src="http://www.7xi3rt.com1.z0.glb.clouddn.com/4bfb7136056367.Y3JvcCw5NTgsNzQ5LDIyMCwyNg.jpg" />              
+                </a>
+            </div>
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/35952875/My-new-bicycle-design">
+                    <img src="http://www.7xi3rt.com1.z0.glb.clouddn.com/5b6f4d36014489.Y3JvcCwxMDk1LDg1NiwyNTIsMjE.png" />              
+                </a>
+            </div>
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/36336969/Stephen-Chow-lowpoly">
+                    <img src="http://www.7xi3rt.com1.z0.glb.clouddn.com/464a7b35952875.Y3JvcCwxMzE0LDEwMjgsMzAyLDI2.jpg" />              
+                </a>
+            </div>
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/36336969/Stephen-Chow-lowpoly">
+                    <img src="http://7xi3rt.com1.z0.glb.clouddn.com/c51f6232423469.Y3JvcCw5NTgsNzQ5LDIyMCwyNg.png" />              
+                </a>
+            </div>
+            <div class="photo">
+                <a href="https://www.behance.net/gallery/36336969/Stephen-Chow-lowpoly">
+                    <img src="http://www.7xi3rt.com1.z0.glb.clouddn.com/4ef4a736336969.Y3JvcCw4NzYsNjg1LDQwMywyOA.jpg" />              
+                </a>
+            </div>
+        </div>
+             
     </div>
-    <div class="tab">
-    
+    <div class="tab" style="max-width:480px">
+        <h2 class="title">I Need Some Goals</h2>
+        
+        <ul>
+            <li> Go to Japan</li>
+            <li> Build The React-native iOS App</li>
+            <li> Paint Exercise</li>
+            <li> Learning car driving</li>
+        </ul>
+        <h4 class="title prize"> 😊 😊  Congratulations  😊 😊</h4>
+        <ul class="done">
+            <li>《万万没想到：用理工科思维理解世界》－ 万维钢</li>
+        </ul>
     </div>
     <div class="tab">
         <h2 class="title">Where I Want To Go</h2>
-        <div class="js-map" style="height:320px"></div>
+        <div class="js-map" style="height:320px;width:720px;"></div>
     </div>
 </div>
     
@@ -153,9 +197,7 @@
         Copyright &copy; 2016 Jack Pu
     </div>
 </div>
-    
-    
-    
+       
 
 <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>  
 <script>hljs.initHighlightingOnLoad();</script>
@@ -169,6 +211,15 @@
             $('.filter-use').text(classname);
             $('.js-filter')[0].className = 'js-filter ' + classname; 
         });
+        
+        $('.tab-group .tab-item').on('click',function(e) {
+            e.preventDefault();
+            $('.tab-group .tab-item').removeClass('active');
+            $(this).addClass('active');
+            var idx = $(".active").index();
+            $('.tab').removeClass('active');
+            $('.tab').eq(idx).addClass('active');
+        })
         var loveVal = {
                 "CN":100,
                 "JP": 90,
