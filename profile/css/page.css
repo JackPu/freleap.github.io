@@ -200,3 +200,7 @@ img{
     font-size: 13px;
     text-align: center;
 }
+/**hide scroll**/
+.jvectormap-zoomin, .jvectormap-zoomout {
+    display: none;
+}

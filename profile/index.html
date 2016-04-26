@@ -10,6 +10,7 @@
     <meta content="white" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection" />
     <link rel="stylesheet" href="./css/page.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery-jvectormap-2.0.3.css"s />
 </head>
 
 <body>
@@ -113,15 +114,19 @@
         </p>
         <p><span class="pre-label"><svg class="icon svg-icon icon-study"><use xlink:href="#icon-study"></use></svg></span>Central South University</p>
         <p><span class="pre-label"><svg class="icon svg-icon icon-food"><use xlink:href="#icon-food"></use></svg></span> Sicunan Food(川菜),Xiang Food(湘菜)</p>
+        <p><span class="pre-label"><svg class="icon svg-icon icon-shop"><use xlink:href="#icon-shop"></use></svg></span>
+            Vanthink Edu Tech .incs<br/>
+        </p>
+    </div>
+    <div class="tab">
+        <h2 class="title">My Childhood Dream Is To Be a Painter</h2>
     </div>
     <div class="tab">
     
     </div>
     <div class="tab">
-    
-    </div>
-    <div class="tab">
-    
+        <h2 class="title">Where I Want To Go</h2>
+        <div class="js-map" style="height:320px"></div>
     </div>
 </div>
     
@@ -155,13 +160,55 @@
 <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>  
 <script>hljs.initHighlightingOnLoad();</script>
 <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+<script src='./js/jquery-jvectormap-2.0.3.min.js'></script>
+<script src='./js/jquery-jvectormap-world-mill.js'></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.js-select').on('change',function() {
             var classname = $(this).val();
             $('.filter-use').text(classname);
             $('.js-filter')[0].className = 'js-filter ' + classname; 
-        })    
+        });
+        var loveVal = {
+                "CN":100,
+                "JP": 90,
+                "US": 85,
+                "TH": 70,
+                "TW": 75,
+                "ZA": 45,
+                "CH": 60,
+                "GR": 60,
+            };
+        $('.js-map').vectorMap({
+            map: 'world_mill',
+            backgroundColor: '#f2f2f2',
+            zoomOnScrollSpeed: false,
+            series: {
+              regions: [{
+                values: loveVal,
+                scale: ['#b0d3f9', '#1e82ed'],
+                normalizeFunction: 'polynomial'
+              }]
+            },
+            regionStyle: {
+              initial: {
+                fill: '#b0d3f9',
+                "fill-opacity": 1,
+                stroke: 'none',
+                "stroke-width": 0,
+                "stroke-opacity": 1
+              },
+              hover: {
+                "fill-opacity": 0.8,
+                cursor: 'pointer'
+              },
+              selected: {
+                fill: 'yellow'
+              },
+              selectedHover: {
+              }
+            }
+        });
     })
 </script>
 
