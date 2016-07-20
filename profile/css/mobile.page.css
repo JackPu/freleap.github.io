@@ -1,3 +1,6 @@
+.quote {
+	font-size: 16px;
+}
 .sns-icon,.tab-item{
     width: 60px;
     margin-left: 0;
@@ -5,4 +8,13 @@
 }
 .main .tab p .pre-label {
     padding-right: 5px;
+}
+
+.photo{
+    width: 100%;
+    height: auto;
+}
+
+.js-map{
+    width: 100% !important;
 }
