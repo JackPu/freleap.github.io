@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>实现类似Pinterest 的图片预加载功能</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+<style type="text/css">
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+    -webkit-font-feature-settings: 'kern' 1;
+    -moz-font-feature-settings: 'kern' 1;
+    -o-font-feature-settings: 'kern' 1;
+    
+  }
+  h1{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .main{
+    width: 720px;
+    margin: 80px auto;
+    text-align: center;
+    
+  }
+  .post{
+    margin: 10px;
+    font-size: 18px;
+    color:#666;
+  }
+  .title{
+    line-height: 30px;
+  }
+  .image-bg{
+    background: #e1e1e1;
+  }
+  img {
+    width:100%;
+    opacity: 0;
+    transition: opacity .2s ease-in .25s;
+    
+  }
+  .loaded img {
+    opacity: 1;
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <h1>实现类似Pinterest 的图片预加载功能</h1>
+  <div class="main row">
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#141646">
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/89388038777855.Y3JvcCwxMDk1LDg1NiwyNTIsMjE.png" />
+        </div>
+        
+        <p class="title">Mars</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#3e90dc;" >
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/1f430b36513911.Y3JvcCw4MjEsNjQyLDEwMSwzMA.jpg" />
+        </div>
+        <p class="title">Grass</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#09171e;" >
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/4bfb7136056367.Y3JvcCw5NTgsNzQ5LDIyMCwyNg.jpg" />
+        </div>
+        <p class="title">journet to the west2</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#d4cab1;" >
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/96ed6c36255639.Y3JvcCw1NDksNDI5LDEyNiwxODU.png" />
+        </div>
+        <p class="title">Marriage</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#fff8fa;" >
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/ce4a4336970823.Y3JvcCwxMDk1LDg1NiwyNTIsMjE.png" />
+        </div>
+        <p class="title">Birthday Card</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="post">
+        <div class="image-bg" style="background-color:#fff;" >
+          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/fa5dec36514827.Y3JvcCwxMDk1LDg1Niw0ODUsMTY.png" />
+        </div>
+        <p class="title">Cup</p>
+      </div>
+    </div>
+    
+  </div>
+  
+<script type="text/javascript">
+  $(function() {
+    $('.post img').each(function() {
+       var el = this;
+       var image = new Image();
+       image.src = el.src;
+       
+       image.onload = function() {
+         $(el).parent().addClass('loaded');
+       }
+    })
+    
+  })
+</script> 
+</body>
+
+</html>
