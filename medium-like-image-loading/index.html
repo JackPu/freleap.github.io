@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>实现类似Pinterest 的图片预加载功能</title>
+<title>实现类似 Medium 的图片预加载功能</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -39,7 +39,8 @@
     
   }
   .post{
-    margin: 10px;
+    
+    margin: 10px 0 30px;
     font-size: 18px;
     color:#666;
   }
@@ -47,13 +48,27 @@
     line-height: 30px;
   }
   .image-bg{
+    overflow: hidden;
+    position: relative;
     background: #e1e1e1;
+    background-size: cover;
+    padding-bottom: 100%;  
+    filter: blur(30px);
+    /* this is needed so Safari keeps sharp edges */
+    transform: scale(1);  
   }
+
   img {
+    position: absolute;
+    left:0;
+    top:0;  
     width:100%;
-    opacity: 0;
+    height: 100%;  
     transition: opacity .2s ease-in .25s;
     
+  }
+  .loaded{
+    filter: blur(0px);     
   }
   .loaded img {
     opacity: 1;
@@ -67,53 +82,32 @@
   <div class="main row">
     <div class="col-md-6">
       <div class="post">
-        <div class="image-bg" style="background-color:#141646">
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/89388038777855.Y3JvcCwxMDk1LDg1NiwyNTIsMjE.png" />
+        <div class="image-bg"  data-src="./images/ins-1.jpg">
+          <img src="./images/ins-1-mini.jpg" />
         </div>
         
-        <p class="title">Mars</p>
+        <p class="title">故宫</p>
       </div>
     </div>
     <div class="col-md-6">
       <div class="post">
-        <div class="image-bg" style="background-color:#3e90dc;" >
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/1f430b36513911.Y3JvcCw4MjEsNjQyLDEwMSwzMA.jpg" />
+        <div class="image-bg"  data-src="./images/ins-2.jpg">
+          <img  src="./images/ins-2-mini.jpg" />
         </div>
-        <p class="title">Grass</p>
+        
+        <p class="title">薄荷</p>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="post">
-        <div class="image-bg" style="background-color:#09171e;" >
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/4bfb7136056367.Y3JvcCw5NTgsNzQ5LDIyMCwyNg.jpg" />
+        <div class="image-bg"  data-src="./images/ins-3.jpg">
+          <img width="100%" height="100%" src="./images/ins-3-mini.jpg" />
         </div>
-        <p class="title">journet to the west2</p>
+        
+        <p class="title">向日葵</p>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="post">
-        <div class="image-bg" style="background-color:#d4cab1;" >
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/96ed6c36255639.Y3JvcCw1NDksNDI5LDEyNiwxODU.png" />
-        </div>
-        <p class="title">Marriage</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="post">
-        <div class="image-bg" style="background-color:#fff8fa;" >
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/ce4a4336970823.Y3JvcCwxMDk1LDg1NiwyNTIsMjE.png" />
-        </div>
-        <p class="title">Birthday Card</p>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="post">
-        <div class="image-bg" style="background-color:#fff;" >
-          <img width="310" height="242" src="https://mir-s3-cdn-cf.behance.net/projects/404/fa5dec36514827.Y3JvcCwxMDk1LDg1Niw0ODUsMTY.png" />
-        </div>
-        <p class="title">Cup</p>
-      </div>
-    </div>
+
     
   </div>
   
@@ -122,10 +116,11 @@
     $('.post img').each(function() {
        var el = this;
        var image = new Image();
-       image.src = el.src;
+       image.src = $(el).parent().attr('data-src');
        
        image.onload = function() {
          $(el).parent().addClass('loaded');
+         $(el).parent().append(image);
        }
     })
     
