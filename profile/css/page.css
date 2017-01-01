@@ -27,13 +27,14 @@ img{
     max-width: 100%;
 }
 a{
-    color: #1ba1e2;
+    color: #0fb283;
+    text-decoration: none;
 }
 .hd{
     position: relative;
     height: 480px;
     padding-top: 140px;
-    background: #277cb6 url('http://img1.vued.vanthink.cn/vued9ee2adc91ddf9fdbe0e98ca1ff459fb5.jpeg') no-repeat center bottom;
+    background: #277cb6 url('http://img1.vued.vanthink.cn/vued9ee2adc91ddf9fdbe0e98ca1ff459fb5.jpeg') no-repeat center center;
     text-align: center;
     color: #f1f1f1;
 }
@@ -181,7 +182,7 @@ a{
     background: #fff;
 }
 .tab-item:hover .svg-icon,.tab-item.active  .svg-icon{
-    fill: #1583c9;
+    fill: #0fb283;
 }
 .icon-fb{
     background-position: 0 -200px;
