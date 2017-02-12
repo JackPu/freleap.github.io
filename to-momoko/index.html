@@ -31,7 +31,7 @@
         <img style="width:80%" src="http://img1.vued.vanthink.cn/vued761ca1a48888918935251f408e6111a6.png"/>
     </p>
     <p class="details">
-       Muisc: 《Epligoue - LA LA Land》
+       Music: 《Epligoue - LA LA Land》
     </p>
 </div>
 <audio autoplay style="display:none;" src="http://7xi3rt.com1.z0.glb.clouddn.com/1795306126_1481252824339%20%281%29.mp3"></audio>   
@@ -50,8 +50,7 @@
             p++;
         },40);
         function loadAnimation() {
-            $('.doc-loading').hide();
-            clearInterval(iv);
+            
             var animData = {
                 wrapper: document.getElementById('bodymovin'),
                 renderer: 'svg',
@@ -69,6 +68,10 @@
         }
        window.setTimeout(function() {
            loadAnimation();
+       },12000);
+         window.setTimeout(function() {
+           $('.doc-loading').hide();
+            clearInterval(iv);
        },15000);
        $('.btn-view-letter').on('click', function () {
            $('.dialog').show();
