@@ -1,236 +1,225 @@
 /**20151203 style **/
-*{
-  margin: 0;
-  padding: 0;
-}
-img{
-  width: 100%;
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-body,html{
-  width: 100%;
-  height: 100%;
-}
-body{
-  font-size: 63.5%;
-    color:#666;
-  font-family: 'Microsoft Yahei',SimHei,arial;
+img {
+    width: 100%;
 }
 
-.doc{
-  position: relative;
+body,
+html {
+    width: 100%;
+    height: 100%;
 }
+
+body {
+    font-size: 63.5%;
+    color: #666;
+    font-family: 'Microsoft Yahei', SimHei, arial;
+}
+
+.doc {
+    position: relative;
+}
+
 .doc-loading {
+    display: none;
     z-index: 10;
-	position: fixed;
-    top:0;
+    position: fixed;
+    top: 0;
     bottom: 0;
-    right:0;
-    left:0;
+    right: 0;
+    left: 0;
     background: #fff;
     text-align: center;
     font-size: 1.2rem;
 }
+
 .fav {
     position: absolute;
-    top:50%;
-    left:50%;
-  display: block;
-  background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123web_heart_animation.png') 0 0 no-repeat;
-  width: 100px;
-  height: 150px;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123web_heart_animation.png') 0 0 no-repeat;
+    width: 100px;
+    height: 150px;
     margin-top: -50px;
     margin-left: -50px;
     padding-top: 100px;
 }
 
-
 @keyframes fav {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: calc(-100px * 25) 0;
-  }
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: calc(-100px * 25) 0;
+    }
 }
+
 .fav_active {
-  animation: fav 1s steps(25) infinite forwards;
+    animation: fav 1s steps(25) infinite forwards;
 }
-.doc-hd{
+
+.doc-hd {
     overflow: hidden;
-  position: relative;
-  background: #000 url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123water-bg%20(1).png') no-repeat 0 100%;
-  height: 63%;
-   
+    position: relative;
+    background: #000 url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123water-bg%20(1).png') no-repeat 0 100%;
+    height: 63%;
 }
-@media all and (max-width:768px){
+
+@media all and (max-width:768px) {
     .anim {
-         animation: scroll 60s linear infinite;
+        animation: scroll 60s linear infinite;
         -webkit-animation: scroll 60s linear infinite;
     }
 }
 
-@keyframes scroll{
-    from{
+@keyframes scroll {
+    from {
         background-position: 0 100%;
     }
-    to{
+    to {
         background-position: -700px 100%;
     }
-}
-@-webkit-keyframes scroll{
-    from{
-        background-position: 0 100%;
-    }
-    to{
-        background-position: -700px 100%;
-    }
-}
-.doc-main{
-    padding: 40px 20px 40px 20px;
-    font-size: 1.2rem;
-    line-height: 2rem;
-    background: #fff;
 }
 
-h3{
+@-webkit-keyframes scroll {
+    from {
+        background-position: 0 100%;
+    }
+    to {
+        background-position: -700px 100%;
+    }
+}
+
+.doc-main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #563084;
+}
+
+h3 {
     opacity: 0;
     text-align: center;
     font-size: 2rem;
-    color:#9b59b6;
+    color: #9b59b6;
     line-height: 4rem;
-    
 }
-.doc-main p{
+
+.doc-main p {
     font-size: 1rem;
     opacity: 0;
 }
 
-.red{
+.red {
     font-weight: bold;
-    color:#ea6153;
-}
-.blue{
-    color:#3498db;
-}
-.big-house{
-    position: absolute;
-    right: -30px;
-    top:0;
-    width: 552px;
-    height: 452px;
-    background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123big-house%20(1).png') no-repeat 0 0;
-    background-size: 100% 100%;
-}
-.little-house{
-    position: absolute;
-    right: 50%;
-    top:-45%;
-    width:60px;
-    height: 120px;
-    margin-top: -60px;
-    margin-left: -30px;
-    background: url('http://7xj3sk.com1.z0.glb.clouddn.com/123123123house-little%20(1).png') no-repeat 0 0;
-    background-size: 60px 120px;
+    color: #ea6153;
 }
 
+.blue {
+    color: #3498db;
+}
 
 
 /** animation css **/
-.animated{
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
 
-@keyframes to-top{
-    0%{
-        top:0;
+@keyframes to-top {
+    0% {
+        top: 0;
     }
-    100%{
-        top:-460px;
+    100% {
+        top: -460px;
     }
 }
 
 @-webkit-keyframes to-top {
-    0%{
-        top:0;
+    0% {
+        top: 0;
     }
-    100%{
-        top:-460px;
+    100% {
+        top: -460px;
     }
 }
 
 .to-top {
-  -webkit-animation-name: to-top ;
-  animation-name: to-top ;
-  -webkit-animation-duration: 3s;
-  animation-duration: 3s;
-    
-  -webkit-transform-origin: center bottom;
-  transform-origin: center bottom;
+    -webkit-animation-name: to-top;
+    animation-name: to-top;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
 }
 
-@keyframes to-top-bottom{
-     0%{
-        top:45%;
+@keyframes to-top-bottom {
+    0% {
+        top: 45%;
     }
-    50%{
-        top:50%;    
+    50% {
+        top: 50%;
     }
-    100%{
-        top:45%;
+    100% {
+        top: 45%;
     }
 }
 
-@-webkit-keyframes  to-top-bottom {
-     0%{
-        top:45%;
+@-webkit-keyframes to-top-bottom {
+    0% {
+        top: 45%;
     }
-    50%{
-        top:50%;    
+    50% {
+        top: 50%;
     }
-    100%{
-        top:45%;
+    100% {
+        top: 45%;
     }
-
 }
 
-.to-top-bottom{
-   animation: to-top-bottom 3s linear infinite;
-   -webkit-animation: to-top-bottom 3s linear infinite;
+.to-top-bottom {
+    animation: to-top-bottom 3s linear infinite;
+    -webkit-animation: to-top-bottom 3s linear infinite;
 }
 
 @-webkit-keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
 
 .fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
 }

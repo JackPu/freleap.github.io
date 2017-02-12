@@ -12,90 +12,26 @@
 </head>
 
 <body class="doc">
-    <div class="doc-loading anim">
-        <div class="fav"><p>加载中...</p></div>
-        
-    </div>
-
-    <div class="doc-hd anim">
-        <div class="big-house"></div>
-        <div class="little-house"></div>
-    </div>
-    <div class="doc-main">
-        <h3>Happy Birthday!</h3>
-        <p>拜启!</p>
-        
-        <p>终于再次用了<span class="red">《飞屋》</span>。其实12年就想尝试，但是那个时候貌似想法还不是很明确，希望等素材全部都找好了再弄了会好点吧！</p>
-        <p>今年就感觉换个形式了，毕竟移动端也这么火。</p>
-        <p>...</p>
-        <p>工作啦，什么的放开心就好，难免总会遇到些麻烦不如意，但终究会过去的...</p>
-        <p>...其他的什么的话，也不多说,嘻嘻,有默契的...</p>
-        <p>哈哈～</p>
-        <p>哈哈～</p>
-        <p>哈哈～</p>
-        
-        <p>祝，生日快乐～</p>
-        <p>冬日渐浓，照顾好自己！</p>
-        <p>@Jack</p>
-        
-
-
-
-    </div>
-    <div>
-        <img src="http://7xj3sk.com1.z0.glb.clouddn.com/123123123birthday-to-momojia-2015.png" />
-    </div>
-    <audio autoplay style="display:none;" src="http://7xjgcu.media1.z0.glb.clouddn.com/Married%20Life%20-Michael%20Giacchino.mp3"></audio>
-    <script type="text/javascript">
-        $(function () {
-            
-            document.querySelector('audio').play();
-            var p = 0;
-            var iv = window.setInterval(function(){
-                if(p>25){
-                    p=0;
-                }
-                var str = '-' + (100*p) + 'px 0';
-                $('.fav').css({'background-position':str})   
-                p++;
-            },40);
-            
-            var init = function() {
-                $('.doc-loading').hide();
-                clearInterval(iv);
-                $('.big-house').addClass('animated to-top');
-                $('.big-house').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
-                    $('.little-house').animate({'top':'45%'},850,function(){
-                        $('.little-house').addClass('animated to-top-bottom');
-                        $('.doc-main').children().addClass('animated fadeInUp');
-                    });
-                    
-                });
-            }
-            
-            var imageArr = ['http://7xj3sk.com1.z0.glb.clouddn.com/123123123water-bg%20(1).png','http://7xj3sk.com1.z0.glb.clouddn.com/123123123big-house%20(1).png'];
-            var imageLoad = 0;
-            for(var i =0;i<imageArr.length;i++){
-                var image = new Image();
-                image.src = imageArr[i];
-                image.onload = function() {
-                    imageLoad++;   
-                }
-            }
-            
-            
-            
-            window.setInterval(function(){
-                if(imageLoad == 2){
-                    
-                    
-                    imageLoad = 3;
-                    window.setTimeout(function() {init()},4000)
-                }
-                   
-            },1000)
-        })
-    </script>
+<div class="doc-main" id="bodymovin"></div>   
+    
+<script src="bodymovin.js" type="text/javascript"></script>
+    
+<script type="text/javascript">
+    var animData = {
+        wrapper: document.getElementById('bodymovin'),
+        renderer: 'svg',
+        loop: false,
+        prerender: true,
+        autoplay: true,
+        path: 'data.json',
+        rendererSettings: {
+           // context: canvasContext, // the canvas context
+            scaleMode: 'noScale',
+           // clearCanvas: false
+          }
+    };
+    var anim = bodymovin.loadAnimation(animData);
+</script>    
 </body>
 
 </html>
