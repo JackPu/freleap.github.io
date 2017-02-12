@@ -42,7 +42,10 @@
         var audio =  document.querySelector('audio');
         audio.load();
         audio.play();
-        
+        window.addEventListener('touchstart', function() {
+             audio.load();
+            audio.play();    
+        })
         var p = 0;
         var iv = window.setInterval(function(){
             if(p>25){
