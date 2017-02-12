@@ -11,6 +11,7 @@ img {
 
 body,
 html {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 }
@@ -26,9 +27,9 @@ body {
 }
 
 .doc-loading {
-    display: none;
+    opacity: 0;
     z-index: 10;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -223,3 +224,64 @@ h3 {
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
 }
+.btn-view-letter{
+    opacity: 0;
+    position: absolute;
+    z-index: 20;
+    bottom: 90px;
+    left:50%;
+    margin-left: -120px;
+    background-color: #fff;
+    width: 240px;
+    line-height: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color:#563084;
+    font-size: 20px;
+    text-align: center;
+    transition: all .25s ease-in;
+}
+.btn-view-letter:hover,
+.btn-view-letter:active{
+    opacity: .85;
+}
+
+.dialog{
+    display: none;
+    overflow: auto;
+    position: absolute;
+    z-index: 30;
+    background: #fff;
+    top: 20%;
+    bottom:0;
+    left:0;
+    width: 100%; 
+    line-height: 28px;
+}
+.dialog img {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+}
+.dialog p {
+    margin: 0 20px;
+}
+.btn-close{
+    display: inline-block;
+    float: right;
+    width: 28px;
+    height: 28px;
+    line-height: 30px;
+    color: #fff;
+    background-color: #563084;
+    text-align: center;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-top: 5px;
+    
+}
+.btn-close:hover,
+.btn-close:active{
+    opacity: .6;
+}
+
