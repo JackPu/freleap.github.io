@@ -39,7 +39,10 @@
 <iframe style="display:none;" src="data.json"></iframe>
 <script type="text/javascript">
     $(function() {
-        document.querySelector('audio').play();
+        var audio =  document.querySelector('audio');
+        audio.load();
+        audio.play();
+        
         var p = 0;
         var iv = window.setInterval(function(){
             if(p>25){
