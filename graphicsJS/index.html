@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>GraphicsJS Baics </title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+<style type="text/css">
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+    -webkit-font-feature-settings: 'kern' 1;
+    -moz-font-feature-settings: 'kern' 1;
+    -o-font-feature-settings: 'kern' 1;
+    background: #e1e1e1;
+    
+  }
+  h1{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .main{
+    max-width: 720px;
+    margin: 80px auto;
+    text-align: center;
+    
+  }
+  .post{
+    width: 600px;
+    padding: 10px;
+    margin: 10px 0 30px;
+    font-size: 18px;
+    color:#666;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  }
+  .post .stage{
+    height: 280px;
+  }
+  .title{
+    text-align: center;
+    line-height: 30px;
+    color:#777;
+    font-size: 13px;
+    font-style: italic;
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <h1>GraphicsJS 功能演示</h1>
+  <div class="main">
+    <div class="post">
+      <div class="stage" id="figure1"></div>
+      <div class="title">Rect(25, 50, 200, 200)</div>
+    </div>
+    <div class="post">
+      <div class="stage" id="figure2" style="height:400px"></div>
+      <div class="title">House and human</div>
+    </div>
+    <div class="post">
+      <div class="stage" id="figure3" style="height:400px"></div>
+      <div class="title">Leaves game</div>
+    </div>
+  </div>
+  
+
+<script src="https://cdn.anychart.com/js/latest/graphics.min.js"></script>
+<script type="text/javascript">
+  // create a stage
+  var stage = acgraph.create('figure1');
+  // draw a rectangle
+  stage.rect(25, 50, 200, 200);
+  // create a stage
+  stage = acgraph.create('figure2');
+
+  // draw the frame
+  var frame = stage.rect(25, 50, 350, 300);
+
+  // draw the house
+  var walls = stage.rect(50, 250, 200, 100);
+  var roof  = stage.path()
+    .moveTo(50, 250)
+    .lineTo(150, 180)
+    .lineTo(250, 250)
+    .close();
+
+  // draw a man
+  var head = stage.circle(330, 280, 10);
+  var neck = stage.path().moveTo(330, 290).lineTo(330, 300);
+  var kilt = stage.triangleUp(330, 320, 20);
+  var rightLeg = stage.path().moveTo(320, 330).lineTo(320, 340);
+  var leftLeg = stage.path().moveTo(340, 330).lineTo(340, 340);
+  // fancy frame
+  frame.stroke(["red", "green", "blue"], 2, "2 2 2");
+  // brick walls
+  walls.fill(acgraph.hatchFill('horizontalbrick'));
+  // straw roof
+  roof.fill("#e4d96f");
+  // plaid kilt
+  kilt.fill(acgraph.hatchFill('plaid'));
+  // 169 is a char code of the copyright symbol
+  var  text = acgraph.text().text(String.fromCharCode(169)).opacity(0.2);
+  var  pattern_font = stage.pattern(text.getBounds());
+  pattern_font.addChild(text);
+  // fill the whole image with the pattern
+  frame.fill(pattern_font);
+  
+  // create game
+  stage = acgraph.create("figure3");
+
+  // color palettes for leaves
+  var palette_fill = ['#5f8c3f', '#cb9226', '#515523', '#f2ad33', '#8b0f01']; 
+  var palette_stroke = ['#43622c', '#8e661b', '#393b19', '#a97924', '#610b01'];
+
+  // counter
+  var leavesCounter = 0;
+
+  // create a label to count leaves
+  var counterLabel = stage.text(10,10, "Swiped: 0", {fontSize: 20});
+
+  // a layer for the leaves
+  var gameLayer = stage.layer().zIndex(counterLabel.zIndex()-1);
+
+  function drawLeaf(x, y) {
+    // choose a random color from a palette
+    var index = Math.floor(Math.random() * 5);
+    var fill = palette_fill[index];
+    var stroke = palette_stroke[index];
+
+    // generate random scaling factor and rotation angle
+    var scale = Math.round(Math.random() * 30) / 10 + 1;
+    var angle = Math.round(Math.random() * 360 * 100) / 100;
+
+    // create a new path (leaf)
+    var path = acgraph.path();
+
+    // color and draw a leaf
+    path.fill(fill).stroke(stroke, 1, 'none', 'round', 'round');
+    var size = 18;
+    path.moveTo(x, y)
+      .curveTo(x + size / 2, y - size / 2, x + 3 * size / 4, y + size / 4, x + size, y)                  
+      .curveTo(x + 3 * size / 4, y + size / 3, x + size / 3, y + size / 3, x, y);
+
+    // apply random transformations
+    path.scale(scale, scale, x, y).rotate(angle, x, y);
+
+    path.listen("mouseover", function(){
+      path.remove();
+      counterLabel.text("Swiped: " + leavesCounter++);
+      if (gameLayer.numChildren() < 200) shakeTree(300); 
+    });
+
+    return path; 
+  };
+
+  function shakeTree(n){
+    stage.suspend(); // suspend rendering
+    for (var i = 0; i < n; i++) {
+      var x = Math.random() * stage.width()/2 + 50;
+      var y = Math.random() * stage.height()/2 + 50;
+      gameLayer.addChild(drawLeaf(x, y)); // add a leaf
+    }
+
+    stage.resume(); // resume rendering
+  }
+
+  // shake a tree for the first time
+  shakeTree(500);
+</script> 
+</body>
+
+</html>
