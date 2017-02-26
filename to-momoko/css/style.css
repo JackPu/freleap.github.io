@@ -27,7 +27,6 @@ body {
 }
 
 .doc-loading {
-    opacity: 0;
     z-index: 10;
     position: absolute;
     top: 0;
