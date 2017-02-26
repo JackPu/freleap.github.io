@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<mate charset="UFT-8"/>
+	<link rel="stylesheet" href="rookie-design.css">
+</head>
+<body>
+	<header>
+		<div class="tit">
+			About Me/<span name="name" id="name"></span>
+		</div>
+	</header>
+	<div class="content">		
+		<div class="main">
+			<div id="img"></div>
+			<div class="profile">
+				<div id="name"></div></br>
+				<div id="school"></div></br>
+				<div id="phone"></div></br>
+				<div id="email"></div></br>
+				<div id="work"></div></br>
+				<div><a id="blog">My Blog</a></div></br>
+				<div id="hobbies"></div></br>
+			</div>
+			<div class="evaluation">
+				Self-evaluation:
+				<p id="evaluation"></p>
+			</div>
+		</div>	
+	</div>
+	<div class="social-media">
+		<a id="weibo" ><img src="weibo.jpg"></a>
+		<a id="google"><img src="google.jpg"></a>
+		<a id="instagram" ><img src="ins.jpg"></a>
+		<a id="github"><img src="github.jpg"></a>
+	</div>
+
+
+<script type="text/javaScript">
+
+var json=[
+{
+ 	"name":"Jack Pu",
+	"img":"<img src='jack.jpg'/>",
+	"school":"Center South University",
+	"phone":"+86 13107424634",
+	"email":"kakashjack@gmail.com",
+	"work":"Web Developer",
+	"blog":"http://www.baidu.com/",
+	"hobbies":"Basketball,Naruto,Stephen Chow",
+	"evaluation":"Have a good grade during school time. Be able to solve the problems in life independently.Work hard with good teamwork and innovation.",
+	 'socialMedia':{
+	 	"weibo":"http://weibo.com/u/1775984753",
+	 	"google":"https://www.google.com",
+	 	"instagram":"http://instagram.com",
+	 	"github":"https://github.com/yumu0116"
+	 }
+},
+{
+ 	"name":"Lina",
+	"img":"<img src='Lina.jpg'/>",
+	"school":"Center South University",
+	"phone":"+86 13677308304",
+	"email":"979094151@qq.com",
+	"work":"Web Developer",
+	"blog":"http://www.douban.com/",
+	"hobbies":"Basketball,Naruto,Stephen Chow",
+	"evaluation":"The future that we have been so nevrous and curious about is still bright in my heart.",
+	 'socialMedia':{
+	 	"weibo":"http://weibo.com/nalittledevil",
+	 	"google":"https://www.google.com",
+	 	"instagram":"http://instagram.com/orang0116",
+	 	"github":"https://github.com/yumu0116"
+	 }
+}
+]
+var i=0;
+window.onhashchange=function(){
+		var jname=window.location.hash;
+		if(jname="?s/#zhanglina"){
+			i=1;
+		}
+};
+
+
+document.getElementById("name").innerHTML=json[i].name;
+document.getElementById("img").innerHTML=json[i].img;
+document.getElementById("school").innerHTML=json[i].school;
+document.getElementById("phone").innerHTML=json[i].phone;
+document.getElementById("email").innerHTML=json[i].email;
+document.getElementById("work").innerHTML=json[i].work;
+document.getElementById("blog").href=json[i].blog;
+document.getElementById("hobbies").innerHTML=json[i].hobbies;
+document.getElementById("evaluation").innerHTML=json[i].evaluation;
+document.getElementById("weibo").href=json[i].socialMedia.weibo;
+document.getElementById("google").href=json[i].socialMedia.google;
+document.getElementById("instagram").href=json[i].socialMedia.instagram;
+document.getElementById("github").href=json[i].socialMedia.github;
+
+
+</script>
+
+</body>
+</html>
