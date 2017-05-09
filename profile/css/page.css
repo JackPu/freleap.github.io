@@ -34,7 +34,7 @@ a{
     position: relative;
     height: 480px;
     padding-top: 140px;
-    background: #277cb6 url('http://img1.vued.vanthink.cn/vued9ee2adc91ddf9fdbe0e98ca1ff459fb5.jpeg') no-repeat center center;
+    background: #277cb6 url('http://img1.vued.vanthink.cn/vuedbb220972d0f5071d1659546994fe259a.jpeg') no-repeat center center;
     text-align: center;
     color: #f1f1f1;
 }
@@ -182,7 +182,7 @@ a{
     background: #fff;
 }
 .tab-item:hover .svg-icon,.tab-item.active  .svg-icon{
-    fill: #0fb283;
+    fill: #1f8aea;
 }
 .icon-fb{
     background-position: 0 -200px;
