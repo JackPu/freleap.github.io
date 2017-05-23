@@ -1,0 +1,141 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: transparent
+}
+
+body {
+  font-family: 'Helvetica Neue', '\5FAE\8F6F\96C5\9ED1', '\9ED1\4F53', sans-serif;
+  letter-spacing: .01rem;
+  font-size: 15px;
+  line-height: 1.75em;
+  color: #3A4145;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+}
+img{
+  max-width: 100%;
+}
+h1 {
+  padding-top: 140px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+h2{
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+p{
+  padding-bottom: 40px;
+}
+.main {
+  max-width: 720px;
+  margin: 40px auto;
+  text-align: center;
+}
+.tips{
+  color: #999;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.post {
+  margin: 10px;
+  font-size: 18px;
+  color: #666;
+}
+
+.title {
+  line-height: 30px;
+}
+
+.image-bg {
+  background: #e1e1e1;
+}
+
+.blur-font{
+  line-height: 2.2;
+  letter-spacing: .12em;
+  -webkit-transform-origin: left top;
+  -ms-transform-origin: left top;
+  transform-origin: left top;
+  -webkit-transform: scale(0.94, 1);
+  -ms-transform: scale(0.94, 1);
+  transform: scale(0.94, 1);
+  text-align: center;
+  font-weight: 500;
+  opacity: 0;
+  -webkit-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  -webkit-transition: .8s ease;
+  transition: .8s ease .15s;
+}
+
+.blur-font.active{
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}
+
+.cover{
+  opacity: 0;
+  transform: translateY(30px);
+  transition:  .8s ease .15s;
+}
+
+.cover.active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.japan-cover{
+  position: relative;
+  width: 720px;
+  height: 400px;
+  background: url(http://img1.vued.vanthink.cn/vueda40446e87dda14d05b93c966fafbd6a5.jpeg) no-repeat;
+  background-size: cover;
+  right: 40%;
+}
+.japan-contents{
+  position: relative;
+  padding-top: 60px;
+}
+.japan-contents h3,
+.japan-contents h4,
+.japan-contents p{
+  position: absolute;
+  left: 40%;
+  background: #fff;
+  text-align: left;
+}
+.japan-contents h3{
+  top: 70px;
+  padding: 10px 30px;
+}
+.japan-contents h4{
+  top: 160px;
+  padding: 10px 20px;
+}
+.japan-contents p{
+  top:240px;
+  padding: 10px;
+}
+
+.anim-contents h3 span.timeout1{
+  transition-delay: .35s;
+}
+.anim-contents h3 span.timeout2{
+  transition-delay: .65s;
+}
+
