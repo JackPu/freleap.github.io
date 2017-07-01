@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>实现类似Pinterest 的图片预加载功能</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+<style type="text/css">
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+    -webkit-font-feature-settings: 'kern' 1;
+    -moz-font-feature-settings: 'kern' 1;
+    -o-font-feature-settings: 'kern' 1;
+    
+  }
+  h1{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .main{
+    width: 720px;
+    margin: 80px auto;
+    text-align: center;
+    
+  }
+  .item {
+    float:left;
+    width:300px;
+    margin:20px;
+  }
+
+  img {
+     max-width:100%;
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <h1>Use Cavnas to Rotate Image</h1>
+  <div class="main row">
+    <p>
+      <button class="js-plus">+ 90</button>
+      <button class="js-decrease">- 90</button>
+    </p>
+    <div class="container">
+      <div class="item">
+        <h2>Source</h2>
+        <img src="./zxc.jpeg" />
+      </div>
+      <div class="item">
+        <h2>Target</h2>
+    <img  class="js-target" src="./zxc.jpeg" />
+      </div>
+    </div>
+
+
+    
+    
+  </div>
+  
+<script src="./index.js"></script>
+</body>
+
+</html>

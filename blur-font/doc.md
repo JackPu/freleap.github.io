@@ -101,7 +101,7 @@ $('#fullpage').fullpage({
 如果我们要想实现一个字一个字依次出现的效果也很简单，比如我们可以修改模糊动效的延迟时间:
 
 ``` css
-.timeout1{
+.timeout1{ 
   transition-delay: .35s;
 }
 .timeout2{
@@ -120,7 +120,7 @@ $('#fullpage').fullpage({
 
 <img width="240" src="http://img1.vued.vanthink.cn/vued901d6ba738df3fc87d048966e1eefd8d.gif" />
 
-查看 [Demo]()
+查看 [Demo](http://events.jackpu.com/blur-font/)
 
 
 
