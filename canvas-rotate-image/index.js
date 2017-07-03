@@ -65,41 +65,39 @@ var canvasHelper = {
   },
   rotate: function rotate(src, degrees, callback) {
     var _this = this;
-
     this._loadImage(src, function (image) {
       var w = image.naturalWidth;
       var h = image.naturalHeight;
       var canvasWidth = Math.max(w, h);
-      var cvs = _this._getCanvas(w, h);
+      var cvs = _this._getCanvas(canvasWidth, canvasWidth);
       var ctx = cvs.getContext('2d');
       ctx.save();
-      // ctx.translate(canvasWidth / 2, canvasWidth / 2);
+      ctx.translate(canvasWidth / 2, canvasWidth / 2);
       ctx.rotate(degrees * (Math.PI / 180));
       var x = 0;
-      degrees %= 360;
+      var y = 0;
+      degrees = degrees % 360;
       if (degrees === 0) {
         return callback(src, w, h);
       }
-      var y = 0;
-      if (degrees % 180 !== 0) {
-
-        if (degrees === -90 || degrees === 270) {
-          x = -h;
-        } else {
-          y = -w;
-        }
-        var c = w;
+      if ((degrees % 180) !== 0) {
+        const c = w;
         w = h;
         h = c;
+        if (degrees === -90 || degrees === 270) {
+          x = -w + canvasWidth/2;
+        } else {
+          y = -h + canvasWidth/2;
+        }
       } else {
-        x = -w;
-        y = -h;
+        x = -h + canvasWidth/2;
+        y = -w + canvasWidth/2;
       }
-      console.log(x, ' ', y);
+      
       ctx.drawImage(image, x, y);
       ctx.restore();
-      var mimeType = _this._getImageType(image.src);
-      var data = cvs.toDataURL(mimeType, 1);
+      const mimeType = _this._getImageType(image.src);
+      const data = cvs.toDataURL(mimeType, 1);
       callback(data, w, h);
       cvs = null;
       ctx = null;
@@ -122,18 +120,31 @@ var canvasHelper = {
     return canvas;
   }
 };
+var index = 1;
+var src = './zxc.jpeg';
+function renderImage() {
+    var targetImage = document.querySelector('.js-target');
+    var sourceImage = document.querySelector('img');
+    var arr = ['./zxc.jpeg', './valicon.jpg', './rocket.jpg'];
+    src = arr[index++ % 3];
+    targetImage.src = src;
+    sourceImage.src = src;
+}
 
 document.addEventListener('readystatechange', function() {
   var state = document.readyState;
   if (state === 'complete') {
     var plusBtn = document.querySelector('.js-plus');
-    var src = './zxc.jpeg';
-    plusBtn.addEventListener('click', () => {
-      canvasHelper.rotate(src, 90, (data, w, h) => {
-            var targetImage = document.querySelector('.js-target');
-            targetImage.src = data;
-
-          });
+    $('.btn').on('click', function(e) {
+      var degree = 1 * e.target.dataset['degree'];
+      canvasHelper.rotate(src, degree, function(data, w, h) {
+        var targetImage = document.querySelector('.js-target');
+        targetImage.src = data;
+      });
+      
+    });
+    $('.js-change-image').on('click', function() {
+      renderImage();
     })
   }
 })
