@@ -71,33 +71,33 @@ var canvasHelper = {
       var canvasWidth = Math.max(w, h);
       var cvs = _this._getCanvas(canvasWidth, canvasWidth);
       var ctx = cvs.getContext('2d');
-      ctx.save();
       ctx.translate(canvasWidth / 2, canvasWidth / 2);
       ctx.rotate(degrees * (Math.PI / 180));
-      var x = 0;
-      var y = 0;
+      var x = -canvasWidth / 2;
+      var y = -canvasWidth / 2;
+      var sx = sy = 0;
       degrees = degrees % 360;
       if (degrees === 0) {
         return callback(src, w, h);
       }
+      var sx = 0;
+      var sy = 0;
       if ((degrees % 180) !== 0) {
+        if (degrees === -90 || degrees === 270) {
+          x = -w + canvasWidth / 2;
+        }
         const c = w;
         w = h;
         h = c;
-        if (degrees === -90 || degrees === 270) {
-          x = -w + canvasWidth/2;
-        } else {
-          y = -h + canvasWidth/2;
-        }
       } else {
-        x = -h + canvasWidth/2;
-        y = -w + canvasWidth/2;
+        x = canvasWidth/2 - w; 
       }
-      
       ctx.drawImage(image, x, y);
-      ctx.restore();
-      const mimeType = _this._getImageType(image.src);
-      const data = cvs.toDataURL(mimeType, 1);
+      var cvs2 = _this._getCanvas(w, h);
+      var ctx2 = cvs2.getContext('2d');
+      ctx2.drawImage(cvs, 0, 0, w, h, 0, 0, w, h);
+      var mimeType = _this._getImageType(image.src);
+      var data = cvs2.toDataURL(mimeType, 1);
       callback(data, w, h);
       cvs = null;
       ctx = null;
