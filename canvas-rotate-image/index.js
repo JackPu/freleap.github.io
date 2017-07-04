@@ -75,7 +75,6 @@ var canvasHelper = {
       ctx.rotate(degrees * (Math.PI / 180));
       var x = -canvasWidth / 2;
       var y = -canvasWidth / 2;
-      var sx = sy = 0;
       degrees = degrees % 360;
       if (degrees === 0) {
         return callback(src, w, h);
@@ -85,19 +84,22 @@ var canvasHelper = {
       if ((degrees % 180) !== 0) {
         if (degrees === -90 || degrees === 270) {
           x = -w + canvasWidth / 2;
+        } else {
+          y = canvasWidth/2 - h;
         }
         const c = w;
         w = h;
         h = c;
       } else {
-        x = canvasWidth/2 - w; 
+        x = canvasWidth/2 - w;
+        y = canvasWidth/2 - h;
       }
       ctx.drawImage(image, x, y);
       var cvs2 = _this._getCanvas(w, h);
       var ctx2 = cvs2.getContext('2d');
       ctx2.drawImage(cvs, 0, 0, w, h, 0, 0, w, h);
       var mimeType = _this._getImageType(image.src);
-      var data = cvs2.toDataURL(mimeType, 1);
+      var data = cvs.toDataURL(mimeType, 1);
       callback(data, w, h);
       cvs = null;
       ctx = null;
