@@ -99,7 +99,7 @@ var canvasHelper = {
       var ctx2 = cvs2.getContext('2d');
       ctx2.drawImage(cvs, 0, 0, w, h, 0, 0, w, h);
       var mimeType = _this._getImageType(image.src);
-      var data = cvs.toDataURL(mimeType, 1);
+      var data = cvs2.toDataURL(mimeType, 1);
       callback(data, w, h);
       cvs = null;
       ctx = null;
