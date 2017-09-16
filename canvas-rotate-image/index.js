@@ -101,8 +101,6 @@ var canvasHelper = {
       var mimeType = _this._getImageType(image.src);
       var data = cvs2.toDataURL(mimeType, 1);
       callback(data, w, h);
-      cvs = null;
-      ctx = null;
     });
   },
   _loadImage: function _loadImage(data, callback) {
