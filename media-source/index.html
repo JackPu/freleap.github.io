@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>Media Source Extensions</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link hreff="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+      body{
+          font-size: 63.5%;
+      }
+      .bannar{
+        height: 42rem;
+        background: #f9f5d9 url(http://img1.vued.vanthink.cn/vued5fb50f97ab5e7ff284a01d197f5b2f20.jpeg) no-repeat center bottom;
+        background-size: cover;
+      }
+      .doc{
+        max-width: 720px;
+        margin: 2rem auto;
+        padding: 1rem 2rem;
+      }
+      h1{
+          padding: 30px 20px;
+          margin-top: -160px;
+          background-color: #fff;
+          font-size: 3.6rem;
+      }
+      video{
+          background-color: #000;
+      }
+      h5{
+          padding: 1rem 2rem;
+          background-color: #fff;
+      }
+      @media all and (max-width:720px) {
+          .doc{
+              padding: 5px;
+          }
+      }
+      table{
+          font-size: 1.4rem;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="bannar"></div>
+    <div class="doc">
+        <h1>Media Source Extensions</h1>
+        <h5>Build streams for playback</h5>
+        <h3 class="text-center"></h3>
+        <video  class="js-player" controls width="100%" height="480px"></video>
+    </div>
+
+
+<script>
+var video = document.querySelector('video');
+var sourceBuffer;
+if (window.MediaSource) {
+  var mediaSource = new MediaSource();
+  video.src = URL.createObjectURL(mediaSource);
+  mediaSource.addEventListener('sourceopen', sourceOpen);
+} else {
+  console.log("The Media Source Extensions API is not supported.")
+}
+
+function sourceOpen(e) {
+  URL.revokeObjectURL(video.src);
+  // var mime = 'video/mp4; codecs="avc1.42c015, mp4a.40.5"';
+  var mime = 'video/mp4; codecs="avc1.42c01e"';
+  var mediaSource = e.target;
+  sourceBuffer = mediaSource.addSourceBuffer(mime);
+  var videoUrl = 'tqg3s7fr13nux_u8.mp4';
+  fetch(videoUrl, {
+     // headers: { range: 'bytes=0-5671398' }
+  })
+  .then(function(response) {
+    return response.arrayBuffer();
+  })
+  .then(function(arrayBuffer) {
+
+    // vidElement.play();
+    sourceBuffer.addEventListener('updateend', updateEnd);
+    sourceBuffer.appendBuffer(arrayBuffer);
+
+  });
+}
+function updateEnd() {
+   // Video is now ready to play!
+   if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
+    mediaSource.endOfStream();
+  }
+  return;
+   var bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
+   console.log(bufferedSeconds + ' seconds of video are ready to play!');
+
+   // Fetch the next segment of video when user starts playing the video.
+   video.addEventListener('playing', fetchNextSegment, { once: true });
+ }
+
+ function fetchNextSegment() {
+  fetch('file.webm', { headers: { range: 'bytes=567140-1196488' } })
+  .then(response => response.arrayBuffer())
+  .then(data => {
+    const sourceBuffer = mediaSource.sourceBuffers[0];
+    sourceBuffer.appendBuffer(data);
+  });
+}
+</script>
+</body>
+
+</html>
