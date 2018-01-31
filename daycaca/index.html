@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Daycaca-A pure JavaScript library to handle image via canvas</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection" />
+  <link rel="icon" type="image/png" href="./images/daycaca.logo.png" />
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Monoton" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="doc">
+    <nav class="navbar navbar-default navbar-fixed-top js-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="vanspeak" width="26" src="http://img1.vued.vanthink.cn/vued9afaf2a39895dc519032c75c0cb89a98.png">
+          </a>
+
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#document">Docs<span class="sr-only">(current)</span></a>
+          </li>
+          <li><a href="#examples">Examples</a>
+          </li>
+          <li><a href="https://github.com/Vanthink-UED/vanspeak">Github</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="doc-hd">
+      <h1>Daycaca</h1>
+      <p>A pure JavaScript library to handle image via canvas</p>
+      <p>
+        <a href="https://github.com/JackPu/daycaca" class="btn btn-install">Install Now </a>
+      </p>
+    </div>
+    <h2 id="document">How To Use It?</h2>
+    <div class="doc-main contents">
+      <p>Browsers</p>
+      <pre><code>&lt;script src="./dist/daycaca.min.js"&gt;&lt;/script&gt;</code></pre>
+      <p>Npm</p>
+      <pre><code>$ npm install daycaca --save</code></pre>
+      <p>In your JS File</p>
+      <pre><code>vanspeak.say('Hello wolrd');</code></pre>
+      <p><a href="https://github.com/Vanthink-UED/vanspeak">查看更多配置</a> , 如果您有兴趣，可以点击<a href="https://github.com/JackPu/text-to-speech">这里</a>了解更多</p>
+      <br/>
+
+    </div>
+    <h2>Examples</h2>
+    <div class="doc-main contents">
+      <h3 id="examples">base64</h3>
+      <pre><code>daycaca.base64('./images/test-base64.png', () => {
+  //...
+});</code></pre>
+      <p class="form-group">
+        <button class="btn btn-primary js-base64" data-word="hello">base64</button>
+      </p>
+      <p><code id="base64-code"></code></p>
+      <h3>拼读一个句子</h3>
+      <pre><code>vanspeak.say('Visit BBC News for up-to-the-minute news');</code></pre>
+      <p class="form-group">
+        <button class="btn btn-primary js-speak" data-word="Visit BBC News for up-to-the-minute news">Speak Now</button>
+      </p>
+      <h3>停止当前阅读</h3>
+      <pre><code>vanspeak.cancel();</code></pre>
+      <p class="form-group">
+        <button class="btn btn-primary js-speak" data-word="The Category 4 hurricane touched down on Haiti's southern shore on Tuesday, leaving hundreds dead in its wake and decimating the country's already fragile communications infrastructure. The damage to Haiti's southern peninsula is the latest setback in a series of environmental disasters that have gripped the country recently">Start</button>
+        <button class="btn btn-primary js-stop-speak">Stop</button>
+      </p>
+
+      <br/>
+
+
+      <br/>
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <div class="addthis_sharing_toolbox"></div>
+
+
+
+    </div>
+    <div class="doc-ft">
+      The Project Made ❤️ by <a href="http://me.jackpu.com/">Jack Pu</a>
+    </div>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+
+  </div>
+
+  <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+  <script src='./daycaca.min.js'></script>
+  <script type="text/javascript">
+    var H = $('.doc-hd').height();
+    $(function () {
+
+      $('.js-base64').on('click', function () {
+        daycaca.base64('./images/test-base64.png', function(data) {
+          $('#base64-code').text(data);
+        })
+      });
+      $('.js-stop-speak').on('click', function () {
+        vanspeak.cancel();
+      });
+
+      // scroll
+      $(window).on('scroll', function () {
+        var ch = $(this).scrollTop();
+        if (ch >= H && !$('.js-navbar').hasClass('active')) {
+          $('.js-navbar').addClass('active');
+        }
+        if (ch < H) {
+          $('.js-navbar').removeClass('active');
+        }
+
+      })
+    })
+  </script>
+
+</body>
+
+</html>
