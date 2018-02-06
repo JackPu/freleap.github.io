@@ -1,0 +1,122 @@
+
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<title>SVG元素[marker]</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<style type="text/css">
+    *{margin:0; padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;}
+    #svg-bg-img{
+		width:100px;
+		height:100px;
+		background-image:url('./res/demo.svg');
+		background-size:100px 100px;
+
+	}
+</style>
+<script src="http://s0.qhimg.com/lib/jquery/1102.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container span8">
+
+        <h4>使用<strong>marker</strong>元素</h4>
+        <p>marker元素在SVG中经常被用来被标记线段的开始，中间和结束。你可以将一个方块或者圆放在路径的开始和=，然后将箭头放在路径的末尾</p>
+        <p>同polyline一样，它是由定义在points中的点的组合共同形成，同理x,y坐标由“,”分开，点与点之间用空格分开</p>
+         <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;defs>
+        &lt;marker id="markerCircle" markerWidth="8" markerHeight="8" refx="5" refy="5"&gt;
+            &lt;circle cx="5" cy="5" r="3" style="stroke: none; fill:#3498db;"/&gt;
+        &lt;/marker&gt;
+        &lt;marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6"
+               orient="auto"&gt;
+            &lt;path d="M2,2 L2,11 L10,6 L2,2" style="fill: #3498db;" /&gt;
+        &lt;/marker>
+    &lt;/defs>
+    &lt;path d="M50,10 L150,10 L150,100" style="stroke: #3498db; stroke-width: 1px; fill: none; 
+    marker-start: url(#markerCircle); marker-end:#markerArrow);" /&gt;         
+&lt;/svg&gt;</pre>
+         <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <marker id="markerCircle" markerWidth="8" markerHeight="8" refx="5" refy="5">
+                    <circle cx="5" cy="5" r="3" style="stroke: none; fill:#3498db;"/>
+                </marker>
+                <marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6"
+                       orient="auto">
+                    <path d="M2,2 L2,11 L10,6 L2,2" style="fill: #3498db;" />
+                </marker>
+            </defs>
+            <path d="M50,10 L150,10 L150,100" style="stroke: #3498db; stroke-width: 1px; fill: none; 
+            marker-start: url(#markerCircle); marker-end:#markerArrow);" />
+        </svg>
+
+        <p>首先我们需要注意的是在&lt;defs&gt;标签里放置着两个&lt;marker&gt;标签。这两个标签定义了开始于结束的标记点的样式。</p>
+        <p>第二，需要注意的是通过使用css属性marker0start和marker-end将marker标签的东西展现在path元素中.这个就是你怎样将标记点展现在path元素上，</p>
+
+        <h4>定义一个标记点</h4>
+        <pre>&lt;marker id="markerCircle" markerWidth="8" markerHeight="8" refx="5" refy="5"&gt;
+        &lt;circle cx="5" cy="5" r="3" style="stroke: none; fill:#3498db;"/&gt;
+ &lt;/marker&gt;</pre>  
+        <p>我们使用&lt;marker&gt;定义一个标记点。在上面的例子中我们定义了一个标记点的宽度(markerWidth='8')和高度(markerHeight='8')，并且高度和宽度都是必须定义的，因为标记点相当于一个分离图形的元素。</p>    
+        <p>id属性是我们在path元素中使用时用来引入的一个标识。</p>
+        <p>refx和refy坐标是用来设置在marker元素内的哪个点被用作参考点。而参考点是在path开始时使用marker应该被放置在哪里。在示例中refx和refy是被放置在圆的中心，意味着圆心即是path标签的开始位置。如果你不设置refx和refy,则默认为0，级=即路径的左上角会被认为是路径的开始。</p>
+        <p>在&lt;marker&gt;标签中使用了一个&lt;circle&gt;circle元素定义了圆心(cx和cy),而圆心的位置i则是参照于marker这样一个虚拟的盒子，而不是实际画布的坐标。</p>
+
+        <h4>Auto Orientation</h4>
+        <p>除了使用上面的方式，还可以通过直接在marker标签中加入path元素。</p>
+        <pre>&lt;marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6"
+       orient="auto"&gt;
+    &lt;path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" /&gt;
+&lt;/marker&gt;</pre>  
+        <p>把&lt;path&gt;放在marker元素里面会绘制一个三角</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+        
+
+       
+
+       
+
+
+    </div> 
+
+
+
+
+
+<script type="text/javascript">
+    
+
+</script>
+
+</body>
+</html>

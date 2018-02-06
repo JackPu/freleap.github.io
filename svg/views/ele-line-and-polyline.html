@@ -1,0 +1,82 @@
+
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<title>SVG元素[line][polyline]</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<style type="text/css">
+    *{margin:0; padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;}
+    #svg-bg-img{
+		width:100px;
+		height:100px;
+		background-image:url('./res/demo.svg');
+		background-size:100px 100px;
+
+	}
+</style>
+<script src="http://s0.qhimg.com/lib/jquery/1102.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container span8">
+
+        <h4>使用<strong>line</strong>元素</h4>
+        <p>line元素在SVG中意味着画一条线</p>
+        <p>线的起点由x1,y1决定</p>
+        <p>线的终点由x2,y2决定</p>
+         <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;line x1="10" y1="10" x2="120" y2="10" style="stroke:#333" /&gt;            
+&lt;/svg&gt;</pre>
+         <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <line x1="10" y1="10" x2="120" y2="10" style="stroke:#333" /> 
+        </svg>
+        <h4>使用[polyline]元素进行折线绘制</h4>
+        <p>polyline元素可以在SVG实现折线的绘制</p>
+        <p>他是由定义在points的各个点来完成绘制的,点的x,y坐标之间用<strong>,</strong>隔开, 点与点之间用空格分开</p>
+        <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;line x1="10" y1="10" x2="120" y2="10" style="stroke:#333" /&gt;            
+&lt;/svg&gt;</pre>
+         <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+          <polyline points="0,0 100,0 100,100" style="fill:#ea6153"/>
+        </svg>
+
+        <p>默认填充的颜色为黑色，当然你可以用fill更换成你想要的颜色，使用stroke需要注意<strong>在点的集合中加入原点，才能完成所有边的描边</strong></p>
+        <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;line x1="10" y1="10" x2="120" y2="10" style="stroke:#333" /&gt;            
+&lt;/svg&gt;</pre>
+         <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+          <polyline points="0,10 100,10 100,110" style="fill:#ea6153; stroke:#000; stroke-width:2;"/>
+          <text x="10" y="140">没有在最后加入原点</text>
+          <polyline points="150,10 250,10 250,110 150,10" style="fill:#ea6153; stroke:#000; stroke-width:2;"/>
+           <text x="160" y="140">在最后加入原点</text>
+           <polyline points="300,10 400,10 400,110 300,10" style="fill:none; stroke:#ea6153; stroke-width:2;"/>
+           <text x="310" y="140">在最后加入原点</text>
+        </svg>
+        
+
+       
+
+       
+
+
+    </div> 
+
+
+
+
+
+<script type="text/javascript">
+    
+
+</script>
+
+</body>
+</html>

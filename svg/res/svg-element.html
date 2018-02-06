@@ -1,0 +1,89 @@
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<title>SVG元素</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<style type="text/css">
+    *{margin:0; padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;}
+    #svg-bg-img{
+		width:100px;
+		height:100px;
+		background-image:url('./res/demo.svg');
+		background-size:100px 100px;
+
+	}
+</style>
+<script src="http://s0.qhimg.com/lib/jquery/1102.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container span8">
+        <h4>直接使用SVG元素</h4>
+        <pre>&lt;svg xmlns="http://www.w3.org/200/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+     &lt;rect x="10" x="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/&gt;
+
+     &lt;rect x="120" y="120" width="50" height="50" style="fill:#1ba1e2;"/&gt;
+    
+&lt;/svg&gt;</pre>
+         <svg xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+             <rect x="10" x="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/>
+
+             <rect x="120" y="120" width="50" height="50" style="fill:#1ba1e2;"/>
+            
+        </svg>
+        <p>
+        	<iframe src="./res/demo.svg" width="150" height="150"></iframe>
+        </p>
+
+        <h4>img</h4>
+        <p>直接在img中嵌入地址</p>
+        <pre>&lt;img src="./res/demo.svg" alt="svg"&gt;</pre>
+        <p><img  width="100" src="./res/demo.svg" alt=""/></p>
+
+        <h4>svg用作background-image</h4>
+
+        <pre>
+#svg-bg-img{
+	width:100px;
+	height:100px;
+	background-image;url('./res/demo.svg');
+	background-size:100px 100px;
+
+}</pre>
+
+        <p><div id="svg-bg-img"></div></p>
+
+        <h4>直接使用SVG元素</h4>
+        <pre>&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+     &lt;rect x="10" y="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/&gt;
+&lt;/svg&gt;</pre>
+        <div>
+           <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <rect x="10" y="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/>
+            </svg> 
+        </div>
+
+        
+
+
+
+
+    </div> 
+
+
+
+
+
+<script type="text/javascript">
+    
+
+</script>
+
+</body>
+</html>

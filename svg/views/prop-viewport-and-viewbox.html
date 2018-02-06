@@ -1,0 +1,115 @@
+
+<body>
+    <div class="container span8" style="padding-bottom:400px;">
+        <h3>SVG viewport</h3>
+        <p>viewport是SVG中的中定义可视区域的属性。从某种程度上，svg依旧可以被视为具有具体某种宽高的图片，而其中我们可以让某一部分是可见的,而这一部分便是<strong>viewport</strong></p>
+        <p>你可以定义使用 width 和 height 定义 viewport 的大小</p>
+        <pre>&lt;svg width="200" height="200"&gt;&lt;/svg&gt;</pre>
+        <p>上面例子中便定义了一个宽高同为200的 viewport</p>
+        <h4>坐标单位</h4>
+        <p>如果你没有特殊定义 width 和 height的单位，默认是px，上面也就是宽高同为200px的图形</p>
+        <p>如果你偏向使用其他单位，下面的列表里描述了可以再SVG中使用的单位</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="80">单位</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>em</td>
+                    <td>相对默认字体的高度</td>
+                </tr>
+                <tr>
+                    <td>ex</td>
+                    <td>相对字母x的高度</td>
+                </tr>
+                <tr>
+                    <td>px</td>
+                    <td>像素单位</td>
+                </tr>
+                <tr>
+                    <td>pt</td>
+                    <td>点(1/72 英寸)</td>
+                </tr>
+                <tr>
+                    <td>pc</td>
+                    <td>picas(1/6 inch)</td>
+                </tr>
+                <tr>
+                    <td>cm</td>
+                    <td>厘米</td>
+                </tr>
+                <tr>
+                    <td>mm</td>
+                    <td>毫米</td>
+                </tr>
+            </tbody>
+        </table>
+        <blockquote>
+            <p>如果你设置单位在svg元素上，这只会影响该SVG元素的viewport，而svg标签内的各种醒转依旧取决于自己定义的单位，如果没有定义，则依旧是px。</p>
+         </blockquote>
+            <pre><code class="lang-html">&lt;svg width="10cm" height="10cm"&gt;
+
+    &lt;rect x="50" y="100" width="50" height="50"
+          style="stroke: #000000; fill: none;"/&gt;
+
+    &lt;rect x="100" y="100" width="50mm" height="50mm"
+          style="stroke: #000000; fill: none;" /&gt;
+
+&lt;/svg&gt;</code></pre>
+        
+       <p>上面例子svg标签定义的单位是 cm ，而 &lt;rect&gt;设置了不同的单位，其中一个是px,另外一个则使用的mm</p>
+        <svg width="10cm" height="10cm">
+
+            <rect x="50" y="100" width="50" height="50"
+                  style="stroke: #000000; fill: none;"/>
+
+            <rect x="100" y="100" width="50mm" height="50mm"
+                  style="stroke: #000000; fill: none;" />
+
+        </svg>
+        
+        <h3>SVG viewbox</h3>
+        <p>使用viewbox可以定义画布坐标，而无需考虑单位的影响.</p>
+        <pre>&lt;svg width="500" height="200" viewBox="0 0 50 20" &gt;
+
+    &lt;rect x="20" y="10" width="10" height="5"
+          style="stroke: #000000; fill:none;"/&gt;
+
+&lt;/svg&gt;</pre>
+        <p>例子中创建了一个宽高为500px长和200px高的图形。 viewbox 属性包含四个坐标，而这四个坐标定义了svg的“可视盒子”，分别代表着盒子的x y width height</p>
+        <p>上面的例子中 可视的盒子开始于 0,0 宽高为 50 和 20。换句话说原本500px/200px宽高的svg图形转换为为50 20的坐标系中。这也就意味着在宽度上每个 1 单位实际则为500/50=10px，而高度上则为每个1单位实际代表200/20=10px。这也就是为什么矩形的x坐标为20，y的坐标为10，而实际位于200px,100px的位置，而其实际宽度也为100px和50px</p>
+        <p>换个角度解释的话就是，viwebox属性的值得前两个值分别定义了用户坐标的左上角，而后面两个值则定义了用户右下角</p>
+        <p>上面代码的实际效果如下：</p>
+        <svg width="500" height="200" viewBox="0 0 50 20" >
+
+            <rect x="20" y="10" width="10" height="5"
+                  style="stroke: #000000; fill:none;"/>
+
+        </svg>
+        <blockquote>
+            <p>需要注意的是所有在svg元素中的形状每个1单位都默认为转换成10px，如同上面的描边</p>
+        </blockquote>
+        
+        <h4>长宽高比(Preserving Aspect Ratio)</h4>
+        <p>如果 viewport 和 viewbox 并没有一致长宽高比，你就必须去定义怎样去显示SVG图片。那么preservingAspectRatio属性或许会帮到你。</p>
+        <p> preservingAspectRatio 需要两个空格分开的值，第一个参数主要是讲这个可视的盒子在viewport怎样对齐，这个值由两部分组成。而第二个值则是怎样保持长宽比</p>
+        <p> preservingAspectRatio 需要两个空格分开的值，第一个参数主要是讲这个可视的盒子在viewport怎样对齐，这个值由两部分组成。而第二个值则是怎样保持长宽比</p>
+        
+        
+        
+        
+        
+       
+
+
+    </div> 
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+
+
+
+    <div class="container span8">
+        <h3>SVG icon 动画</h3>
+        <h4>改变SVG形状</h4>
+        <svg width="300" height="300" xmlns="http://www.w3.org/200/svg"
+        	 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+        	 <path d="M10,10 L80,10 L80,80 L10,80 Z" style="fill:#2ecc71">
+            <animate attributeName="d" attributeType="XML"
+                         from="M10,10 L80,10 L80,80 L10,80 Z"  to="M10,10 L70,50 L70,50 L10,80 Z"
+                         begin="0s" dur="2s" 
+                         fill="freeze" repeatCount="indefinate"/>
+                 </path>
+        	<desc>d="M10,10 L80,50 L10,80 Z"</desc>
+        </svg>
+        <pre><code class="lang-html">&lt;svg width="300" height="300" xmlns="http://www.w3.org/200/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"&gt;
+         &lt;path d="M10,10 L80,10 L80,80 L10,80 Z" style="fill:#2ecc71"&gt;
+        &lt;animate attributeName="d" attributeType="XML"
+                     from="M10,10 L80,10 L80,80 L10,80 Z"  to="M30,30 L70,30 L70,70 L30,70 Z"
+                     begin="0s" dur="5s"
+                     fill="remove" repeatCount="indefinate"/&gt;
+             &lt;/path&t;
+        &lt;desc>d="M10,10 L80,10 L80,80 L10,80 Z"&lt;/desc&gt;
+   &lt;/svg&gt;</code></pre>
+        <h4>实现事件绑定</h4>
+        
+        <svg width="300" height="300" xmlns="http://www.w3.org/200/svg"
+        	 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
+        	 <path d="M10,10 L80,10 L80,80 L10,80 Z" style="fill:#2ecc71">
+                  <animate id="animation-to-check" attributeName="d" attributeType="XML"  to="M10,10 L70,50 L70,50 L10,80 Z"
+                         begin="indefinite" dur="1s" 
+                         fill="freeze"/>
+                <animate id="animation-to-reset" attributeName="d" attributeType="XML"  to="M10,10 L80,10 L80,80 L10,80 Z"
+                         begin="indefinite" dur="400ms" 
+                         fill="freeze"/>
+                 </path>
+        	<desc>d="M10,10 L80,50 L10,80 Z"</desc>
+        </svg>
+        
+        
+        <p>
+            <button type="button" class="btn btn-primary btn-start">执行动画</button>
+            <button type="button" class="btn btn-default btn-reset">还原动画</button>
+        </p>
+        
+        <pre><code class="lang-html">&lt;svg width="300" height="300" xmlns="http://www.w3.org/200/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100"&gt;
+     &lt;path d="M10,10 L80,10 L80,80 L10,80 Z" style="fill:#2ecc71"&gt;
+          &lt;animate id="animation-to-check" attributeName="d" attributeType="XML"  to="M10,10 L70,50 L70,50 L10,80 Z"
+                 begin="indefinite" dur="1s" 
+                 fill="freeze"/&gt;
+        &lt;animate id="animation-to-reset" attributeName="d" attributeType="XML"  to="M10,10 L80,10 L80,80 L10,80 Z"
+                 begin="indefinite" dur="400ms" 
+                 fill="freeze"/&gt;
+         &lt;/path&gt;
+    &lt;desc>d="M10,10 L80,50 L10,80 Z"&lt;/desc&gt;
+&lt;/svg></code></pre>
+        
+        
+        <pre><code class="lang-html">animationToCheck = document.getElementById("animation-to-check");
+// 事件绑定
+animationToCheck.beginElement(); 
+// end ....   </code></pre>
+        <svg height="64" class="icon-arr-right right" version="1.1" width="64" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><desc>Created with Snap</desc><defs></defs><g>
+		<path fill="none" stroke="#333" stroke-width="5" d="M34.419061,13.24425C34.419061,13.24425,57.580939,32.017897,57.580939,32.017897C57.580939,32.017897,34.419061,50.75575,34.419061,50.75575">
+        M31.580939,13.24425C31.580939,13.24425,8.419061,32.017897,8.419061,32.017897C8.419061,32.017897,31.580939,50.75575,31.580939,50.75575
+            <animate id="arrow-right" attributeName="d" attributeType="XML"  to="M31.580939,13.24425C31.580939,13.24425,8.419061,32.017897,8.419061,32.017897C8.419061,32.017897,31.580939,50.75575,31.580939,50.75575"
+                         begin="indefinite" dur="400ms" 
+                         fill="freeze"/>
+            <animate id="arrow-left" attributeName="d" attributeType="XML"  to="M34.419061,13.24425C34.419061,13.24425,57.580939,32.017897,57.580939,32.017897C57.580939,32.017897,34.419061,50.75575,34.419061,50.75575"
+                         begin="indefinite" dur="400ms" 
+                         fill="freeze"/>
+            </path>
+	    <path fill="none" stroke="#333" stroke-width="5" stroke-linejoin="bevel" d="m 7.9382,32 49.803026,0"></path>
+	</g></svg>
+    <p><button type="button" data-animated="1" class="btn btn-primary btn-toggle">执行动画</button></p>
+        
+    </div>

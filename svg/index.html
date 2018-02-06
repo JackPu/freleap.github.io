@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>Svg新手学习笔记-Jack Pu Events</title>
+<meta http-equiv="expires" content="Fri, 18 Jul 2017 1:00:00 GMT" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="./css/vtui.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+<script src="http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js"></script>
+<script data-main="./js/main.js?v=2.0" src="http://s1.vued.vanthink.cn/require.min.js"></script>
+</head>
+
+<body class="loading">
+<div class="nav">
+    <div class="container">
+        <div class="nav-logo"></div> 
+        <div class="nav-list">
+            <a href="index.html"class="active">文档</a>
+            <a href="demo.html">更多阅读</a>
+            <a href="https://github.com/JackPu/svg-fonts">Github</a>
+        </div>
+    </div>
+</div>
+
+<cat></cat>    
+<div class="page main " ng-view></div>
+<div class="comment">
+     <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div style="margin-top:10px;" class="addthis_sharing_toolbox"></div>
+    
+    
+    <div id="disqus_thread"></div>
+    
+    
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//jackevents.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</div>    
+<div class="ft">
+    Support By <a href="//me.jackpu.com">Jack Pu</a> 
+</div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+<script id="dsq-count-scr" src="//jackevents.disqus.com/count.js" async></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=55332900" charset="UTF-8" async></script>
+</body>
+</html>

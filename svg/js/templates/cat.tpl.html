@@ -1,0 +1,8 @@
+<aside>
+    <h4> 类目 </h4>
+    <ul>
+        <li ng-repeat="item in list">
+            <a ng-class="{'active':item.active}" href="#{{item.url}}">{{item.name}}</a>
+        </li>
+    </ul>
+</aside>

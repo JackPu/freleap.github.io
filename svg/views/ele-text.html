@@ -1,0 +1,270 @@
+
+    <div class="container span8">
+
+        <h4>使用<strong>text</strong>元素</h4>
+        <p>使用text标签可以再svg图形中绘制文本</p>
+        <p></p>
+         <pre><code class="lang-html">&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+    &lt;text x="20" y="40">Example SVG text 1&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+         <p>上面的例子定义了一段在x=10,y=40位置是哪个的文本。效果如图:</p>
+        
+        <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <text x="20" y="40">我是svg中的文字</text>
+        </svg>
+        <h3>Text的位置</h3>
+        在text元素中可以使用x,y来实现定位，x,y分别是相对于SVG画布坐标和顶部的坐标。需要注意的是，svg text的y坐标，是文字底部距离图形顶部的位置，可以通过下面一个简单的案例来实验。
+        <pre>&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+    &lt;text x="20"  y="40">Example SVG text 1&lt;/text&gt;
+    &lt;line x1="10" y1="40" x2="150" y2="40" style="stroke: #000000"/&gt;
+
+&lt;/svg&gt;</pre>
+        <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <text x="20"  y="50">我在线的上方</text>
+            <line x1="10" y1="50" x2="150" y2="50" style="stroke: #ea6153"/>
+
+        </svg>
+        <h3>文本对齐</h3>
+        <p>文本锚点可以实现文本相对x坐标时所在对齐位置。默认文本是对齐在x坐标的左边的，你可以通过text-anchor csss属性设置文字的位置，start表示默认的左边,middle表示文字居中，end则是文字末尾位于x坐标的位置</p>
+        <pre><code class="lang-html">&lt;svg width="300" heigth="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;text x="120" y="40"
+          style="text-anchor: start"&gt;
+        Start
+    &lt;/text&gt;
+    &lt;text x="120" y="100"
+          style="text-anchor: middle"&gt;
+        Middle
+    &lt;/text&gt;
+    &lt;text x="120" y="160"
+          style="text-anchor: end"&gt;
+        End
+    &lt;/text&gt;  
+    &lt;line x1="120" y1="10" x2="120" y2="180" style="stroke: #ea6153"/&gt;
+
+&lt;/svg&gt;</code></pre>
+        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="120" y="40"
+                  style="text-anchor: start">
+                Start
+            </text>
+            <text x="120" y="100"
+                  style="text-anchor: middle">
+                Middle
+            </text>
+            <text x="120" y="160"
+                  style="text-anchor: end">
+                End
+            </text>  
+            <line x1="120" y1="10" x2="120" y2="180" style="stroke: #ea6153"/>
+        </svg>
+        
+        
+        <h4>描边和填充</h4>
+        <p>和别的svg形状一样，text同样可以使用填充和描边，通过下面几个例子了解具体的效果吧。</p>
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="20" y="40"
+                  style="fill: #000000; stroke: none; font-size: 48px;">
+                Fill only
+            </text>
+            <text x="20" y="100"
+                  style="fill: none; stroke: #000000;  font-size: 48px;">
+                Stroke only
+            </text>
+            <text x="20" y="150"
+                  style="fill: #999999; stroke: #000000;  font-size: 48px;">
+                Fill and stroke
+            </text>  
+        </svg>
+        
+        <pre><code class="lang-html">&lt;text x="20" y="40"
+      style="fill: #000000; stroke: none; font-size: 48px;"&gt;
+    Fill only
+&lt;/text&gt;
+&lt;text x="20" y="100"
+      style="fill: none; stroke: #000000;  font-size: 48px;"&gt;
+    Stroke only
+&lt;/text&gt;
+&lt;text x="20" y="150"
+      style="fill: #999999; stroke: #000000;  font-size: 48px;"&gt;
+    Fill and stroke
+&lt;/text&gt; </code></pre>
+        
+        <p>当然你还可以使用stroke-width来实现描边宽度值的设置</p>
+        <h4>文字的空格和间距</h4>
+        <p>使用letter-space和kerning属性来实现对文字间距的控制.</p>
+        <pre>&lt;svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+    &lt;text x="20"  y="20" >Example SVG text&lt;/text&gt;
+    &lt;text x="20"  y="40" style="kerning:2;">Example SVG text&lt;/text&gt;
+    &lt;text x="20"  y="60" style="letter-spacing:2;">Example SVG text&lt;/text&gt;
+&lt;/svg&gt;</pre>
+        <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="20"  y="20" >Example SVG text</text>
+            <text x="20"  y="40" style="kerning:2;">Example SVG text</text>
+            <text x="20"  y="60" style="letter-spacing:2;">Example SVG text</text>
+        </svg>
+        <p>如果你使用负数的，则字体会变得更加紧密。</p>
+        <h4>单词间距</h4>
+        <p>使用word-spacing css属性实现单词之间的距离控制 </p>
+        <pre><code class="lang-html">&lt;svg width="300" height="260" xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;text x="20" y="60"&gt;
+        Word spacing is normal
+    &lt;/text&gt;
+    &lt;text x="20" y="120"
+          style="word-spacing: 4;"&gt;
+        Word spacing is 4
+    &lt;/text>
+    &lt;text x="20" y="180"
+          style="word-spacing: 8;"&gt;
+        Word spacing is 8
+    &lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+        <svg width="300" height="260" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="20" y="60">
+                Word spacing is normal
+            </text>
+            <text x="20" y="120"
+                  style="word-spacing: 4;">
+                Word spacing is 4
+            </text>
+            <text x="20" y="180"
+                  style="word-spacing: 8;">
+                Word spacing is 8
+            </text>
+        </svg>
+        <h4>旋转文字</h4>
+        <p>text元素可以使用<strong>SVG transformations </strong>像其他形状一样实现旋转，</p>
+        <pre><code class="lang-html">&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+    &lt;text x="20"  y="40"
+          transform="rotate(30 20,40)"
+          style="stroke:none; fill:#000000;"&gt;
+          Rotated SVG text&lt;/text&gt;
+&lt;/svg&gt;</code></pre>
+        <svg  width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <text x="20"  y="40"
+                  transform="rotate(30 20,40)"
+                  style="stroke:none; fill:#000000;"
+                  >旋转的文字</text>
+        </svg>   
+        
+        <h4>垂直的文字</h4>
+        <p>实现垂直的文字，SVG中设置writing-mode：tb(top to bottom),但是火狐浏览器支持不是太好。当然使用上述的 transform 不失为另外一种好的解决方法</p>
+        <pre><code class="lang-html">&lt;svg width="300" height="300" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+
+    &lt;text x="10" y="20" style="writing-mode: tb;"&gt; 垂直的文字 &lt;/text&gt;
+&lt;/svg&gt;</code></pre> 
+        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <text x="10" y="20" style="writing-mode: tb;"> 垂直的文字 </text>
+        </svg>   
+        <p>如果需要实现文字保持水平的垂直排版，可以设置glyph-orientation-vertical：0.默认值为90.</p>
+        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="10" y="10" style="writing-mode: tb; glyph-orientation-vertical: 0;">
+                垂直的文字
+            </text>
+            <text x="110" y="10" style="writing-mode: tb; glyph-orientation-vertical: 90;">
+                 垂直的文字
+            </text> 
+        </svg>
+        <h4>设置文字的样式</h4>
+        <p>下面有个关于设置文字样式的属性列表，当然你依旧可以使用 stroke , fill , gradients， fill patterns以及masks</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th width="160">属性</th>
+                    <th>描述</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>font-family</td>
+                    <td>'arail' 或者 'SimSun'等等</td>
+                </tr>
+                <tr>
+                    <td>font-size</td>
+                    <td>'12px'...</td>
+                </tr>
+                <tr>
+                    <td>kerning</td>
+                    <td>2,3...默认为1</td>
+                </tr>
+                <tr>
+                    <td>letter-spacing</td>
+                    <td>2,3...默认1</td>
+                </tr>
+                <tr>
+                    <td>word-spacing</td>
+                    <td>2,3...默认1</td>
+                </tr>
+                <tr>
+                    <td>text-decoration</td>
+                    <td>none.underline,overline.line-through</td>
+                </tr>
+                <tr>
+                    <td>stroke</td>
+                    <td>描边颜色</td>
+                </tr>
+                <tr>
+                    <td>stroke-width</td>
+                    <td>'2px','1px'...</td>
+                </tr>
+                <tr>
+                    <td>fill</td>
+                    <td>'填充颜色</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h4>文本长度</h4>
+        <p>使用textLength 属性可以控制文本的长度，这并不是指控制字符的数量，而是通过调节文字的间距来适应文本的长度，通过lengthAdjust实现控制空格或者字符的间距</p>
+        <p>透过下面的例子可以很好的理解那个概念</p>
+        <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <text x="5" y="20" textLength="140" lengthAdjust="spacing">
+              A long, long, long text.
+            </text>
+            <text x="5" y="40" textLength="200" lengthAdjust="spacing">
+                A long, long, long text.
+            </text>
+            <text x="5" y="60" textLength="200" lengthAdjust="spacingAndGlyphs">
+                A long, long, long text.
+            </text>    
+        </svg>
+        <pre><code class="lang-html">&lt;svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;text x="5" y="20" textLength="140" lengthAdjust="spacing"&gt;
+      A long, long, long text.
+    &lt;/text&gt;
+    &lt;text x="5" y="40" textLength="200" lengthAdjust="spacing">
+        A long, long, long text.
+    &lt;/text&gt;
+    &lt;text x="5" y="60" textLength="200" lengthAdjust="spacingAndGlyphs"&gt;
+        A long, long, long text.
+    &lt;/text&gt;    
+&lt;/svg&gt;</code></pre>
+        
+  
+
+    </div> 

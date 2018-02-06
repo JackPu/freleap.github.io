@@ -1,0 +1,12 @@
+<ul class="m-pagination" ng-if="1 < pages.length">
+    <li ng-if="directionLinks" class="ng-scope">
+        <a href="" ng-click="setCurrent(pagination.current - 1)" class="ng-binding" ng-class="{ disabled : pagination.current == 1 }" >‹</a>
+    </li>
+    <li ng-repeat="pageNumber in pages track by $index" ng-class="{ }">
+        <a href="" ng-click="setCurrent(pageNumber)" ng-class="{ active : pagination.current == pageNumber , disabled : pageNumber == '...' }">{{ pageNumber }}</a>
+    </li>
+
+    <li ng-if="directionLinks"  class="ng-scope">
+        <a href="" ng-click="setCurrent(pagination.current + 1)" class="ng-binding" ng-class="{ disabled : pagination.current == pagination.last }">›</a>
+    </li>
+</ul>

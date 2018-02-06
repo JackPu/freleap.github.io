@@ -1,0 +1,202 @@
+
+<!doctype html>
+<head>
+<meta charset="utf-8" />
+<title>SVG元素[path]</title>
+<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<style type="text/css">
+    *{margin:0; padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;}
+    #svg-bg-img{
+		width:100px;
+		height:100px;
+		background-image:url('./res/demo.svg');
+		background-size:100px 100px;
+
+	}
+</style>
+<script src="http://s0.qhimg.com/lib/jquery/1102.js"></script>
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container span8">
+
+        <h4>使用<strong>path</strong>元素</h4>
+        <p>path元素在SVG中可以用来绘制更为复杂的图形，包括基本的线和圆弧以及贝塞尔曲线等。由于其强大的功能，path元素相对也是比较难以掌握的</p>
+        <p>同polyline一样，它是由定义在points中的点的组合共同形成，同理x,y坐标由“,”分开，点与点之间用空格分开</p>
+         <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;path d="M50,50
+                     A30,30 0 0,1 35,20
+                     L100,100
+                     M110,110
+                     L100,0" style="stroke:#ea8513;fill:none;" /&gt;            
+&lt;/svg&gt;</pre>
+         <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M50,50
+                     A30,30 0 0,1 35,20
+                     L100,100
+                     M110,110
+                     L100,0" style="stroke:#ea8513;fill:none;" />
+        </svg>
+
+        <p>上图含有一段曲线和两条直线，而且第二条线并没有和第一条线连接。绘制path的所有命令都被放置在d元素中。比如上述案列中的M代表中移动命令，A则代表着绘制一段圆弧，L则意味着画一条直线</p>
+
+        <h5>开始绘制</h5>
+        <p>在path标签中，使用的第一个命令应该就是移动了，你可以将起点移动至任何你想要的位置。</p>
+        <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;path d="M50,50" style="stroke:#ea8513;fill:none;" /&gt;            
+&lt;/svg&gt;</pre>
+        <p>接下来我们开始绘制一条线段，使用L命令</p>
+        <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;path d="M50,50
+                L150,50" style="stroke:#ea8513;fill:none;" /&gt;            
+&lt;/svg&gt;</pre>
+       <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50
+                   L150,50" style="stroke:#ea8513;fill:none;" />
+      </svg>
+      <p>在path中的L命令和l标签除了大小写差别外，特别需要注意的是l标签中的点是相对定位的，而L命令使用的是绝对定位，比如起点是(50,50),l意味中画一条线至(50+100,50+100)。</p>
+      <p>使用path进行绘制时总是从上一次绘制结束的点开始，绘制结束时，虚拟画笔将被定位到绘制结束的坐标点</p>
+      <p>绘制<strong>圆弧</strong>需要用到A命令,同理和a标签对比相比主要是大小差异和坐标差异。</p>
+        <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;path d="M50,50
+                A50,50 0 0,1 150,80" style="stroke:#e84c3d;fill:none;" /&gt;            
+&lt;/svg&gt;</pre>
+       <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50
+                   A50,50 0 0,1 150,80" style="stroke:#e84c3d;fill:none;" />
+      </svg>
+
+      <p>在绘制圆弧式，圆弧的半径是由2个参数决定如下，rx，ry 上述列子中的rx和ey分别设置为了50,50.</p>
+      <p>第三个参数代表着x轴的旋转角度，上述列子中x轴宣传角度为0，实际上大多数情况，你都不需要改变他的值。</p>
+      <p>第四个参数代表着是否绘制最大的圆弧还是最小的圆弧。第五个参数则表示顺时针还是逆时针</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+        &lt;path d="M50,50
+                   A50,50 0 0,0 120,80" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;
+        &lt;path d="M50,50
+                   A50,50 0 1,0 120,80" style="stroke:#2fcc71;fill:none;stroke-width:2;" /&gt;
+        &lt;path d="M50,50
+                   A50,50 0 0,1 120,80" style="stroke:#ea6153;fill:none;stroke-width:2;" /&gt;
+        &lt;path d="M50,50
+                   A50,50 0 1,1 120,80" style="stroke:#354b60;fill:none;stroke-width:2;" /&gt;           
+&lt;/svg&gt;</pre>
+      <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50
+                   A50,50 0 0,0 120,80" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+          <path d="M50,50
+                   A50,50 0 1,0 120,80" style="stroke:#2fcc71;fill:none;stroke-width:2;" />
+          <path d="M50,50
+                   A50,50 0 0,1 120,80" style="stroke:#ea6153;fill:none;stroke-width:2;" />
+          <path d="M50,50
+                   A50,50 0 1,1 120,80" style="stroke:#354b60;fill:none;stroke-width:2;" />
+      </svg>
+
+        <h5>二次贝塞尔曲线</h5>
+        <p>使用path标签可以实现复杂的二次贝塞尔曲线么可以使用Q或者q属性来实现贝塞尔曲线的绘制。同线一样，大写的Q表示绝对坐标，而小写的q则使用相对坐标</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+        &lt;path d="M50,50 Q50,100 100,100" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;        
+&lt;/svg&gt;</pre>
+      <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50 Q50,100 100,100" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+      </svg>
+      <p>图例中使用二次贝塞尔曲线从坐标(50,50)绘制到(100,100)，期间使用了一个控制的点(50,100).用于控制曲线的点，是被放置在Q命令后面的两个参数。</p>
+      <p>控制的点就像个磁铁一样拉拽着曲线，曲线离控制的点越近，则？？？？咋个翻译【The closer a point on the curve is to the control point, the more the control point pulls in it, meaning the closer to the control point it will be.】</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+          &lt;path d="M50,50 Q50,150 150,150" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;
+          &lt;circle cx="50" cy="150" r="5" style="fill:#ea6153;"/&gt;
+          &lt;path d="M200,50 Q250,170 350,150" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;
+          &lt;circle cx="250" cy="170" r="5" style="fill:#ea6153;"/&gt;
+          &lt;path d="M400,50 Q420,100 550,150" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;
+          &lt;circle cx="420" cy="100" r="5" style="fill:#ea6153;"/&gt;       
+&lt;/svg&gt;</pre>
+
+      <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50 Q50,150 150,150" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+          <circle cx="50" cy="150" r="5" style="fill:#ea6153;"/>
+          <path d="M200,50 Q250,170 350,150" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+          <circle cx="250" cy="170" r="5" style="fill:#ea6153;"/>
+          <path d="M400,50 Q420,100 550,150" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+          <circle cx="420" cy="100" r="5" style="fill:#ea6153;"/>
+      </svg>
+
+      <h5>三次贝塞尔曲线</h5>
+      <p>除了绘制二次贝塞尔曲线外，path同样也支持三次贝塞尔曲线。使用C或者c命令进行,和二次贝塞尔曲线不同的是，三次贝塞尔曲线有两个控制点。同理大写的C使用绝对坐标小写的则使用相对坐标</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+          &lt;path d="M50,50 C75,100 250,10 300,150" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;
+          &lt;circle cx="75" cy="100" r="5" style="fill:#ea6153;"/&gt;
+          &lt;circle cx="250" cy="10" r="5" style="fill:#ea6153;"/&gt;    
+&lt;/svg&gt;</pre>
+
+      <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50 C75,100 250,10 300,150" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+          <circle cx="75" cy="100" r="5" style="fill:#ea6153;"/>
+          <circle cx="250" cy="10" r="5" style="fill:#ea6153;"/>
+      </svg>
+
+      <h5>闭合路径</h5>
+      <p>path元素有一个快捷命令用来闭合路径，实际上是会绘制一条线，从终点回到原点。闭合路径的命令为Z或者z，两者没有任何区别。</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+          &lt;path d="M50,50 Q150,150  300,150 Z" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;  
+&lt;/svg&gt;</pre>
+
+      <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M50,50 Q150,150  300,150 Z" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+      </svg>    
+
+      <h5>使用组合命令</h5>
+      <p>同样你可以再一个path标签使用多组命令</p>
+      <pre>&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+          &lt;path d="M100,100 L150,100 a50,25 0 0,0 150,100 q50,-50 70,-170 Z" style="stroke:#3598dc;fill:none; stroke-width:2;" /&gt;  
+&lt;/svg&gt;</pre>     
+      <svg width="600" height="300" xmlns="http://www.w3.org/200/svg"
+           xmlns:xlink="http://www.w3.org/1999/xlink">
+          <path d="M100,100 L150,100 a50,25 0 0,0 150,100 q50,-50 70,-170 Z" style="stroke:#3598dc;fill:none; stroke-width:2;" />
+      </svg>  
+
+
+
+
+
+
+
+
+
+        
+
+       
+
+       
+
+
+    </div> 
+
+
+
+
+
+<script type="text/javascript">
+    
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+
+<style type="text/css">
+    *{margin:0; padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;}
+    #svg-bg-img{
+		width:100px;
+		height:100px;
+		background-image:url('./res/demo.svg');
+		background-size:100px 100px;
+
+	}
+</style>
+
+
+</head>
+<body>
+    <div class="container span8">
+        <h3>在浏览器中显示SVG的方式</h3>
+        <ul>
+        	<li>使用iframe元素</li>
+        	<li>直接使用img</li>
+        	<li>使用SVG图片或者背景图片</li>
+        	<li>直接使用 SVG元素</li>
+        	<li>使用embed元素</li>
+        </ul>
+
+        <h4>iframe</h4>
+        <p>浏览器支持SVG图片,这样你可以使用iframe来链接到图片地址</p>
+        <pre>&lt;iframe src="./res/demo.svg" width="150" height="150" &gt;&lt;/iframe&gt;</pre>
+        <p>
+        	<iframe src="./res/demo.svg" width="150" height="150"></iframe>
+        </p>
+
+        <h4>img</h4>
+        <p>直接在img中嵌入地址</p>
+        <pre>&lt;img src="./res/demo.svg" alt="svg"&gt;</pre>
+        <p><img  width="100" src="./res/demo.svg" alt=""/></p>
+
+        <h4>svg用作background-image</h4>
+
+        <pre><code="class="lang-css"">
+#svg-bg-img{
+	width:100px;
+	height:100px;
+	background-image;url('./res/demo.svg');
+	background-size:100px 100px;
+
+}</code></pre>
+
+        <p><div id="svg-bg-img"></div></p>
+
+        <h4>直接使用SVG元素</h4>
+        <pre><code class="lang-html">&lt;svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+     &lt;rect x="10" y="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/&gt;
+&lt;/svg&gt;</code></pre>
+        <div>
+           <svg xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink">
+                 <rect x="10" y="10" width="100" height="100" style="stroke:#ccc; fill:#999;"/>
+            </svg> 
+        </div>
+
+
+    </div> 
+

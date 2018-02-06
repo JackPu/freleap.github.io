@@ -1,0 +1,88 @@
+
+    <div class="container span8">
+        <h3>使用 symbol 元素</h3>
+        <p>SVG &lt;symbol&gt;在svg中主要适用于定义可复用的符号，而这些定义在symbol元素的形状将不会被展示出来，而是通过use元素引用来显示</p>
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="612px" height="792px" viewBox="0 0 612 792" enable-background="new 0 0 612 792" xml:space="preserve">
+        <symbol id="superman">
+        <g>
+            <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="209,300 401.756,300 401.756,492.756 209,492.756 
+                209,300 	"/>
+            <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#222" points="217.504,364.146 302.271,466.223 393.252,364.146 
+                361.118,330.593 251.231,330.416 217.504,364.146 	"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#f1f1f1" d="M232.247,364.751l22.442-23.192l14.099,0.174
+                c-21.771,10.526-27.046,24.816-23.449,37.836L232.247,364.751L232.247,364.751z M281.888,424.447
+                c17.431,4.776,28.188,5.563,43.69,0.806l-22.32,23.392L281.888,424.447L281.888,424.447z M252.32,390.931l18.194,20.432
+                c2.764-10.703,31.508-4.161,34.03,4.604c12.048,3.964,32.579-2.781,32.866-9.063C337.354,391.751,267.383,404.323,252.32,390.931
+                L252.32,390.931z M359.788,345.311l-0.488,21.615h-28.342c0.384-14.291-10.476-21.309-31.384-20.733
+                c-14.722,0.288-28.868,6.042-29.06,15.537c0,22.539,79.268-1.822,85.598,29.636l22.988-26.584L359.788,345.311L359.788,345.311z
+                 M326.076,341.813l15.035,0.018l-3.295,11.19C335.045,346.246,330.38,343.773,326.076,341.813L326.076,341.813z"/>
+        </g>
+        </symbol>
+        <use xlink:href="#superman" />
+    </svg>
+        <h3>preserveAspectRatio 与 viewBox</h3>
+        &lt;symbol&gt;元素可以使用 preserveAspectRatio 和 viewBox属性，然而&lt;g&gt;却不能使用，因此&lt;symbol&gt;或许是一个更好的方式去定义可复用的形状。
+        
+        <h3>使用 use 元素</h3>
+        <p>在SVG中&lt;use&gt;可以在任何地方复用svg文件中定定义的的形，包括&lt;g&gt;和 &lt;symbol&gt;已经&lt;defs&gt;</p>
+        <pre><code class="lang-html">&lt;svg width="300" height="300"&gt;
+      &lt;defs&gt;
+        &lt;g id="shape"&gt;
+            &lt;rect x="50" y="50" width="50" height="50" /&gt;
+            &lt;circle cx="50" cy="50" r="50" /&gt;
+        &lt;/g&gt;
+      &lt;/defs&gt;
+
+      &lt;use xlink:href="#shape" x="50" y="50" /&gt;
+      &lt;use xlink:href="#shape" x="200" y="50" /&gt;
+&lt;/svg&gt;</code></pre>
+        <p>在使用 use 时，它必须要有一个id,这样 use 通过xlink:href的值找到该形状的引用.注意，一定要在前面加一个<strong>#</strong>，这样才能引用ID成功</p>
+        <svg width="300" height="300">
+          <defs>
+            <g id="shape">
+                <rect x="50" y="50" width="50" height="50" />
+                <circle cx="50" cy="50" r="50" />
+            </g>
+          </defs>
+
+          <use xlink:href="#shape" x="50" y="50" />
+          <use xlink:href="#shape" x="200" y="50" />
+
+        </svg>
+        
+        <h4>定义css样式</h4>
+        <p>当你引用一个svg形状时，可以自定义其CSS属性.</p>
+        <pre><code class="lang-html">&lt;svg width="500" height="110"&gt;
+
+  &lt;g id="shape3">
+      &lt;rect x="0" y="0" width="50" height="50" /&gt;
+  &lt;/g>
+
+  &lt;use xlink:href="#shape3" x="100" y="50" style="fill: #00ff00;"/&gt;
+  &lt;use xlink:href="#shape3" x="200" y="50" style="stroke: #00ff00; fill: none;"/&gt;
+
+&lt;/svg&gt;</code></pre>
+        <svg width="500" height="110">
+
+          <g id="shape3">
+              <rect x="0" y="0" width="50" height="50" />
+          </g>
+
+          <use xlink:href="#shape3" x="100" y="50" style="fill: #ea6153"/>
+          <use xlink:href="#shape3" x="200" y="50" style="stroke: #ea6153; fill: none;"/>
+
+        </svg>
+        
+        
+        
+
+       
+
+        
+
+
+
+
+    </div> 
+

@@ -3,144 +3,17 @@
 <head>
 <title>秋水专刊,events of Jack Pu,ジャックのイベント</title>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="./images/qiu-icon.png" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="description" content="秋水专刊,events of Jack Pu,ジャックのイベント">
-<style type="text/css">
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    body,html{
-        width:100%;
-        height: 100%;
-    }
-    body{
-        font-family: 'Helvetica Neue', '\5FAE\8F6F\96C5\9ED1', '\9ED1\4F53', sans-serif;
-        font-size: 63.5%;
-        color: #222;
-    }
-    .icon{
-        width: 45px;
-        height: 45px;
-    }
-    a{
-        text-decoration: none;
-        transition: all .25s ease;
-    }
-    a:hover{
-        text-decoration: underline;
-    }
-    .hd{
-        position: relative;
-        height: 100%;
-        background: url(http://7xi3rt.com1.z0.glb.clouddn.com/qiushuzhuankan.png) no-repeat center center;
-    }
-    .hd .font-ft{
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 66px;
-        text-align: center;
-        color: #555;
-        line-height: 10vh;
-        font-size: 1.2rem;
-    }
-    .hd .font-ft span{
-        margin: 0 10px;
-    }
-    .hd .icon-arrow{
-        position: absolute;
-        bottom: 10px;
-        left:50%;
-        margin-left: -22.5px;
-        cursor: pointer;
-    }
-    .main{
-        font-size: 1.3rem;
-        text-align: center;
-        padding: 2rem 0 4rem 0;
-        background: #eaf3f0;
-
-    }
-
-    .main h3{
-        font-size:4rem;
-        letter-spacing: 1rem;
-        padding:2rem 0;
-
-    }
-    .main h3 p{
-        font-size: 1.3rem;
-        line-height: 2em;
-        letter-spacing: .3rem;
-        color:#777;
-    }
-    .main .list{
-        width: 720px;
-        margin: 0 auto;
-    }
-    .main .list li{
-        list-style: none;
-        padding: 30px 10px;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-around;
-        align-items: stretch;
-        border-bottom: 1px dashed #5e9b8b;
-
-    }
-    .main .list li .left-section {
-	   flex:0 0 36.5%;
-       margin: 5px 0;
-       padding:0 1.5rem 0 .5rem;
-    }
-    .main .list li .left-section .title{
-        color:#5e9b8b;
-    }
-    .main .list li .left-section .date{
-        font-size: .8rem;
-        color: #777;
-        padding: .5rem 0;
-    }
-    .main .list li .right-section{
-        text-align: left;
-    }
-    .ft{
-        position: relative;
-        height: 280px;
-        background: #fff url(http://img1.vued.vanthink.cn/vued49668c8b82c777109522745d4bac3f67.png) repeat-x center top;
-        padding: 0 20px;
-        line-height: 280px;
-        font-size: 1.1rem;
-        text-align: center;
-        color:#555;
-    }
-    .ft .sns-group{
-        position: absolute;
-        right: 20px;
-        bottom:10px;
-        line-height: 45px;
-
-
-    }
-    .ft .contact-me{
-        position: absolute;
-        left: 20px;
-        bottom:15px;
-        line-height: 45px;
-
-    }
-    .ft .sns-group a{
-        margin: 0 5px;
-        display: inline-block;
-    }
-</style>
+<link rel="stylesheet" href="./css/base.css" />
 <script src="http://s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
 </head>
 
 <body class="doc">
     <div class="hd">
+        <canvas id="hd-bg"></canvas>
         <div class="font-ft">
             The Events of Jack Pu <span> / </span> ジャックのイベント
         </div>
@@ -208,6 +81,9 @@
             <a class="icon" href="https://www.facebook.com/jack.pu.56"><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.0//EN'  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'><svg enable-background="new 0 0 32 32" height="32px" id="Layer_1" version="1.0" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M32,30c0,1.104-0.896,2-2,2H2c-1.104,0-2-0.896-2-2V2c0-1.104,0.896-2,2-2h28c1.104,0,2,0.896,2,2V30z" fill="#3B5998"/><path d="M22,32V20h4l1-5h-5v-2c0-2,1.002-3,3-3h2V5c-1,0-2.24,0-4,0c-3.675,0-6,2.881-6,7v3h-4v5h4v12H22z" fill="#FFFFFF" id="f"/></g><g/><g/><g/><g/><g/><g/></svg></a>
         </div>
     </div>
+<script src="./js/noisec.js"></script>
+<script src="./js/vector.js"></script>
+<script src="./js/events.js"></script>
 </body>
 
 </html>

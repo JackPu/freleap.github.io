@@ -1,0 +1,49 @@
+    <div class="container span8">
+
+        <h4>使用<strong>circle</strong>元素</h4>
+        <p>rect在SVG中意味着一个圆</p>
+        <p>圆心位置由<strong>cx</strong>,<strong>cy</strong>来决定，大小将由r来决定</p>
+         <pre><code lan="lang-html">&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;rect cx="100" cy="100" r="50" style="stroke:#f39c12;fill:#1ba1e2;"/&gt;            
+&lt;/svg&gt;</code></pre>
+         <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <circle cx="100" cy="100" r="50" style="stroke:#f39c12;fill:#ea6153"/>
+        </svg>
+        <p>样式</p>
+        <p>同样矩形的样式(描边，填充，填充透明)也适用于圆形</p>
+         <pre><code lan="lang-html">&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+   &lt;circle cx="50" cy="50" r="45" style="fill:#ea6153;"/&gt;
+   &lt;circle cx="150" cy="50" r="45" style="stroke:#ea6153; stroke-width:2; fill:none;"/&gt;
+   &lt;circle cx="250" cy="50" r="45" style="stroke:#ea6153; stroke-width:1; stroke-dasharray:5; fill:none;" /&gt;
+   &lt;circle cx="350" cy="50" r="45" style="fill:#ea6153;fill-opacity:0.6;" /&gt;
+&lt;/svg&gt;</code></pre>
+         <svg width="500" height="120" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+           <circle cx="50" cy="50" r="45" style="fill:#ea6153;"/>
+           <circle cx="150" cy="50" r="45" style="stroke:#ea6153; stroke-width:2; fill:none;"/>
+           <circle cx="250" cy="50" r="45" style="stroke:#ea6153; stroke-width:1; stroke-dasharray:5; fill:none;" />
+           <circle cx="350" cy="50" r="45" style="fill:#ea6153;fill-opacity:0.6;" />
+        </svg>
+
+        <h4>使用<strong>ellipse</strong>元素</h4>
+        <p>ellipse元素是用于绘制椭圆</p>
+		<p>椭圆的中心由<strong>cx</strong>,<strong>cy</strong>决定。实轴和虚轴的长度由<strong>rx</strong>,<strong>ry</strong>决定</p>
+
+ 		<svg width="500" height="120" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+           <ellipse cx="60" cy="60" rx="60" ry="40" style="fill:#9b59b6;" /> 
+        </svg>
+
+        <p>样式</p>
+        <p>同上还是适用于描边和填充</p>
+
+        <svg width="500" height="120" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+           <ellipse cx="60" cy="60" rx="60" ry="40" style="fill:#f1c40f;" /> 
+           <ellipse cx="190" cy="60" rx="60" ry="40" style="fill:none; stroke: #f1c40f; stroke-width:2; " /> 
+           <ellipse cx="320" cy="60" rx="60" ry="40" style="fill:none; stroke: #f1c40f; stroke-width:2; stroke-opacity:0.5; " /> 
+        </svg>
+

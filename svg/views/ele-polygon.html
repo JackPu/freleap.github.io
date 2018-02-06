@@ -1,0 +1,39 @@
+
+    <div class="container span8">
+
+        <h4>使用<strong>polygon</strong>元素</h4>
+        <p>polygon元素在SVG中意味着绘制多边形</p>
+        <p>同polyline一样，它是由定义在points中的点的组合共同形成，同理x,y坐标由“,”分开，点与点之间用空格分开</p>
+         <pre><code class="lang-html">&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;polygon  points="0,30 50,0 70,30 70,60 50,80 0,60" /&gt;            
+&lt;/svg&gt;</code></pre>
+         <svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+            <polygon  points="0,30 50,0 70,30 70,60 50,80 0,60" />
+        </svg>
+
+        <p>对比polyline元素，polygon可以不用再点的集合最后加入终点就能够实现所有边的绘制</p>
+        <pre><code class="lang-html">&lt;svg width="200" height="200" xmlns="http://www.w3.org/200/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;line x1="10" y1="10" x2="120" y2="10" style="stroke:#333" /&gt;            
+&lt;/svg&gt;</code></pre>
+         <svg width="600" height="200" xmlns="http://www.w3.org/200/svg"
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+          <polyline points="0,10 100,10 100,110" style="fill:#ea6153; stroke:#000; stroke-width:2;"/>
+          <text x="10" y="140">没有在最后加入原点</text>
+          <polyline points="150,10 250,10 250,110 150,10" style="fill:#ea6153; stroke:#000; stroke-width:2;"/>
+           <text x="160" y="140">在最后加入原点</text>
+           <polyline points="300,10 400,10 400,110 300,10" style="fill:none; stroke:#ea6153; stroke-width:2;"/>
+           <text x="310" y="140">在最后加入原点</text>
+        </svg>
+        
+
+       
+
+       
+
+
+    </div> 
+
+

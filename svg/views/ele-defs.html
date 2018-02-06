@@ -1,0 +1,49 @@
+
+    <div class="container span8">
+        <h3>使用<strong>defs</strong>元素</h3>
+        <p>SVG &lt;defs&gt;元素是用来在svg中嵌入一些可复用的内容。比如你可以定义一组形状，然后见他们一起作为单一的元素调用</p>
+        
+        <p>下面是一个简单的样例</p>
+        <pre><code class="lang-html">&lt;svg>
+    &lt;defs>
+        &lt;g>
+            &lt;rect x="100" y="100" width="100" height="100" /&gt;
+            &lt;circle cx="100" cy="100" r="100" /&gt;
+        &lt;/g&gt;
+    &lt;/defs&gt;
+&lt;/svg&gt;</code></pre>
+        一组形状被定义在了 &lt;defs&gt; 元素内部。但是不会被显示出来。使用它们需要通过 &lt;use&gt;来引用。
+        <pre><code class="lang-html">&lt;svg&gt;
+  &lt;defs&gt;
+    &lt;g id="shape"&gt;
+        &lt;rect x="50" y="50" width="50" height="50" /&gt;
+        &lt;circle cx="50" cy="50" r="50" /&gt;
+    &lt;/g&gt;
+  &lt;/defs&gt;
+
+  &lt;use xlink:href="#shape" x="50" y="50" /&gt;
+  &lt;use xlink:href="#shape" x="200" y="50" /&gt;
+
+&lt;/svg&gt;</code></pre>
+        <p>在引用前，必须给每组形状赋予一个id, use 元素通过xlink:href的值去寻找对应的id形状。&lt;use&gt;元素通过定义x,y的值来确定图形应该在svg中的哪个位置展示，但是在&lt;g&gt;里面的图形的位置则是从0,0开始</p>
+        <svg width="300" height="300">
+          <defs>
+            <g id="shape">
+                <rect x="50" y="50" width="50" height="50" />
+                <circle cx="50" cy="50" r="50" />
+            </g>
+          </defs>
+
+          <use xlink:href="#shape" x="50" y="50" />
+          <use xlink:href="#shape" x="200" y="50" />
+
+        </svg><br/>
+        <h4>哪些元素可以定义在 defs 元素里面 ?</h4>
+        <ol>
+            <li>任何的形状(rect,line ...)</li>
+            <li>g</li>
+            <li>symbol</li>
+        </ol>
+
+    </div> 
+
