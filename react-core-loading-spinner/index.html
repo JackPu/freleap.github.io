@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>react-core-loading-spinner : A component for loading spinner</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection" />
+  <link rel="icon" type="image/png" href="./images/react-core-loading-spinner.logo.png" />
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <div class="doc">
+    <nav class="navbar navbar-default navbar-fixed-top js-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="logo" width="26" src="http://img1.vued.vanthink.cn/vued877bcc2db0dc850043d3a116d702c905.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="https://github.com/Vanthink-UED/vanspeak">Github</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="doc-hd">
+      <h1>react-core-loading-spinner</h1>
+      <p>A component for loading spinner</p>
+      <p>
+        <a href="https://github.com/JackPu/react-core-loading-spinner" class="btn btn-install">Install Now </a>
+      </p>
+    </div>
+    <h2 id="document">How To Use</h2>
+    <div class="doc-main contents">
+      <p>Npm</p>
+      <pre><code>$ npm install react-core-loading-spinner --save-dev</code></pre>
+      <p>Yarn</p>
+      <pre><code>$ yarn add react-core-loading-spinner</code></pre>
+      <p>Code Example</p>
+      <pre><code>import React from 'react';
+import {Spinner}  from 'react-core-loading-spinner';
+let App = React.createClass({ 
+//...
+
+  render() {
+    return(
+      &lt;div&gt;
+        &lt;Spinner show={true} text="Requesting..."&gt;&lt;/Spinner&gt;
+      &lt;/div&gt;
+    );
+  },
+  
+})</code></pre>
+      <p><a href="https://github.com/JackPu/https://github.com/JackPu/react-core-loading-spinner">view more details</a></p>
+      <br/>
+
+    </div>
+    <h2>Examples</h2>
+    <div class="doc-main contents">
+      <div class="content-wrapper" id="app"></div>
+      <br/>
+      <br/>
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <div class="addthis_sharing_toolbox"></div>
+    </div>
+    <div class="doc-ft">
+      The Project Made ❤️ by  <a href="http://me.jackpu.com/"> Jack Pu </a>
+    </div>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+
+  </div>
+
+  <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+  <script  src="./bundle.min.js"></script>   
+  <script type="text/javascript">
+    var H = $('.doc-hd').height();
+    $(function () {
+      // scroll
+      $(window).on('scroll', function () {
+        var ch = $(this).scrollTop();
+        if (ch >= H && !$('.js-navbar').hasClass('active')) {
+          $('.js-navbar').addClass('active');
+        }
+        if (ch < H) {
+          $('.js-navbar').removeClass('active');
+        }
+      })
+    })
+  </script>
+
+</body>
+
+</html>
