@@ -1,34 +1,102 @@
-
-<html lang="zh-cn">
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Reactjs-percentage-circle, a reactjs component for percentag circle</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="yes" name="apple-touch-fullscreen">
-    <meta content="black" name="apple-mobile-web-app-status-bar-style">
-    <meta content="telephone=no" name="format-detection" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster"/>
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/hint.css/2.4.0/hint.min.css" />
-    <link rel="stylesheet" href="./page.css">
+  <title>reactjs-percentage-circle is a component which supports you define your percent and draw the circle.And also you can use it as a progress bar.And you can show some data in a circle you want</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="yes" name="apple-touch-fullscreen">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection" />
+  <link rel="icon" type="image/png" href="./images/reactjs-percentage-circle.logo.png" />
+  <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
-<a href="https://github.com/JackPu/reactjs-percentage-circle" title="Fork me on GitHub" class="github-corner"><svg width="80" height="80" viewbox="0 0 250 250"><title>Fork me on GitHub</title><path d="M0 0h250v250"></path><path d="M127.4 110c-14.6-9.2-9.4-19.5-9.4-19.5 3-7 1.5-11 1.5-11-1-6.2 3-2 3-2 4 4.7 2 11 2 11-2.2 10.4 5 14.8 9 16.2" fill="currentColor" style="transform-origin:130px 110px" className="octo-arm"></path><path d="M113.2 114.3s3.6 1.6 4.7.6l15-13.7c3-2.4 6-3 8.2-2.7-8-11.2-14-25 3-41 4.7-4.4 10.6-6.4 16.2-6.4.6-1.6 3.6-7.3 11.8-10.7 0 0 4.5 2.7 6.8 16.5 4.3 2.7 8.3 6 12 9.8 3.3 3.5 6.7 8 8.6 12.3 14 3 16.8 8 16.8 8-3.4 8-9.4 11-11.4 11 0 5.8-2.3 11-7.5 15.5-16.4 16-30 9-40 .2 0 3-1 7-5.2 11l-13.3 11c-1 1 .5 5.3.8 5z" fill="currentColor" class="octo-body"></path></svg><style> .github-corner svg{position:absolute;right:0;top:0;;color:#2D2D2D;fill:white;}.github-corner:hover .octo-arm{animation:octocat-wave .56s;}@keyframes octocat-wave{0%, 100%{transform:rotate(0);}20%, 60%{transform:rotate(-20deg);}40%, 80%{transform:rotate(10deg);}}</style></a>
-<div class="splash-container">
-    
-    <div class="splash">
-        <h1 class="splash-head">
-            <img width="360" src="http://img1.vued.vanthink.cn/vued51984c8d081502c58a7ef5c9bdda81e1.png" alt="logo" />
-        </h1>
-        <p class="splash-subhead">
-             A component for loading spinner
-        </p>
+  <div class="doc">
+    <nav class="navbar navbar-default navbar-fixed-top js-navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img alt="logo" width="26" src="./images/reactjs-percentage-circle.logo.png">
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#examples">Examples</a></li>
+          <li><a href="https://github.com/JackPu/reactjs-percentage-circle">Github</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="doc-hd">
+      <h1>reactjs-percentage-circle</h1>
+      <p>A component which supports you define your percent and draw the circle</p>
+      <p>
+        <a href="https://github.com/JackPu/reactjs-percentage-circle" class="btn btn-install">Install Now </a>
+      </p>
     </div>
-</div>
-<div class="content-wrapper" id="app">
-</div>
-<script  src="./bundle.min.js"></script> 
+    <h2 id="document">How To Use</h2>
+    <div class="doc-main contents">
+      <p>Npm</p>
+      <pre><code>$ npm install reactjs-percentage-circle --save-dev</code></pre>
+      <p>Yarn</p>
+      <pre><code>$ yarn add reactjs-percentage-circle</code></pre>
+      <p>Code Example</p>
+      <pre><code>import PercentageCircle from 'reactjs-percentage-circle';
+
+//...
+
+render() {
+  &lt;div&gt;
+    &lt;PercentageCircle percent={80}>&lt;/PercentageCircle&gt;
+    &lt;PercentageCircle percent={80}&gt;
+      &lt;p&gt;Children&lt;/p&gt;
+    &lt;/PercentageCircle&gt;
+  &lt;/div&gt;
+}</code></pre>
+      <p><a href="https://github.com/JackPu/reactjs-percentage-circle">view more details</a></p>
+      <br/>
+
+    </div>
+    <h2>Examples</h2>
+    <div class="doc-main contents">
+      <div class="content-wrapper" id="app"></div>
+      <br/>
+      <br/>
+      <!-- Go to www.addthis.com/dashboard to customize your tools -->
+      <div class="addthis_sharing_toolbox"></div>
+    </div>
+    <div class="doc-ft">
+      The Project Made ❤️ by  <a href="http://me.jackpu.com/"> Jack Pu </a>
+    </div>
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d88bec2ab91030" async="async"></script>
+
+  </div>
+
+  <script src="//cdn.jsdelivr.net/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src='http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js'></script>
+  <script  src="./bundle.min.js"></script>   
+  <script type="text/javascript">
+    var H = $('.doc-hd').height();
+    $(function () {
+      // scroll
+      $(window).on('scroll', function () {
+        var ch = $(this).scrollTop();
+        if (ch >= H && !$('.js-navbar').hasClass('active')) {
+          $('.js-navbar').addClass('active');
+        }
+        if (ch < H) {
+          $('.js-navbar').removeClass('active');
+        }
+      })
+    })
+  </script>
+
 </body>
 
 </html>
