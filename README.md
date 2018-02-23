@@ -2,6 +2,12 @@
 
 http://events.jackpu.com
 
+## Run
+
+``` bash
+$ npm install && gulp
+```
+
 
 + [Portfolio-个人简历](./profile)
 + [实现类似 Pinterest 的图片预加载功能](./pinterest-like-image-loading)
