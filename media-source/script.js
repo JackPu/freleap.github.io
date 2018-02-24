@@ -1,35 +1,56 @@
+
+function log(wrap, text) {
+  var $wrap = $(wrap);
+  var logEl = document.createElement('P');
+  logEl.innerText = text + ' ...';
+  logEl.className = 'log-item';
+  $wrap.append(logEl)
+}
+
 function playMp4() {
   var videoMp4 = document.querySelector('.js-player-mp4');
+  log('.js-log-mp4', 'Get Video Element')
   if (window.MediaSource) {
     var mediaSource = new MediaSource();
     videoMp4.src = URL.createObjectURL(mediaSource);
+    log('.js-log-mp4', 'Open Media Source')
     mediaSource.addEventListener('sourceopen', sourceOpen);
   } else {
   console.log("The Media Source Extensions API is not supported.")
   }
 
   function sourceOpen(e) {
-  URL.revokeObjectURL(videoMp4.src);
-  var mime = 'video/webm; codecs="vorbis, vp8"';
-  var mediaSource = e.target;
-  var sourceBuffer = mediaSource.addSourceBuffer(mime);
-  var videoUrl = './video/avegers3.webm';
-  fetch(videoUrl)
+    URL.revokeObjectURL(videoMp4.src);
+    var mime = 'video/webm; codecs="vorbis, vp8"';
+    var mediaSource = e.target;
+    var sourceBuffer = mediaSource.addSourceBuffer(mime);
+    var videoUrl = './video/avegers3.webm';
+    log('.js-log-mp4', 'Fetch "./video/avegers3.webm"')
+    fetch(videoUrl)
       .then(function(response) {
-      return response.arrayBuffer();
+        log('.js-log-mp4', 'Finish "./video/avegers3.webm" Load')
+        return response.arrayBuffer();
       })
       .then(function(arrayBuffer) {
       sourceBuffer.addEventListener('updateend', function(e) {
-          if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
+        log('.js-log-mp4', 'Update Media Source Buffer')
+        if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
+          log('.js-log-mp4', 'End Media Source Buffer')
           mediaSource.endOfStream();
-          }
+          videoMp4.play().then(function() {
+            log('.js-log-mp4', 'Playing Video')
+            $('.js-log-mp4').addClass('fadeout');
+          }).catch(function(err) {
+            log('.js-log-mp4', err)
+          });
+        }
       });
       sourceBuffer.appendBuffer(arrayBuffer);
       });
   }
 }
 
-playMp4()
+// playMp4()
 
 function playSegment() {
   var video = document.querySelector('video');
@@ -90,4 +111,12 @@ function playSegment() {
       console.log('close MSE!');
   }
 }
+
+$(document).ready(function() {
+  $('.js-play-mp4').on('click', function() {
+    playMp4();
+    $(this).hide();
+    $('.js-log-mp4').addClass('active')
+  })
+})
 
