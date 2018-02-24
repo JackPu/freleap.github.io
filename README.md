@@ -14,3 +14,4 @@ $ npm install && gulp
 + [实现类似 Medium 的图片预加载功能](./medium-like-image-loading)
 + [字体模糊](./blur-font)
 + [日本之行](./japan)
++ [Media Source Extensions](./media-source)

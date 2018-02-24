@@ -18,9 +18,16 @@
         <h1>Media Source Extensions</h1>
         <h3 class="text-center">Request a webm file</h3>
         <div class="video-area">
-            <video  class="js-player-mp4" controls width="100%" height="480px"></video>
+            <video class="js-player-mp4" controls width="100%" height="480px"></video>
             <div class="log js-log-mp4">
-                <button type="button" class="btn btn-default js-play-mp4">Play Video</div>
+                <button type="button" class="btn btn-default js-play-mp4">Play</button>
+            </div>
+        </div>
+        <h3 class="text-center">Request a m3u8 file</h3>
+        <div class="video-area">
+            <video class="js-player-m3u8" controls width="100%" height="480px"></video>
+            <div class="log js-log-m3u8">
+                <button type="button" class="btn btn-default js-play-m3u8">Play</button>
             </div>
         </div>
         <h3 class="text-center" style="display:none">Request m3u8</h3>
@@ -28,6 +35,7 @@
     </div>
 
 <script src="http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js"></script>
+<script src="./m3u8-parser.min.js"></script>
 <script src="./script.js"></script>
 </body>
 

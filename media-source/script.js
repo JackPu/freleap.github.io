@@ -50,26 +50,45 @@ function playMp4() {
   }
 }
 
-// playMp4()
+var playManifest = {};
+function fetchM3u8() {
+  var parser = new m3u8Parser.Parser();
 
+  var m3u8url = './video/avegers3-trailer.m3u8';
+  log('.js-log-m3u8', 'Fetch "./video/index.m3u8"')
+  fetch(m3u8url, {
+  })
+  .then(function(response) {
+    return response.text();
+  }).then(function(data) {
+    log('.js-log-m3u8', 'Parse "./video/index.m3u8"')
+    parser.push(data);
+    parser.end();
+    playManifest = parser.manifest;
+    log('.js-log-m3u8', 'Playlist Ready')
+    playSegment();
+  })
+}
+var index = 0;
 function playSegment() {
-  var video = document.querySelector('video');
+  var video = document.querySelector('.js-player-m3u8');
   var sourceBuffer;
   if (window.MediaSource) {
     var mediaSource = new MediaSource();
     video.src = URL.createObjectURL(mediaSource);
+    log('.js-log-m3u8', 'Create Media Source');
     mediaSource.addEventListener('sourceopen', sourceOpen, { once: true });
   } else {
     console.log("The Media Source Extensions API is not supported.")
   }
-  var index = 0;
   function sourceOpen(e) {
     URL.revokeObjectURL(video.src);
     // var mime = 'video/mp4; codecs="avc1.42c015, mp4a.40.5"';avc1.42001e"
-    var mime = 'video/mp4; codecs="avc1.42c01e"';
+    var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
     var mediaSource = e.target;
     sourceBuffer = mediaSource.addSourceBuffer(mime);
-    var videoUrl = 'index0.ts';
+    var videoUrl = './video/' + playManifest.segments[index]['uri'];
+    log('.js-log-m3u8', 'Fetch Segment ~' + videoUrl);
     fetch(videoUrl, {
        // headers: { range: 'bytes=0-5671398' }
     })
@@ -77,29 +96,28 @@ function playSegment() {
       return response.arrayBuffer();
     })
     .then(function(arrayBuffer) {
-  
       sourceBuffer.appendBuffer(arrayBuffer);
       sourceBuffer.addEventListener('updateend', updateEnd);
-      video.play();
     });
   }
   function updateEnd() {
-      if (index + 1 > 1) {
-        if (!sourceBuffer.updating && mediaSource.readyState === 'open') {
-          console.log(10);
-          mediaSource.endOfStream();
-        }
-        return;
-      }
+    if (!sourceBuffer.updating && mediaSource.readyState === 'open' 
+    && index == playManifest.segments.length - 1) {
+      mediaSource.endOfStream();
+      video.play();
+      return;
+    }
      // Video is now ready to play!
-  
      //var bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
      // console.log(bufferedSeconds + ' seconds of video are ready to play!');
      // Fetch the next segment of video when user starts playing the video.
      fetchNextSegment();
    }
    function fetchNextSegment() {
-    const url = 'index' + (index += 1) + '.ts';
+     console.log(index)
+    index += 1;
+    var url = './video/' + playManifest.segments[index]['uri'];
+    console.log(url)
     fetch(url, { headers: { } })
     .then(response => response.arrayBuffer())
     .then(data => {
@@ -118,5 +136,11 @@ $(document).ready(function() {
     $(this).hide();
     $('.js-log-mp4').addClass('active')
   })
+  $('.js-play-m3u8').on('click', function() {
+    fetchM3u8();
+    $(this).hide();
+    $('.js-log-m3u8').addClass('active')
+  })
+  
 })
 

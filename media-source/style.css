@@ -63,7 +63,10 @@ h5{
     opacity: 0.4;
 }
 .video-area .btn{
-    height: 40px;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+
 }
 .video-area .log-item{
     color: #54ab3d;
