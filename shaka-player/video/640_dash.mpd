@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<MPD maxSegmentDuration="PT0H0M2.402S" mediaPresentationDuration="PT0H2M24.144S" minBufferTime="PT1.500S" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" xmlns="urn:mpeg:dash:schema:mpd:2011">
+  <Period duration="PT0H2M24.144S">
+    <AdaptationSet lang="und" maxFrameRate="30000/1001" maxHeight="134" maxWidth="320" par="42880:17822" segmentAlignment="true">
+      <Representation bandwidth="174828" codecs="avc3.64000C" frameRate="30000/1001" height="134" id="320" mimeType="video/mp4" sar="134:133" startWithSAP="1" width="320">
+        <SegmentTemplate duration="60000" initialization="320/640_dash_track1_init.mp4" media="320/640_dash_track1_$Number$.m4s" startNumber="1" timescale="30000" />
+      </Representation>
+    </AdaptationSet>
+    <AdaptationSet lang="und" segmentAlignment="true">
+      <Representation bandwidth="130733" codecs="mp4a.40.2" id="audio" mimeType="audio/mp4" startWithSAP="1">
+        <AudioChannelConfiguration schemeIdUri="urn:mpeg:dash:23003:3:audio_channel_configuration:2011" value="2" />
+        <SegmentTemplate duration="88200" initialization="audio/640_dash_track2_init.mp4" media="audio/640_dash_track2_$Number$.m4s" startNumber="1" timescale="44100" />
+      </Representation>
+    </AdaptationSet>
+  </Period>
+</MPD>

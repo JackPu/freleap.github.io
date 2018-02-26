@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>Google shaka-player demo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="bannar"></div>
+    <div class="doc">
+        <h1>Google Shaka Player</h1>
+        <h3 class="text-center">Request a m3u8 file</h3>
+        <div class="video-area">
+            <video id="video" width="100%" height="100%"
+           poster="http://img1.vued.vanthink.cn/vued45625dc2ae91388364f60ddaedf1af84.jpeg"
+           controls autoplay></video>
+            <div class="log js-log-m3u8">
+                <button type="button" class="btn btn-default js-play-m3u8">Play</button>
+            </div>
+        </div>
+    </div>
+
+<script src="http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/2.3.2/shaka-player.compiled.js"></script>
+<script>
+var manifestUri = './video/640_dash.mpd';
+
+function initApp() {
+  // Install built-in polyfills to patch browser incompatibilities.
+  shaka.polyfill.installAll();
+   $('.js-play-m3u8').on('click', function() {
+    $(this).hide();
+    $('.js-log-m3u8').addClass('active')
+    if (shaka.Player.isBrowserSupported()) {
+        // Everything looks good!
+        initPlayer();
+    } else {
+        // This browser does not have the minimum set of APIs we need.
+        console.error('Browser not supported!');
+    }
+  })
+  // Check to see if the browser supports the basic APIs Shaka needs.
+
+}
+
+
+function initPlayer() {
+  // Create a Player instance.
+  var video = document.getElementById('video');
+  var player = new shaka.Player(video);
+
+  // Attach player to the window to make it easy to access in the JS console.
+  window.player = player;
+
+  // Listen for error events.
+  player.addEventListener('error', onErrorEvent);
+
+  // Try to load a manifest.
+  // This is an asynchronous process.
+  player.load(manifestUri).then(function() {
+    // This runs if the asynchronous load is successful.
+    console.log('The video has now been loaded!');
+  }).catch(onError);  // onError is executed if the asynchronous load fails.
+}
+
+function onErrorEvent(event) {
+  // Extract the shaka.util.Error object from the event.
+  onError(event.detail);
+}
+
+function onError(error) {
+  // Log the error.
+  console.error('Error code', error.code, 'object', error);
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+</script>
+</body>
+
+</html>

@@ -54,7 +54,7 @@ var playManifest = {};
 function fetchM3u8() {
   var parser = new m3u8Parser.Parser();
 
-  var m3u8url = './video/avegers3-trailer.m3u8';
+  var m3u8url = './video/frag_bunny.m3u8';
   log('.js-log-m3u8', 'Fetch "./video/index.m3u8"')
   fetch(m3u8url, {
   })
@@ -70,6 +70,7 @@ function fetchM3u8() {
   })
 }
 var index = 0;
+
 function playSegment() {
   var video = document.querySelector('.js-player-m3u8');
   var sourceBuffer;
@@ -104,7 +105,9 @@ function playSegment() {
     if (!sourceBuffer.updating && mediaSource.readyState === 'open' 
     && index == playManifest.segments.length - 1) {
       mediaSource.endOfStream();
-      video.play();
+      video.play().catch(function(err) {
+        console.log(err);
+      });
       return;
     }
      // Video is now ready to play!
@@ -114,14 +117,12 @@ function playSegment() {
      fetchNextSegment();
    }
    function fetchNextSegment() {
-     console.log(index)
     index += 1;
     var url = './video/' + playManifest.segments[index]['uri'];
-    console.log(url)
     fetch(url, { headers: { } })
     .then(response => response.arrayBuffer())
     .then(data => {
-      const sourceBuffer = mediaSource.sourceBuffers[0];
+      var sourceBuffer = mediaSource.sourceBuffers[0];
       sourceBuffer.appendBuffer(data);
     });
   }
