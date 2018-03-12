@@ -54,7 +54,7 @@ var playManifest = {};
 function fetchM3u8() {
   var parser = new m3u8Parser.Parser();
 
-  var m3u8url = './video/frag_bunny.m3u8';
+  var m3u8url = './video/avengers.m3u8';
   log('.js-log-m3u8', 'Fetch "./video/index.m3u8"')
   fetch(m3u8url, {
   })
@@ -70,15 +70,50 @@ function fetchM3u8() {
   })
 }
 var index = 0;
+// create a transmuxer:
+var transmuxer = new muxjs.mp4.Transmuxer();
+var remuxedSegs = [];
+var remuxedBytesLength = 0;
+var remuxedInitSegment = null;
+var createInitSegment = true;
+var sourceBuffer;
 
 function playSegment() {
   var video = document.querySelector('.js-player-m3u8');
-  var sourceBuffer;
   if (window.MediaSource) {
     var mediaSource = new MediaSource();
     video.src = URL.createObjectURL(mediaSource);
     log('.js-log-m3u8', 'Create Media Source');
     mediaSource.addEventListener('sourceopen', sourceOpen, { once: true });
+    transmuxer.on('data', function (segment) {
+      remuxedSegs.push(segment);
+      remuxedBytesLength += segment.data.byteLength;
+      remuxedInitSegment = segment.initSegment;
+      // sourceBuffer.appendBuffer(segment.data.buffer);
+    });
+    transmuxer.on('done', function () {
+      var offset = 0;
+      var bytes = null;
+      if (createInitSegment) {
+        bytes = new Uint8Array(remuxedInitSegment.byteLength + remuxedBytesLength)
+        bytes.set(remuxedInitSegment, offset);
+        offset += remuxedInitSegment.byteLength;
+        createInitSegment = false;
+      } else {
+        bytes = new Uint8Array(remuxedBytesLength);
+      }
+      for (j = 0, i = offset; j < remuxedSegs.length; j++) {
+        bytes.set(remuxedSegs[j].data, i);
+        i += remuxedSegs[j].byteLength;
+      }
+      muxedData = bytes;
+      remuxedSegs = [];
+      remuxedBytesLength = 0;
+      // vjsBytes = bytes;
+      videoInspect(bytes);
+      sourceBuffer.appendBuffer(bytes);
+      video.play();
+    });
   } else {
     console.log("The Media Source Extensions API is not supported.")
   }
@@ -88,6 +123,7 @@ function playSegment() {
     var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
     var mediaSource = e.target;
     sourceBuffer = mediaSource.addSourceBuffer(mime);
+    // sourceBuffer.addEventListener('updateend', updateEnd);
     var videoUrl = './video/' + playManifest.segments[index]['uri'];
     log('.js-log-m3u8', 'Fetch Segment ~' + videoUrl);
     fetch(videoUrl, {
@@ -97,19 +133,21 @@ function playSegment() {
       return response.arrayBuffer();
     })
     .then(function(arrayBuffer) {
-      sourceBuffer.appendBuffer(arrayBuffer);
-      sourceBuffer.addEventListener('updateend', updateEnd);
+      // data events signal a new fMP4 segment is ready:
+      transmuxer.push(new Uint8Array(arrayBuffer));
+      transmuxer.flush();
+      // sourceBuffer.appendBuffer(arrayBuffer);
     });
   }
   function updateEnd() {
     if (!sourceBuffer.updating && mediaSource.readyState === 'open' 
     && index == playManifest.segments.length - 1) {
       mediaSource.endOfStream();
-      video.play().catch(function(err) {
-        console.log(err);
-      });
       return;
     }
+    // video.play().catch(function(err) {
+    //   console.log(err);
+    // });
      // Video is now ready to play!
      //var bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
      // console.log(bufferedSeconds + ' seconds of video are ready to play!');
@@ -122,12 +160,20 @@ function playSegment() {
     fetch(url, { headers: { } })
     .then(response => response.arrayBuffer())
     .then(data => {
-      var sourceBuffer = mediaSource.sourceBuffers[0];
-      sourceBuffer.appendBuffer(data);
+      transmuxer.push(new Uint8Array(data));
+      transmuxer.flush();
+      // var sourceBuffer = mediaSource.sourceBuffers[0];
+      // sourceBuffer.appendBuffer(data);
     });
   }
   function sourceClose() {
       console.log('close MSE!');
+  }
+
+  function videoInspect(bytes) {
+    var parsed = muxjs.mp4.tools.inspect(bytes);
+    // dig into the boxes:
+    console.log('The major brand of the first box:', parsed[0].majorBrand);
   }
 }
 
