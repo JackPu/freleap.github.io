@@ -62,6 +62,7 @@ function fetchM3u8() {
     return response.text();
   }).then(function(data) {
     log('.js-log-m3u8', 'Parse "./video/index.m3u8"')
+    $('#js-code').text(data);
     parser.push(data);
     parser.end();
     playManifest = parser.manifest;
@@ -87,32 +88,11 @@ function playSegment() {
     mediaSource.addEventListener('sourceopen', sourceOpen, { once: true });
     transmuxer.on('data', function (segment) {
       remuxedSegs.push(segment);
-      remuxedBytesLength += segment.data.byteLength;
-      remuxedInitSegment = segment.initSegment;
-      // sourceBuffer.appendBuffer(segment.data.buffer);
-    });
-    transmuxer.on('done', function () {
-      var offset = 0;
-      var bytes = null;
-      if (createInitSegment) {
-        bytes = new Uint8Array(remuxedInitSegment.byteLength + remuxedBytesLength)
-        bytes.set(remuxedInitSegment, offset);
-        offset += remuxedInitSegment.byteLength;
-        createInitSegment = false;
-      } else {
-        bytes = new Uint8Array(remuxedBytesLength);
+      remuxedBytesLength =  segment.data.byteLength;
+      if (!remuxedInitSegment) {
+        remuxedInitSegment = segment.initSegment;
       }
-      for (j = 0, i = offset; j < remuxedSegs.length; j++) {
-        bytes.set(remuxedSegs[j].data, i);
-        i += remuxedSegs[j].byteLength;
-      }
-      muxedData = bytes;
-      remuxedSegs = [];
-      remuxedBytesLength = 0;
-      // vjsBytes = bytes;
-      videoInspect(bytes);
-      sourceBuffer.appendBuffer(bytes);
-      video.play();
+      appendBuffer();
     });
   } else {
     console.log("The Media Source Extensions API is not supported.")
@@ -123,11 +103,10 @@ function playSegment() {
     var mime = 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"';
     var mediaSource = e.target;
     sourceBuffer = mediaSource.addSourceBuffer(mime);
-    // sourceBuffer.addEventListener('updateend', updateEnd);
+    sourceBuffer.addEventListener('updateend', updateEnd);
     var videoUrl = './video/' + playManifest.segments[index]['uri'];
     log('.js-log-m3u8', 'Fetch Segment ~' + videoUrl);
     fetch(videoUrl, {
-       // headers: { range: 'bytes=0-5671398' }
     })
     .then(function(response) {
       return response.arrayBuffer();
@@ -140,19 +119,15 @@ function playSegment() {
     });
   }
   function updateEnd() {
-    if (!sourceBuffer.updating && mediaSource.readyState === 'open' 
+    if (!sourceBuffer.updating && mediaSource.readyState === 'open'
     && index == playManifest.segments.length - 1) {
       mediaSource.endOfStream();
+      log('.js-log-m3u8', 'Start Play');
+      video.play();
       return;
     }
-    // video.play().catch(function(err) {
-    //   console.log(err);
-    // });
-     // Video is now ready to play!
-     //var bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
-     // console.log(bufferedSeconds + ' seconds of video are ready to play!');
-     // Fetch the next segment of video when user starts playing the video.
-     fetchNextSegment();
+    // Fetch the next segment of video when user starts playing the video.
+    fetchNextSegment();
    }
    function fetchNextSegment() {
     index += 1;
@@ -160,11 +135,34 @@ function playSegment() {
     fetch(url, { headers: { } })
     .then(response => response.arrayBuffer())
     .then(data => {
+      // transmuxer.flush();
       transmuxer.push(new Uint8Array(data));
       transmuxer.flush();
       // var sourceBuffer = mediaSource.sourceBuffers[0];
       // sourceBuffer.appendBuffer(data);
     });
+  }
+
+  var offset = 0;
+  function appendBuffer() {
+      var bytes = null;
+      if (createInitSegment) {
+        bytes = new Uint8Array(remuxedInitSegment.byteLength + remuxedBytesLength)
+        bytes.set(remuxedInitSegment, offset);
+        offset += remuxedInitSegment.byteLength;
+        createInitSegment = false;
+      } else {
+        bytes = new Uint8Array(remuxedBytesLength);
+      }
+      var i = offset;
+      bytes.set(remuxedSegs[index].data, i);
+      offset += remuxedSegs[index].byteLength;
+      remuxedBytesLength = 0;
+      // var sourceBuffer = mediaSource.sourceBuffers[index];
+      if(index === 0) {
+        log('.js-log-m3u8', 'MSE appendBuffer');
+      }
+      sourceBuffer.appendBuffer(bytes);
   }
   function sourceClose() {
       console.log('close MSE!');
@@ -188,6 +186,5 @@ $(document).ready(function() {
     $(this).hide();
     $('.js-log-m3u8').addClass('active')
   })
-  
 })
 

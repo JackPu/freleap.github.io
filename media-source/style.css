@@ -57,7 +57,8 @@ h5{
     transition: all .35s ease-in;
 }
 .video-area .log.active{
-    display: none;
+    opacity: .25;
+    display: block;
 }
 .video-area .log.fadeout{
     opacity: 0.4;
