@@ -27,7 +27,7 @@ img{
     max-width: 100%;
 }
 a{
-    color: #0fb283;
+    color: #1583c9;
     text-decoration: none;
 }
 .hd{
@@ -87,6 +87,8 @@ a{
     padding: 20px 0;
     font-weight: 200;
     color: #555;
+    line-height: 1.5em;
+    font-size: 18px;
 }
 .main .tab p .pre-label{
     display: inline-block;
@@ -143,7 +145,14 @@ a{
 	height: 40px;
 	fill: currentColor;
 }
+.main .self-introduce p{
+    margin: 0px 10px;
+    padding: 15px 0;
 
+}
+.main .self-introduce p a{
+    font-weight: bold;
+}
 .social-sites{
     height: 400px;
     text-align: center;
@@ -177,6 +186,10 @@ a{
     height: 30px;
     background: none;
     fill: currentColor;
+}
+.icon.svg-icon.icon-location.mini{
+    width: 16px;
+    height: 16px;
 }
 .tab-item:hover,.tab-item.active{
     background: #fff;
