@@ -51,11 +51,7 @@ function playMp4() {
             return response.arrayBuffer();
         })
         .then(function (data) {
-            // var sourceBuffer = mediaSource.sourceBuffers[0];
             sourceBuffer.appendBuffer(data);
-            // data events signal a new fMP4 segment is ready:
-            // transmuxer.push(new Uint8Array(arrayBuffer));
-            // transmuxer.flush();
         });
     }
     function updateEnd() {
