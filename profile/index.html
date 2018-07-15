@@ -4,16 +4,16 @@
 <head>
     <title>Jack Pu's Profile</title>
     <meta charset="utf-8" />
-    <meta http-equiv="expires" content="Sun, 20 Jul 2018 1:00:00 GMT" />
+    <meta http-equiv="expires" content="Sun, 20 Jul 2019 1:00:00 GMT" />
     <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="yes" name="apple-touch-fullscreen">
     <meta content="white" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection" />
-    <link rel="stylesheet" href="./css/page.css?v=2016" />
-    <link rel="stylesheet" media="(max-width: 768px)"  href="./css/mobile.page.css" />
+    <link rel="stylesheet" href="./css/page.min.css?v=2018" />
+    <link rel="stylesheet" media="(max-width: 768px)"  href="./css/mobile.page.min.css" />
     <link rel="stylesheet" type="text/css" href="./css/jquery-jvectormap-2.0.3.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Julius+Sans+One" rel="stylesheet">
 </head>
 
 <body>
@@ -84,13 +84,29 @@
 </svg>
 
 <!--end svg icons-->
-<div class="hd">
-    <div class="avatar-box">
-        <img src="http://img1.vued.vanthink.cn/vued188890d37c3ebe0e469e824c93d0948a.jpeg" />
+
+<div class="landing-page hide">
+    <div class="circle-group">
+        <img class="loading" src="https://gw.alicdn.com/tfs/TB1gsavETtYBeNjy1XdXXXXyVXa-200-209.gif" />
+        <div class="circle animated infinite scale"></div>
     </div>
-    <h1 class="name">Jack Pu</h1>
-    <h2 class="quote">Keep Learning And Follow Your Heart</h2>
-    <div class="tab-group">
+    <div>Loading ...</div>
+</div>
+<div class="hd">
+    <div class="container">
+        <h1 class="title">
+            To Be A Better Man
+            <p>@ Since 2018</p>
+        </h1>
+        <div class="profile">
+            <div class="avatar-box">
+                <img src="//gw.alicdn.com/tfs/TB1YwGRETtYBeNjy1XdXXXXyVXa-240-240.jpg" />
+            </div>
+            <h1 class="name">Jack Pu</h1>
+            <h2 class="quote">Keep Learning And Follow Your Heart</h2>
+        </div>
+    </div>
+    <!--div class="tab-group">
         <a href="" class="tab-item news active">
             <svg class="icon svg-icon  icon-news"><use xlink:href="#icon-news"></use></svg>
         </a>
@@ -103,110 +119,175 @@
         <a href="" class="tab-item news">
             <svg class="icon svg-icon icon-location"><use xlink:href="#icon-location"></use></svg>
         </a>
-    </div>
+    </div-->
 </div>
 <div class="main">
-    <div class="tab active self-introduce" style="max-width:480px">
-        <h2 class="title">Just a Capricorn Man</h2>
-        <p>Hello! I am <strong>Jack Pu(蒲 小 花)</strong> from  <svg class="icon svg-icon icon-location mini"><use xlink:href="#icon-location"></use></svg></span> China. A Senior <strong>  Web Front-end developer</strong> in
-        <a href="http://www.alibabagroup.com/cn/global/home">Alibaba Group</a>.</p>
-        <p>I was one of <a href="https://github.com/alibaba/weex"> Weex </a> developers. And I am also interested in HTML Video, SVG, and Canvas. And I write some funny open source
-        projects like <a href="https://github.com/JackPu/react-native-percentage-circle">react-native-percentage-circle</a>, <a href="https://github.com/Vanthink-UED/vue-core-image-upload">vue-core-image-upload</a> etc.
-        And I am trying to write some <a href="http://www.jackpu.com/tag/web/"> articles </a> to share what I am doing now.</p>
-        <p>During my school life in <a href="http://en.csu.edu.cn/
-">Central South University</a>, I majored in Safety Engineering. But I found that Web pages attract me more. So I start writing code in the winter of 2011.
-And so lucky to work with other schoolmates to develop a GIS web system.
- And after graduated from university, I started my career in <a href="https://www.360totalsecurity.com/en/about/">Qihoo 360 inc.</a>
- It helps me to become more professional.</p>.
-
-        <p>By the way, I spent some time learning designing and painting.
-        I like to use <strong>Phtotshop</strong> and pens to create some amazing pictures. 
-        You can get them on my <a href="https://www.behance.net/codeui">Behance</a> Account. Of course, if you want to connect me , there are some ways below.
-        And you can send an email to <a href="mailto:760341479@qq.com">760341479@qq.com</a> if you want to know more about me.</p>
+    <div class="tab active self-introduce">
+        <div class="container">
+            <h2>Just an Aquarius Man</h2>
+            <p>Hi! I'm <strong>Jack Pu「蒲 小 花」</strong> from  <svg class="icon svg-icon icon-location mini"><use xlink:href="#icon-location"></use></svg></span> China; A Senior <strong>  Web Front-end developer</strong> in
+            Beijing. I love writing web page and re-building the user interface.</p>
+            <p> And I currently work at <a href="https://github.com/alibaba">Alibaba (Taobao / Youku)</a>.I am interested in HTML Video, SVG, and Canvas. And I write some funny open source
+            projects like <a href="https://github.com/JackPu/react-native-percentage-circle">react-native-percentage-circle</a>, <a href="https://github.com/Vanthink-UED/vue-core-image-upload">vue-core-image-upload</a> etc.
+            And I am trying to write some <a href="http://www.jackpu.com/tag/web/"> articles </a> to share what I am doing now.</p>
+            <p>During my school life at <a href="http://en.csu.edu.cn/
+    ">Central South University</a>, I majored in Safety Engineering. But I found that Web pages attract me more. So I start writing code in the winter of 2011.
+    And after graduated from university, I started my career in <a href="https://github.com/75team">Qihoo 360 inc.</a>
+    It helps me to become more professional.</p>.
+            <p>By the way, I spent some time learning designing and painting.
+            I like to use <strong>Phototshop</strong> and Procreate to create some pictures.
+            You can get them on my <a href="https://www.behance.net/codeui">Behance</a> account. Of course, if you want to connect me , there are some ways below.
+            And you can send an email to <a href="mailto:760341479@qq.com">760341479@qq.com</a> if you want to know more about me.</p>
+        </div>
     </div>
-    <div class="tab">
-        <h2 class="title">My Childhood Dream Is To Be a Painter</h2>
-        <div class="albums">
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/51859477/Rocket-in-the-dark">
-                    <img alt="Rocket-in-the-dark" src="https://mir-s3-cdn-cf.behance.net/projects/404/30883351859477.Y3JvcCwyMDUwLDE2MDUsODYsMA.png" />
+    <div class="tab active">
+        <div class="container">
+            <h2>To Be a Painter</h2>
+            <div class="albums">
+                <a class="photo large" href="https://www.behance.net/gallery/60167757/Merry-Christmas">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1GIe9ETtYBeNjy1XdXXXXyVXa-1200-753.png">
+                        <img alt="Kiyomizu-dera" src="https://gw.alicdn.com/tfs/TB1BTOQEGmWBuNjy1XaXXXCbXXa-300-188.png" />
+                    </div>
+                    <div class="desc">
+                        <p>Kiyomizu-dera</p>
+                        <span class="date">2016-11</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/58717955/Home-2017-Mid-autumn-day">
-                    <img alt="Home-2017 Mid-autumn-day" src="https://mir-s3-cdn-cf.behance.net/projects/404/db8de358717955.Y3JvcCw4MTEsNjM0LDU1NCwxNjY.png" />
+                <a class="photo" href="https://www.behance.net/gallery/51859477/Rocket-in-the-dark">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1WAkEEuuSBuNjy1XcXXcYjFXa-1200-753.png">
+                        <img alt="Rocket-in-the-dark" src="https://gw.alicdn.com/tfs/TB1_B56ETtYBeNjy1XdXXXXyVXa-300-188.png" />
+                    </div>
+                    <div class="desc">
+                        <p>Rocket-in-the-dark</p>
+                        <span class="date">2016-12</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/44879085/The-Winter-Day">
-                    <img alt="The-Winter-Day" src="https://mir-s3-cdn-cf.behance.net/projects/404/a8922244879085.Y3JvcCwxMTUzLDkwMiwyMjUsMA.png" />
+                <a class="photo" href="https://www.behance.net/gallery/60167757/Merry-Christmas">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1ocCQEGmWBuNjy1XaXXXCbXXa-1200-753.png">
+                        <img alt="Merry Christmas" src="https://gw.alicdn.com/tfs/TB1SZuQEGmWBuNjy1XaXXXCbXXa-300-188.png" />
+                    </div>
+                    <div class="desc">
+                        <p>Merry-Christmas</p>
+                        <span class="date">2017-12</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/35952875/My-new-bicycle-design">
-                    <img alt="new bicycle" src="http://www.7xi3rt.com1.z0.glb.clouddn.com/464a7b35952875.Y3JvcCwxMzE0LDEwMjgsMzAyLDI2.jpg" />
+                <a class="photo" href="https://www.behance.net/gallery/52362283/Street-light-in-the-morning">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1kwBmEKuSBuNjy1XcXXcYjFXa-1200-753.png">
+                        <img alt="Street-light in the morning" src="https://gw.alicdn.com/tfs/TB1kq3MEAyWBuNjy0FpXXassXXa-300-188.jpg" />
+                    </div>
+                    <div class="desc">
+                        <p>Street light in the morning</p>
+                        <span class="date">2017-05</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/46704457/Merry-Christmas">
-                    <img alt="Merry-Christmas" src="https://mir-s3-cdn-cf.behance.net/projects/404/b4f20546704457.586082164be2f.png" />
+                <a class="photo" href="https://www.behance.net/gallery/35952875/My-new-bicycle-design">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB17Z5_EGmWBuNjy1XaXXXCbXXa-1200-753.png">
+                        <img alt="My-new-bicycle-design" src="https://gw.alicdn.com/tfs/TB1.cW_EGmWBuNjy1XaXXXCbXXa-300-188.png" />
+                    </div>
+                    <div class="desc">
+                        <p>My-new-bicycle-design</p>
+                        <span class="date">2016-01</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/44697923/Aurora-and-Firefly">
-                    <img alt="Aurora-and-Firefly" src="https://mir-s3-cdn-cf.behance.net/projects/404/5a129844697923.Y3JvcCwxMTUzLDkwMiw0NDcsMA.png" />
+                <a class="photo" href="https://500px.com/photo/220686053/yellow-flowers-by-jack-pu">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1mCHnETtYBeNjy1XdXXXXyVXa-1200-753.jpg">
+                        <img alt="yellow-flowers" src="https://gw.alicdn.com/tfs/TB1KCznETtYBeNjy1XdXXXXyVXa-300-188.jpg" />
+                    </div>
+                    <div class="desc">
+                        <p>yellow-flowers</p>
+                        <span class="date">2016-11</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/59740101/Legend-of-the-Eagle-Shooting-Hero">
-                    <img alt="Legend-of-the-Eagle-Shooting-Hero" src="https://mir-s3-cdn-cf.behance.net/projects/404/f2a50659740101.Y3JvcCwxODQ1LDE0NDQsMzU1LDA.png" />
+                <a class="photo" href="https://www.behance.net/gallery/36511979/Taichi-Mater-by-Stephen-Chow">
+                    <div class="image-bg" data-src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/b85c6936511979.571f48839df12.jpg">
+                        <img alt="Taichi-Mater-by-Stephen-Chow" src="https://gw.alicdn.com/tfs/TB1Gw6qETtYBeNjy1XdXXXXyVXa-300-188.png" />
+                    </div>
+                    <div class="desc">
+                        <p>Taichi-Mater-by-Stephen-Chow</p>
+                        <span class="date">2013-06</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/52362283/Street-light-in-the-morning">
-                    <img alt="Street-light-in-the-morning" src="https://mir-s3-cdn-cf.behance.net/projects/404/4962b752362283.Y3JvcCwyMDUwLDE2MDUsMjUzLDA.png" />
+                <a class="photo large" href="https://500px.com/photo/184550855/umeda-sky-building-by-jack-pu">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB1UoA2EuuSBuNjy1XcXXcYjFXa-1200-753.jpg">
+                        <img alt="yellow-flowers" src="https://gw.alicdn.com/tfs/TB1z.w2EuuSBuNjy1XcXXcYjFXa-300-188.jpg" />
+                    </div>
+                    <div class="desc">
+                        <p>umeda-sky-building</p>
+                        <span class="date">2016-11</span>
+                    </div>
                 </a>
-            </div>
-            <div class="photo">
-                <a href="https://www.behance.net/gallery/46861521/2017-HAPPY-NEW-YEAR">
-                    <img alt="2017-HAPPY-NEW-YEAR" src="https://mir-s3-cdn-cf.behance.net/projects/404/03ff3b46861521.Y3JvcCwxMDA5LDc5MCwyMTYsMA.png" />
+                <a class="photo last" href="https://www.behance.net/gallery/36514827/_">
+                    <div class="image-bg" data-src="https://gw.alicdn.com/tfs/TB19rPNETtYBeNjy1XdXXXXyVXa-1600-900.png">
+                        <img alt="yellow-flowers" src="https://gw.alicdn.com/tfs/TB1lInsETtYBeNjy1XdXXXXyVXa-300-188.jpg" />
+                    </div>
+                    <div class="desc">
+                        <p>言の葉の庭</p>
+                        <span class="date">2013-05</span>
+                    </div>
                 </a>
             </div>
         </div>
-
     </div>
-    <div class="tab" style="max-width:480px">
-        <h2 class="title">I Need Some Goals</h2>
-
-        <!--ul this is 2016>
-            <li> Go to Japan</li>
-            <li> Build The React-native iOS App</li>
-            <li> Paint Exercise</li>
-            <li> Learning car driving</li>
-            <li> Go to Xiamen</li>
-        </ul-->
-        <!--ul class="this-is-2017">
-            <li> Have a Github Project (>=500 Stars)</li>
-            <li> To Be a High-Level Devloper</li>
-            <li> Read More Than 50 <a href="http://www.jackpu.com/tag/books/">Books</a></li>
-            <li> <a href="http://www.jackzoo.org">JackZoo</a> Operation </li>
-            <li> Paint Exercise</li>
-            <li> Have a Journey in Boat</li>
-        </ul-->
-        <ul class="this-is-2018">
-            <li> 30K Plan</li>
-            <li> 30+ pictures.(PS or hand drawings)</li>
-            <li>Journey to Taiwan province and the Philippines</li>
-            <li>500+ stars in my GitHub projects</li>
-            <li>American 10 years visa or Japan 3 years visa</li>
-            <li> Read More Than 50 <a href="http://www.jackpu.com/tag/books/">Books</a></li>
-            <li><a href="http://www.jackzoo.org">JackZoo</a> Operation </li>
-        </ul>
-
+    <div class="tab active goals">
+        <div class="container"  style="max-width:480px">
+            <h2>I Need Some Goals</h2>
+            <!--ul this is 2016>
+                <li> Go to Japan</li>
+                <li> Build The React-native iOS App</li>
+                <li> Paint Exercise</li>
+                <li> Learning car driving</li>
+                <li> Go to Xiamen</li>
+            </ul-->
+            <!--ul class="this-is-2017">
+                <li> Have a Github Project (>=500 Stars)</li>
+                <li> To Be a High-Level Devloper</li>
+                <li> Read More Than 50 <a href="http://www.jackpu.com/tag/books/">Books</a></li>
+                <li> <a href="http://www.jackzoo.org">JackZoo</a> Operation </li>
+                <li> Paint Exercise</li>
+                <li> Have a Journey in Boat</li>
+            </ul-->
+            <ul class="this-is-2018">
+                <li class="purpink">
+                    <svg class="icon svg-icon  icon-paperplane"><use xlink:href="#icon-paperplane"></use></svg>
+                    <p class="tips">Still in the right way</p>
+                    <h3>Career</h3>
+                    <a href="#">30K+ Plan</a>
+                    <a href="https://github.com/JackPu/vue-core-video-player">vue-core-video-player</a>
+                    <a href="https://github.com/JackPu/react-vr-core-gallary">react-vr-core-gallary</a>
+                    <a href="http://www.jackzoo.org">JackZoo Operation</a>  
+                </li>
+                <li class="rainbow">
+                    <svg class="icon svg-icon  icon-photo"><use xlink:href="#icon-photo"></use></svg>
+                    <p class="tips">Do what u like</p>
+                    <h3>Paintings</h3>
+                    <a href="#">Procreate Learning 「Apple Pen」</a>
+                    <a href="https://www.behance.net/codeui">30+ pictures.(PS or hand drawings)</a>
+                    <a href="#">AE Animation</a>
+                </li>
+                <li class="argon">
+                    <svg class="icon svg-icon  icon-location"><use xlink:href="#icon-location"></use></svg>
+                    <p class="tips">Enjoy it \(^o^)/</p>
+                    <h3>Journeys</h3>
+                    <a href="#">Taiwan</a>
+                    <a href="#">Qingdao</a>
+                    <a href="#">VISA 「American or Japan」</a>
+                </li>
+                <li class="sunrise">
+                    <svg class="icon svg-icon  icon-location"><use xlink:href="#icon-news"></use></svg>
+                    <p class="tips">Keep Learning</p>
+                    <h3>Books</h3>
+                    <a href="https://book.douban.com/subject/27199470/">《刺杀骑士团长》</a>
+                    <a href="https://book.douban.com/subject/1559310/">《鹿鼎记》</a>
+                    <a href="http://www.jackpu.com/tag/books/">&nbsp;&nbsp; ...</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="tab">
-        <h2 class="title">Where We Wanna Go</h2>
-        <div class="js-map" style="height:320px;width:720px;"></div>
+    <div class="tab map active">
+        <div class="container">
+            <h2>Where I Wanna Go</h2>
+            <div class="js-map"></div>
+        </div>
     </div>
 </div>
 
@@ -221,7 +302,7 @@ And so lucky to work with other schoolmates to develop a GIS web system.
         <a class="sns-icon github" title="github" href="https://github.com/JackPu">
             <i class="icon icon-github"></i>
         </a>
-        <a class="sns-icon ins" title="instagram" href="https://www.instagram.com/puxiaohua1994/">
+        <a class="sns-icon ins" title="instagram" href="https://www.instagram.com/jack_pu">
             <i class="icon icon-ins"></i>
         </a>
         <a class="sns-icon be" title="behance" href="https://www.behance.net/codeui">
@@ -230,7 +311,7 @@ And so lucky to work with other schoolmates to develop a GIS web system.
         <p class="quote">You Can Speak <strong>"Hi"</strong> to Me in Those Ways</p>
     </div>
     <div class="copyright">
-     ❤  Jack Pu &copy; 2018
+     ❤ Design By  Jack Pu &copy; 2018
     </div>
 </div>
 
@@ -261,20 +342,20 @@ And so lucky to work with other schoolmates to develop a GIS web system.
             initedMap = true;
             $('.js-map').vectorMap({
                 map: 'world_mill',
-                backgroundColor: '#f2f2f2',
+                backgroundColor: 'transparent',
                 zoomOnScrollSpeed: false,
                 series: {
                   regions: [{
                     values: loveVal,
-                    scale: ['#49a2f9', '#005cb7'],
+                    scale: ['#eeeeee', '#ffffff'],
                     normalizeFunction: 'polynomial'
                   }]
                 },
                 regionStyle: {
                   initial: {
-                    fill: '#9ecdfc',
+                    fill: 'rgba(255,255,255, .5)',
                     "fill-opacity": 1,
-                    stroke: 'none',
+                    stroke: '#fff',
                     "stroke-width": 0,
                     "stroke-opacity": 1
                   },
@@ -290,26 +371,26 @@ And so lucky to work with other schoolmates to develop a GIS web system.
                 }
             });
         }
-        $('.js-select').on('change',function() {
-            var classname = $(this).val();
-            $('.filter-use').text(classname);
-            $('.js-filter')[0].className = 'js-filter ' + classname;
-        });
-
-        $('.tab-group .tab-item').on('click',function(e) {
-            e.preventDefault();
-            $('.tab-group .tab-item').removeClass('active');
-            $(this).addClass('active');
-            var idx = $(".active").index();
-
-            $('.tab').removeClass('active');
-            $('.tab').eq(idx).addClass('active');
-            if(idx==3){
-                initMap();
+        var imageLoaded = false;
+        $('body').on('scroll', function(e) {
+            if (imageLoaded) {
+                return;
+            }
+            if($(this).scrollTop() > $(window).height() + $('.self-introduce').height()) {
+                imageLoaded = true;
+                $('.photo img').each(function() {
+                    var el = this;
+                    var image = new Image();
+                    var url = $(el).parent().attr('data-src');
+                    image.src = url;
+                    image.onload = function() {
+                        $(el).parent().addClass('loaded');
+                        $(el).parent().append(image);
+                    };
+                });
             }
         })
-
-
+        initMap();
 
     })
 </script>
