@@ -40,7 +40,7 @@ function main() {
     }
   `;
 
-  // Initialize a shader program; this is where all the lighting
+  // Initial ize a shader program; this is where all the lighting
   // for the vertices and so forth is established.
   const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
 
