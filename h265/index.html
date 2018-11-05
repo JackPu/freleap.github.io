@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <title>HEVC Test</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="bannar"></div>
+    <div class="doc">
+        <h1>HEVC/H.265</h1>
+        <p><a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">The High Efficiency Video Coding (HEVC)</a>
+            compression standard is a video compression format
+            intended to
+            succeed H.264</p>
+        <div class="video-area">
+            <canvas id="canvas"></canvas>
+            <div class="log js-log-hevc">
+                <button type="button" class="btn btn-default js-play">Play</button>
+            </div>
+            <div class="status">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Type: </td>
+                            <td>H.265 </td>
+                        </tr>
+                        <tr>
+                            <td>Status: </td>
+                            <td><span class="hevc-status"></span></td>
+                        </tr>
+                        <tr>
+                            <td>FPS: </td>
+                            <td><span class="hevc-fps"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h1>H.264</h1>
+        <div class="video-area">
+            <video preload="metadata" muted src="./mp4-640.mp4" class="js-video"></video>
+            <div class="log js-log-h264">
+                <button type="button" class="btn btn-default js-play">Play</button>
+            </div>
+            <div class="status">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Type: </td>
+                            <td>H.264 </td>
+                        </tr>
+                        <tr>
+                            <td>Status: </td>
+                            <td><span class="h264-status"> ... </span></td>
+                        </tr>
+                        <tr>
+                            <td>FPS: </td>
+                            <td><span class="h264-fps"> 0 </span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        ❤️ with <a href="https://me.jackpu.com/">Jack Pu</a> &copy; 2018
+    </div>
+
+    <script src="http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js"></script>
+    <script src="https://s1.wxzxzj.com/4d27e13a1917/libde265.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
