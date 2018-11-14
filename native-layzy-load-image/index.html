@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Chrome 原生懒加载图片</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+<style type="text/css">
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+    -webkit-font-feature-settings: 'kern' 1;
+    -moz-font-feature-settings: 'kern' 1;
+    -o-font-feature-settings: 'kern' 1;
+    
+  }
+  h1{
+    padding-top: 40px;
+    text-align: center;
+  }
+  .main{
+    width: 720px;
+    margin: 80px auto;
+    text-align: center;
+  }
+  pre {
+      color: red;
+      text-align: left;
+  }
+  .post{
+    margin: 10px;
+    font-size: 18px;
+    color:#666;
+  }
+  .title{
+    line-height: 30px;
+  }
+  .image-bg{
+    background: #e1e1e1;
+  }
+  img {
+    transition: opacity .2s ease-in .25s;
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .loaded img {
+    opacity: 1;
+  }
+  
+  @media all and (max-width: 767px) {
+      .main {
+        width: 100%;
+      }
+      .post {
+        height: 75vh;
+      }
+      .post img {
+          position: absolute;
+          top: 0;
+          left: -30%;
+          height: 100%;
+          margin: 0;
+          width: auto;
+      }
+      .post p {
+          position: absolute;
+          bottom: 0;
+          color: #fff;
+      }
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <h1>Chrome Lazyload</h1>
+
+  <div class="main row">
+<pre>&lt;!-- use chrome image lazyload api --&gt;
+&lt;img src="..xxx.jpg" lazyload="on" /&gt;</pre>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB1tVEcEuuSBuNjy1XcXXcYjFXa-1600-887.webp" lazyload="auto" />
+        <p class="title">Mars</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB17Z5_EGmWBuNjy1XaXXXCbXXa-1200-753.png" lazyload="on"/>
+        <p class="title">Grass</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB1mCHnETtYBeNjy1XdXXXXyVXa-1200-753.jpg" lazyload="on" />
+        <p class="title">journet to the west2</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB1UoA2EuuSBuNjy1XcXXcYjFXa-1200-753.jpg" lazyload="on" />
+        <p class="title">Marriage</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB1ocCQEGmWBuNjy1XaXXXCbXXa-1200-753.png" lazyload="on" />
+        <p class="title">Birthday Card</p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="post">
+        <img src="https://gw.alicdn.com/tfs/TB1GIe9ETtYBeNjy1XdXXXXyVXa-1200-753.png" lazyload="on" />
+        <p class="title">Cup</p>
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+</html>
