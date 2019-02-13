@@ -62,7 +62,7 @@ a{
     position: relative;
     height: 100%;
     color: #fff;
-    background: #27427b url(https://gw.alicdn.com/tfs/TB1tVEcEuuSBuNjy1XcXXcYjFXa-1600-887.webp) no-repeat center bottom;
+    background: #1e2d65 url(https://assets.veervr.tv/@vrups/67/77a885bd676af3-1600-887.jpg) no-repeat center bottom;
     background-size: cover;
     box-shadow: 2px 5px 5px rgba(0,0,0, .25);
 }
@@ -111,8 +111,9 @@ a{
 }
 .quote{
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1px;
+    font-weight: 300;
     color: rgba(255,255,255,.7);
 }
 .main{
