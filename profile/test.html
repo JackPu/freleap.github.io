@@ -404,11 +404,10 @@
             }
         })
         initMap();
-        alert(document.referrer);
-        if(/twitter/i.test(navigator.userAgent) && window.screen.height === 812) {
+        if(/t\.co/i.test(document.referrer) && window.screen.height === 812) {
             
-            document.documentElement.style.height = 'calc(100vh - 109px)';
-            document.body.style.height = 'calc(100vh - 109px)';
+            document.documentElement.style.height = 'calc(100vh - 40px)';
+            document.body.style.height = 'calc(100vh - 40px)';
         }
 
     })
