@@ -404,9 +404,9 @@
             }
         })
         initMap();
-
-        if(/twitter/i.test(window.navigator.userAgent) && window.screen.height === 812) {
-            alert(111);
+        alert(window.screen.height);
+        if(/twitter/i.test(navigator.userAgent) && window.screen.height === 812) {
+            
             document.documentElement.style.height = 'calc(100vh - 109px)';
             document.body.style.height = 'calc(100vh - 109px)';
         }
