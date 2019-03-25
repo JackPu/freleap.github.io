@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <title>HEVC Test</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../h265/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="bannar"></div>
+    <div class="doc">
+        <h1>Hardware media keys are now supported to control media playback on desktop</h1>
+        <div class="video-area">
+            <video id="video" controls preload="metadata" src="./A4.mp4" class="js-video"></video>
+        </div>
+    </div>
+    <div class="footer">
+        ❤️ with <a href="https://me.jackpu.com/">Jack Pu</a> &copy; 2018
+    </div>
+
+    <script src="http://s1.vued.vanthink.cn/d59f937c159f/jquery-2.2.1.min.js"></script>
+    <script>
+      const video = document.getElementById('video');
+      navigator.mediaSession.setActionHandler('previoustrack', function() {
+        // User hit "Previous Track" key.
+        console.log('prevoious')
+      });
+
+      navigator.mediaSession.setActionHandler('nexttrack', function() {
+        // User hit "Next Track" key.
+        console.log('next')
+      });
+      navigator.mediaSession.setActionHandler('play', function() {
+        video.play();
+        // Do something more than just playing video...
+      });
+
+      navigator.mediaSession.setActionHandler('pause', function() {
+        video.pause();
+      });
+
+      navigator.mediaSession.setActionHandler('seekbackward', function() {
+        video.currentTime = Math.max(video.currentTime - 5, 0);
+      });
+
+      navigator.mediaSession.setActionHandler('seekforward', function() {
+        video.currentTime = Math.min(video.currentTime + 5, video.duration);
+      });
+
+
+    </script>
+  <!-- End of Survicate code -->
+</body>
+
+</html>
