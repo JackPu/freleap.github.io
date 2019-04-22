@@ -29,17 +29,15 @@
     <script>
       const video = document.getElementById('video');
       navigator.mediaSession.setActionHandler('previoustrack', function() {
-        // User hit "Previous Track" key.
         console.log('prevoious')
       });
 
       navigator.mediaSession.setActionHandler('nexttrack', function() {
-        // User hit "Next Track" key.
         console.log('next')
       });
+
       navigator.mediaSession.setActionHandler('play', function() {
         video.play();
-        // Do something more than just playing video...
       });
 
       navigator.mediaSession.setActionHandler('pause', function() {
