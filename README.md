@@ -15,3 +15,4 @@ $ npm install && gulp
 + [字体模糊](./blur-font)
 + [日本之行](./japan)
 + [Media Source Extensions](./media-source)
++ [JS 获取视频 Codec](./js-get-codec)

@@ -1,0 +1,78 @@
+body{
+    font-size: 63.5%;
+    background-color: #eee;
+}
+.doc,
+.video-area{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+h1{
+    padding: 20px;
+    background-color: #fff;
+    font-size: 3rem;
+}
+video{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+h2,h3{
+  text-align:center;
+}
+h3{
+    font-size: 1.4rem;
+}
+h5{
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+.video-area .log{
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+    background-color: rgba(0,0,0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: all .35s ease-in;
+}
+.video-area .log.active{
+    opacity: .55;
+    display: block;
+}
+.video-area .log.fadeout{
+    opacity: 0.8;
+}
+.video-area .btn{
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+
+}
+.video-area .log-item{
+    color: #54ab3d;
+    line-height: 20px;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+@media all and (max-width:720px) {
+    .doc{
+        padding: 5px;
+    }
+}
+table{
+    font-size: 1.4rem;
+}
