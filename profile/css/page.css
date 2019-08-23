@@ -65,6 +65,7 @@ a{
     background: #1e2d65 url(https://assets.veervr.tv/@vrups/8/cf971a811e72ad-1600-887.jpg) no-repeat center bottom;
     background-size: cover;
     box-shadow: 2px 5px 5px rgba(0,0,0, .25);
+    font-family: 'kepler-std-semicondensed-dis';
 }
 .container {
     position: relative;
@@ -79,10 +80,9 @@ a{
     margin-top: -80px;
     font-size: 45px;
     line-height: 60px;
-    font-family: 'Abril Fatface', serif;
+    letter-spacing: 2px;
 }
 .title p {
-    font-family: 'Julius Sans One', serif;
     font-size: 16px;
     margin-top: -15px;
 }
@@ -264,7 +264,7 @@ a.photo:hover .desc{
     position: relative;
     padding: 60px 20px;
     font-size: 30px;
-    font-weight: 200;
+    font-family: "acuta";
 
 }
 .main h2:after{
@@ -286,6 +286,7 @@ a.photo:hover .desc{
 }
 .main .self-introduce {
     background: #fff;
+    font-family: "acuta";
 }
 .main .self-introduce p{
     margin: 0px 10px;
