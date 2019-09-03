@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/emz0eij.css">
     <link rel="stylesheet" href="./css/page.min.css?v=sa1" />
     <link rel="stylesheet" media="(max-width: 768px)"  href="./css/mobile.page.min.css" />
-    <link rel="stylesheet" type="text/css" href="./css/jquery-jvectormap-2.0.3.css"/>
+    <link crossorigin="anonymous" integrity="sha384-LmTs77jzi3Z94+7+p0wVpKuqGLPsiOaD2RpiBUwSZuJTsjxIz3qT7EIxuNOmWx6b" href="https://lib.baomitu.com/jvectormap/2.0.3/jquery-jvectormap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -326,8 +326,8 @@
 </div>
 
 <script src='https://lib.baomitu.com/jquery/3.4.1/jquery.min.js'></script>
-<script src='./js/jquery-jvectormap-2.0.3.min.js'></script>
-<script src='./js/jquery-jvectormap-world-mill.js'></script>
+<script src='https://s1.wxzxzj.com/jquery-jvectormap-2.0.3.min.js'></script>
+<script src='https://s1.wxzxzj.com/jquery-jvectormap-world-mill.js'></script>
 <script type="text/javascript">
     window.onload = function() {
         $('.circle').removeClass('scale infinite').addClass('animated scale2');
@@ -409,13 +409,16 @@
         })
         initMap();
 
-        if(/twitter/i.test(window.navigator.userAgent) && window.screen.height === 812) {
-            alert(111);
-            document.documentElement.style.height = 'calc(100vh - 109px)';
-            document.body.style.height = 'calc(100vh - 109px)';
-        }
-
     })
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?a0eee72da7fa0d805eb4b9b8edd007a3";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 </html>
