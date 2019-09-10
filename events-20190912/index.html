@@ -1,8 +1,106 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>For-Momoko-2017</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="HAPPT-BIRTHDAY-TO-MOMOJIA">
+    <link rel="icon" href="/public/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css?v=2017">
+    <script src="http://s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
 
-  </head>
-  <body></body>
+<body class="doc">
+ <div class="doc-loading anim">
+    <div class="fav"><p>Loading...</p></div>
+
+</div>
+<div class="doc-main" id="bodymovin"></div>
+    
+<div class="btn-view-letter">Open the Gift</div>
+<div class="dialog">
+    <p>
+        <a class="btn-close" href="javascript:;">X</a>
+    </p>
+    <img  src="http://img1.vued.vanthink.cn/vuede2a8acd73edfdcffbfe37256bc4619f4.jpeg">
+    <p>So Sorry about ths package is on the way[📦 🚗 🚗] 😂</p>
+    <p>And the gift need to be redeigned. I have never ✏️ the mail like a web page.</p>
+    <p>You can gusss what it looks like by the information in the website and the picture</p>
+    <p class="details">
+        <img style="width:80%" src="http://img1.vued.vanthink.cn/vued761ca1a48888918935251f408e6111a6.png"/>
+    </p>
+    <p class="details"><strong>A little chance encounter could be the one you've waited for.</strong></p>
+    <p class="details">
+       Music: 《Epligoue - LA LA Land》
+    </p>
+</div>
+<audio autoplay style="display:none;" src="http://7xi3rt.com1.z0.glb.clouddn.com/1795306126_1481252824339%20%281%29.mp3"></audio>   
+<script src="http://s1.vued.vanthink.cn/be6ac946c050/bodymovin.js" type="text/javascript"></script>
+<iframe style="display:none;" src="data.json"></iframe>
+<script type="text/javascript">
+    $(function() {
+        var iosAudioPlay = false;
+        function autoPlay() {
+            if(iosAudioPlay) {
+                return;
+            }
+            var audio =  document.querySelector('audio');
+            audio.load();
+            audio.play();
+        }
+        autoPlay();
+        window.addEventListener('touchstart', function() {
+            autoPlay();
+            iosAudioPlay = true;
+        })
+        var p = 0;
+        var iv = window.setInterval(function(){
+            if(p>25){
+                p=0;
+            }
+            var str = '-' + (100*p) + 'px 0';
+            $('.fav').css({'background-position':str})   
+            p++;
+        },40);
+        function loadAnimation() {
+            
+            var animData = {
+                wrapper: document.getElementById('bodymovin'),
+                renderer: 'svg',
+                loop: false,
+                prerender: true,
+                autoplay: true,
+                path: 'data.json',
+                rendererSettings: {
+                   // context: canvasContext, // the canvas context
+                    scaleMode: 'noScale',
+                   // clearCanvas: false
+                  }
+            };
+            var anim = bodymovin.loadAnimation(animData);    
+        }
+       window.setTimeout(function() {
+           loadAnimation();
+       },12000);
+         window.setTimeout(function() {
+           $('.doc-loading').hide();
+            clearInterval(iv);
+       },15000);
+       $('.btn-view-letter').on('click', function () {
+           $('.dialog').show();
+       });
+        $('.btn-close').on('click', function () {
+           $('.dialog').hide();
+       })
+       window.setTimeout(function() {
+           $('.btn-view-letter').animate({
+               opacity: 1,
+           },300);
+       },32000)    
+        
+    });
+</script>    
+</body>
 
 </html>
