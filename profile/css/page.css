@@ -9,18 +9,19 @@ html{
 }
 body{
     font-size: 16px;
-    color: #000;
+    color: #f2f2f2;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 200;
     width: 100%;
     height: 100%;
     -webkit-overflow-scrolling: touch;
+    background-color: #000;
 }
 img{
     max-width: 100%;
 }
 a{
-    color: #1583c9;
+    color: #ddd;
     text-decoration: none;
 }
 .hide{
@@ -37,7 +38,7 @@ a{
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #190b10;
 }
 .landing-page .circle-group {
     position: relative;
@@ -62,9 +63,10 @@ a{
     position: relative;
     height: 100%;
     color: #fff;
-    background: #1e2d65 url(https://assets.veervr.tv/@vrups/8/cf971a811e72ad-1600-887.jpg) no-repeat center bottom;
+    background: #1e2d65 url(https://img1.wxzxzj.com/thisistheway2019ssdsas.png) no-repeat center bottom;
     background-size: cover;
     box-shadow: 2px 5px 5px rgba(0,0,0, .25);
+    background-attachment: fixed;
     font-family: 'kepler-std-semicondensed-dis';
 }
 .container {
@@ -118,7 +120,6 @@ a{
 }
 .main{
     min-height: 360px;
-    background-color: #f3f3f3;
 }
 .main .tab{
     display: none;
@@ -137,7 +138,7 @@ a{
 .main .tab p{
     padding: 20px 0;
     font-weight: 200;
-    color: #333;
+    color: #999;
     line-height: 1.5em;
     font-size: 18px;
 }
@@ -285,7 +286,6 @@ a.photo:hover .desc{
     border-left-width: 0;
 }
 .main .self-introduce {
-    background: #fff;
     font-family: "acuta";
 }
 .main .self-introduce p{
@@ -300,17 +300,21 @@ a.photo:hover .desc{
 }
 .main .goals {
     background-color: #fff;
+    background-image: linear-gradient(to bottom,#000 0%, #6a11cb 25%, #2575fc 100%);
 }
 .main .goals ul {
     text-align: left;
-    max-width: 440px;
+    max-width: 1120px;
     margin: 0 auto;
+    display: flex;
 }
 .main .goals ul  li {
+    flex: 1;
     position: relative;
     list-style: none;
-    margin: 20px 0 30px 0;
+    margin: 20px 5px;
     border-radius: 15px;
+    min-height: 360px;
 }
 .main .goals ul  li .svg-icon {
     position: absolute;
@@ -359,9 +363,9 @@ a.photo:hover .desc{
 
 }
 .main .map{
-    background: #56CCF2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);
-    background: linear-gradient(to right, #2F80ED, #56CCF2);
+    background: #2575fc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #2575fc, #56CCF2);
+    background: linear-gradient(to bottom, #2575fc, #56CCF2);
 }
 .main .map h2 {
     color: #fff;
@@ -380,6 +384,10 @@ a.photo:hover .desc{
 }
 .main .map h2:after {
     border-color: rgba(255,255,255, .5);
+    
+}
+.ft{
+  background-color: #fff;
 }
 .ft .quote{
     color: #777;
