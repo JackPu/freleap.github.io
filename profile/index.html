@@ -16,8 +16,8 @@
     <meta content="telephone=no" name="format-detection" />
     <link rel="dns-prefetch" href="//lib.baomitu.com">
     <link rel="dns-prefetch" href="//gw.alicdn.com">
-    <link rel="stylesheet" href="./css/page.css?v=sa1" />
-    <link rel="stylesheet" media="(max-width: 768px)"  href="./css/mobile.page.min.css" />
+    <link rel="stylesheet" href="./css/page.min.css?v=saa1" />
+    <link rel="stylesheet" media="(max-width: 768px)"  href="./css/mobile.page.min.css?v=s34d" />
     <link crossorigin="anonymous" integrity="sha384-LmTs77jzi3Z94+7+p0wVpKuqGLPsiOaD2RpiBUwSZuJTsjxIz3qT7EIxuNOmWx6b" href="https://lib.baomitu.com/jvectormap/2.0.3/jquery-jvectormap.min.css" rel="stylesheet">
 </head>
 
@@ -102,16 +102,15 @@
 </div>
 <div class="hd">
     <div class="container">
-        <h1 class="title">
-            To Be A Better Man
-            <p>@ Since 2019</p>
-        </h1>
-        <div class="profile">
-            <div class="avatar-box">
-                <img src="//gw.alicdn.com/tfs/TB1YwGRETtYBeNjy1XdXXXXyVXa-240-240.jpg" />
+        <div class="title">
+            <strong>This Is The Way</strong>
+            <div class="profile">
+              <div class="avatar-box">
+                  <img src="//gw.alicdn.com/tfs/TB1YwGRETtYBeNjy1XdXXXXyVXa-240-240.jpg" />
+              </div>
+              <span class="name">Jack Pu</span>
             </div>
-            <h1 class="name">Jack Pu</h1>
-            <h2 class="quote">Keep Learning And Follow Your Heart</h2>
+            <a href="#portfolio" class="btn-view-more">View Portfolio</a>
         </div>
     </div>
     <!--div class="tab-group">
@@ -132,7 +131,7 @@
 <div class="main">
     <div class="tab active self-introduce">
         <div class="container">
-            <h2>Just an Aquarius Man</h2>
+            <h2 id="portfolio">An Aquarius Man</h2>
             <p>Hi! I'm <strong>Jack Pu「蒲 小 花」</strong> from  <svg class="icon svg-icon icon-location mini"><use xlink:href="#icon-location"></use></svg></span> China; A Senior <strong>  Web Front-end developer</strong> in
             Beijing. I love writing web page and re-building the user interface.</p>
             <p> And I currently work at <a href="https://github.com/alibaba">Alibaba (Taobao / Youku)</a>.I am interested in HTML Video, SVG, and Canvas. And I write some funny open source
@@ -263,6 +262,37 @@
             </div>
         </div>
     </div>
+    <div class="tab active keynotes">
+        <h2>Some Talks</h2>
+        <div class="slideshow">
+          <div class="slides">
+            <div class="slide slide--current">
+              <div class="slide__img" style="background-image: url(https://img1.wxzxzj.com/slide-2.jpg)"></div>
+              <div class="slide__title">Build High Performance Playback Service</div>
+              <div class="slide__desc">2018-06</div>
+              <a class="slide__link" href="https://github.com/JackPu/keynotes">Read More</a>
+            </div>
+            <div class="slide">
+              <div class="slide__img" style="background-image: url(https://img1.wxzxzj.com/slide-1.jpg)"></div>
+              <div class="slide__title"> Amazing H5 Events</div>
+              <div class="slide__desc">2018-10</div>
+              <a class="slide__link" href="https://github.com/JackPu/keynotes">Download It</a>
+            </div>
+            <div class="slide">
+              <div class="slide__img" style="background-image: url(https://img1.wxzxzj.com/slide-3.jpg)"></div>
+              <div class="slide__title">Build React Native Apps</div>
+              <div class="slide__desc">2016-05</div>
+              <a class="slide__link" href="https://github.com/JackPu/keynotes">Find Out More</a>
+            </div>
+          </div>
+          <nav class="slidenav">
+            <button class="slidenav__item slidenav__item--prev">Previous</button>
+            <span>/</span>
+            <button class="slidenav__item slidenav__item--next">Next</button>
+          </nav>
+        </div>
+      
+    </div>
     <div class="tab active goals">
         <div class="container"  style="max-width:1120px">
             <h2>I Need Some Goals</h2>
@@ -321,18 +351,19 @@
                   <svg class="icon svg-icon  icon-paperplane"><use xlink:href="#icon-paperplane"></use></svg>
                   <p class="tips">Enjoy it</p>
                   <h3>Career</h3>
-                  <a href="#">Netflix Interview</a>
+                  <a href="#">Netflix / Google Interview</a>
                   <a href="https://github.com/JackPu/vue-core-video-player">vue-core-video-player</a>
                   <a href="https://github.com/JackPu/webvr-guide">WebVR Guide</a>
-                  <a href="https://www.jackzoo.org">JackZoo Videos</a>
+                  <a href="#">Google KickStart</a>
+                  <a href="#">Learning Computer Graphics</a>
               </li>
               <li class="rainbow">
                   <svg class="icon svg-icon  icon-photo"><use xlink:href="#icon-photo"></use></svg>
                   <p class="tips">Do what u like</p>
                   <h3>Paintings</h3>
                   <a href="#">Procreate Learning 「Apple Pen」</a>
-                  <a href="https://www.behance.net/codeui">30+ pictures.(PS or hand drawings)</a>
-                  <a href="#">AE Animation</a>
+                  <a href="https://www.behance.net/codeui">40+ pictures.(PS or hand drawings)</a>
+                  <a href="#">3D Graphics</a>
               </li>
               <li class="argon">
                   <svg class="icon svg-icon  icon-location"><use xlink:href="#icon-location"></use></svg>
@@ -347,8 +378,10 @@
                   <svg class="icon svg-icon  icon-location"><use xlink:href="#icon-news"></use></svg>
                   <p class="tips">Keep Learning</p>
                   <h3>Books</h3>
+                  <a href="https://book.douban.com/subject/27074042/">《曾国藩》</a>
                   <a href="https://book.douban.com/subject/2567698/">《The Three-Body Problem》</a>
                   <a href="https://book.douban.com/subject/1559310/">《The Deer and the Cauldron》</a>
+                  <a href="https://www.amazon.com/Interactive-Computer-Graphics-Top-Down-Approach/dp/0133574849/">《Interactive Computer Graphics》</a>
                   <a href="http://www.jackpu.com/tag/books/">&nbsp;&nbsp; ...</a>
               </li>
           </ul>
@@ -363,6 +396,50 @@
 </div>
 
 <div class="ft">
+    <div class="blur-circle md" >
+      <svg width="180px" height="180px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+              <linearGradient id="gradient1" gradientTransform="rotate(35)">
+                  <stop offset="0%" stop-color="#ab7bf6"></stop>
+                  <stop offset="95%" stop-color="#7022ed"></stop>
+              </linearGradient>
+              <filter id="f1">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="1"></feGaussianBlur>
+              </filter>
+          </defs>
+          <circle cx="50" fill="url(#gradient1)" filter="url(#f1)" cy="50" r="35"></circle>
+      </svg>
+    </div>
+        <div class="blur-circle lg" >
+          <svg width="280px" height="280px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                  <linearGradient id="gradient2" gradientTransform="rotate(35)">
+                      <stop offset="0%" stop-color="#c471ed"></stop>
+                      <stop offset="95%" stop-color="#3F5EFB"></stop>
+                  </linearGradient>
+                  <filter id="f3">
+                      <feGaussianBlur in="SourceGraphic" stdDeviation="1"></feGaussianBlur>
+                  </filter>
+              </defs>
+              <circle cx="50" fill="url(#gradient2)" filter="url(#f3)" cy="50" r="45"></circle>
+          </svg>
+      </div>
+      <div class="blur-circle sm">
+        <svg width="120px" height="120px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="gradient4">
+                    <stop offset="5%" stop-color="#5573e3"></stop>
+                    <stop offset="95%" stop-color="#7022ed"></stop>
+                </linearGradient>
+                <filter id="f4" x="0" y="0">
+                    <feGaussianBlur in="SourceGraphic2" stdDeviation="2"></feGaussianBlur>
+                </filter>
+            </defs>
+            <circle cx="50" fill="url(#gradient4)" filter="url(#f4)" cy="50" r="35"></circle>
+        </svg>
+    </div>
+    <div class="blur-bg"></div>
+    <div class="blur-bg-2"></div>
     <div class="social-sites">
         <a class="sns-icon fb" title="facebook" href="https://www.facebook.com/jack.pu.56">
             <i class="icon icon-fb"></i>
@@ -472,6 +549,8 @@
 
     })
 </script>
+<script src="./js/anime.min.js"></script>
+<script src="./js/slide.js"></script>
 <script>
     var _hmt = _hmt || [];
     (function() {
