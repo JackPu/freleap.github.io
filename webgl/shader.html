@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>webgl shader</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+<style type="text/css">
+  
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+    -webkit-font-feature-settings: 'kern' 1;
+    -moz-font-feature-settings: 'kern' 1;
+    -o-font-feature-settings: 'kern' 1;
+    
+  }
+  canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <canvas  id="glcanvas" class="js-canvas"></canvas>
+
+  <!-- vertex shader -->
+  <script  id="vertex-shader-2d" type="x-shader/x-vertex">
+    attribute vec2 a_position;
+    
+    uniform mat3 u_matrix;
+    
+    varying vec4 v_color;
+    
+    void main() {
+      // Multiply the position by the matrix.
+      gl_Position = vec4((u_matrix * vec3(a_position, 1)).xy, 0, 1);
+    
+      // Convert from clipspace to colorspace.
+      // Clipspace goes -1.0 to +1.0
+      // Colorspace goes from 0.0 to 1.0
+      v_color = gl_Position * 0.5 + 0.5;
+    }
+    </script>
+    <!-- fragment shader -->
+    <script  id="fragment-shader-2d" type="x-shader/x-fragment">
+    precision mediump float;
+    
+    varying vec4 v_color;
+    
+    void main() {
+      gl_FragColor = v_color;
+    }
+  </script>
+  <script src="https://webglfundamentals.org/webgl/resources/m3.js"></script>
+  <script>
+    function createShader(gl, shaderSource, type) {
+      var shader = gl.createShader(type);
+      gl.shaderSource(shader, shaderSource);
+      gl.compileShader(shader);
+      var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS)
+      if (!success) {
+        console.log('error cannot compile!')
+      }
+      return shader;
+    }
+
+    function createShaderFromScript(gl, id, shaderType) {
+      var script = document.querySelector('#'+id);
+      var shaderSource = script.text;
+      if (!shaderType) {
+        if (script.type === 'x-shader/x-vertex') {
+          shaderType = gl.VERTEX_SHADER;
+        } else if (script.type === 'x-shader/x-fragment') {
+          shaderType = gl.FRAGMENT_SHADER;         
+        }
+      }
+      
+      return createShader(gl, shaderSource, shaderType);
+    }
+
+    function createProgram(gl, vertexShader, fragmentShader) {
+      // 创建一个程序
+      var program = gl.createProgram();
+    
+      // 附上着色器
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+    
+      // 链接到程序
+      gl.linkProgram(program);
+    
+      // 检查链接是否成功
+      var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+      if (!success) {
+          // 链接过程出现问题
+          throw ("program failed to link:" + gl.getProgramInfoLog (program));
+      }
+    
+      return program;
+    };
+
+    function setGeometry(gl) {
+      gl.bufferData(
+          gl.ARRAY_BUFFER,
+          new Float32Array([
+                0, -100,
+              150,  125,
+              -175,  100]),
+          gl.STATIC_DRAW);
+    }
+
+    
+    function main () {
+      var canvas = document.querySelector('canvas');
+      var gl = canvas.getContext("webgl");
+      if (!gl) {
+        return;
+      }
+      var vertexShader = createShaderFromScript(gl, 'vertex-shader-2d');
+      var fragmentShader = createShaderFromScript(gl, 'fragment-shader-2d')
+      var program = createProgram(gl, vertexShader, fragmentShader);
+      var positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+
+      var matrixLocation = gl.getUniformLocation(program, "u_matrix");
+      var positionBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+
+      setGeometry(gl);
+
+      var translation = [200, 150];
+      var angleInRadians = 0;
+      var scale = [1, 1];
+
+      drawScene(gl);
+
+      function drawScene(gl) {
+        // webglUtils.resizeCanvasToDisplaySize(gl.canvas);
+
+        // Tell WebGL how to convert from clip space to pixels
+        gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+
+        // Clear the canvas.
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        // Tell it to use our program (pair of shaders)
+        gl.useProgram(program);
+
+        // Turn on the attribute
+        gl.enableVertexAttribArray(positionAttributeLocation);
+
+        // Bind the position buffer.
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+
+        // Tell the attribute how to get data out of positionBuffer (ARRAY_BUFFER)
+        var size = 2;          // 2 components per iteration
+        var type = gl.FLOAT;   // the data is 32bit floats
+        var normalize = false; // don't normalize the data
+        var stride = 0;        // 0 = move forward size * sizeof(type) each iteration to get the next position
+        var offset = 0;        // start at the beginning of the buffer
+        gl.vertexAttribPointer(
+            positionAttributeLocation, size, type, normalize, stride, offset);
+
+        // Compute the matrix
+        var matrix = m3.projection(gl.canvas.clientWidth, gl.canvas.clientHeight);
+        matrix = m3.translate(matrix, translation[0], translation[1]);
+        matrix = m3.rotate(matrix, angleInRadians);
+        matrix = m3.scale(matrix, scale[0], scale[1]);
+
+        // Set the matrix.
+        gl.uniformMatrix3fv(matrixLocation, false, matrix);
+
+        // Draw the geometry.
+        var primitiveType = gl.TRIANGLES;
+        var offset = 0;
+        var count = 3;
+        gl.drawArrays(primitiveType, offset, count);
+      }
+
+    }
+    main();
+  </script>
+</body>
+
+</html>
