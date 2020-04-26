@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>iOS open gyroscope permission</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+<style type="text/css">
+  * {margin: 0; padding: 0;}
+  html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  body {
+    font-family: 'Helvetica Neue','\5FAE\8F6F\96C5\9ED1','\9ED1\4F53',sans-serif;
+    letter-spacing: .01rem;
+    font-size: 15px;
+    line-height: 1.75em;
+    color: #3A4145;
+  }
+  #app {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+  }
+  .permission-modal {
+      box-sizing: border-box;
+      z-index: 100;
+      position: absolute;
+      max-width: 420px;
+      width: 100%;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0, .15);
+  }
+</style>
+<script src="//s1.vued.vanthink.cn/jquery-1.10.2.min.js"></script>
+</head>
+
+<body class="doc">
+  <div id="app"></div>
+  <div class="permission-modal">
+      <h3>Request Gyroscope Permission</h3>
+      <p>Click `Yes` to access Gyroscope Data </p>
+      <div class="btn-groups pull-right">
+          <button class="btn btn-primary js-confirm">Yes</button>
+          <button class="btn btn-default">No</button>
+      </div>
+  </div>
+  
+  <script src="https://assets.veervr.tv/@veervr/vr-player/2.4.16/vr-player.min.js"></script>
+
+  <script src="http://s1.vued.vanthink.cn/d323222b5864/vconsole.min.js"></script>
+     <script>
+         var vConsole = new VConsole();
+         console.log('Hello world');
+     </script>
+
+  <script type="text/javascript">
+//   Promise.all([navigator.permissions.request({ name: "accelerometer"}),
+//   navigator.permissions.request({ name: "gyroscope" })])
+//     .then(results => {
+//       console.log(results)
+//     });
+// navigator.permissions.query({ name: "gyroscope"}).then((result) => console.log(result))
+//   var player = new VRPlayer({
+//     el: '#app',
+//     src: './test.jpg',
+//     type: 'photo'
+//   });
+  $('.js-confirm').on('click', function() {
+      console.log(444);
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        console.log(44444);
+        DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+           console.log(permissionState) 
+          if (permissionState === 'granted') {
+            window.addEventListener('devicemotion', () => {});
+          } else {
+
+          }
+        })
+        .catch((err) => {
+            console.log(err)
+        });
+    } else {
+      // han
+      console.log(222, typeof DeviceOrientationEvent)
+    }
+  })
+  </script>
+</body>
+
+</html>
