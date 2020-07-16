@@ -415,8 +415,21 @@ Line <strong>Oedo Line</strong>  <br/>
       
     </div>
 
-
-
+<script src="//yfd1.fbcontent.cn/s/webview/webview-6.4.0.js"></script>
+<script>
+  window.onload = function() {
+    try {
+      // T.WebView.exec('setTitle', {
+      //     title: "我是标题"
+      // });
+      var obj = {arguments: [{title: 'title'}]};
+      var encoded = btoa(JSON.stringify(obj))
+      WebView.setTitle(encoded);
+    } catch (e){
+      console.log(e)
+    }
+  }
+</script>
 </body>
 
 </html>

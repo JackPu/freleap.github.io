@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>实现类似 BiLiBiLi 的播放浮层控制</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+  <style type="text/css">
+    html {
+      font-family: sans-serif;
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+      font-size: 62.5%;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    body {
+      font-family: 'Helvetica Neue', '\5FAE\8F6F\96C5\9ED1', '\9ED1\4F53', sans-serif;
+      letter-spacing: .01rem;
+      font-size: 15px;
+      line-height: 1.75em;
+      color: #3A4145;
+      -webkit-font-feature-settings: 'kern'1;
+      -moz-font-feature-settings: 'kern'1;
+      -o-font-feature-settings: 'kern'1;
+
+    }
+
+    h1 {
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    .main {
+      max-width: 720px;
+      margin: 80px auto;
+      text-align: center;
+    }
+
+    .main video {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+  <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body class="doc">
+  <h1>实现类似 BiLiBiLi 的播放浮层控制</h1>
+
+  <div class="main">
+    <video controls poster="https://img1.wxzxzj.com/vpc-example-cover-your-name-c.png"
+      src="https://media.vued.vanthink.cn/sparkle_your_name_am360p.mp4" />
+  </div>
+
+  <script type="text/javascript">
+
+    var mediaList = [{
+      src: 'https://media.vued.vanthink.cn/CJ7%20-%20Trailer.mp4',
+      cover: 'https://img1.wxzxzj.com/vpc-example-cover-CJ7-c.jpg',
+      title: "长江七号-周星驰导演作品，关于外星人的童话故事"
+    }, {
+      src: 'https://media.vued.vanthink.cn/sparkle_your_name_am360p.mp4',
+      cover: 'https://img1.wxzxzj.com/vpc-example-cover-your-name-c.png',
+      title: "你的名字-新海诚导演作品，穿越彼此的身体，遇见不可思议"
+    }, {
+      src: 'https://media.vued.vanthink.cn/the_garden_of_words_trailer_english__1080p.mp4',
+      cover: 'https://img1.wxzxzj.com/vpc-example-cover-the-garden-c.jpg',
+      title: "言叶之庭-新海诚导演作品，下雨天静谧的动静也有唯美的相遇"
+    }]
+
+  
+
+    $(function () {
+      var $video = document.querySelector('video')
+      var index = 1
+      function playNext() {
+        if (index === 2) {
+          index = 0
+        } else {
+          index += 1
+        }
+        setMediaSession(index)
+        $video.src = mediaList[index].src
+        $video.play()
+      }
+
+      function playPrev() {
+        if (index === 0) {
+          index = 2
+        } else {
+          index -= 1
+        }
+        setMediaSession(index)
+        $video.src = mediaList[index].src
+        $video.play()
+      }
+
+      initMediaSession()
+
+      function setMediaSession(index) {
+        if ('mediaSession' in navigator) {
+          var data = mediaList[index]
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: data.title,
+            artist: data.director,
+            artwork: [
+              { src: data.cover, sizes: '192x192' }
+            ]
+          });
+        }
+      }
+
+      function initMediaSession() {
+          if ('mediaSession' in navigator) {
+            var ms = navigator.mediaSession
+            setMediaSession(index)
+
+            ms.setActionHandler('play', function () {
+              $video.play()
+            });
+            ms.setActionHandler('nexttrack', function () {
+              console.log(3333)
+              playNext()
+            });
+            ms.setActionHandler('previoustrack', function () {
+              playPrev()
+            });
+            // navigator.mediaSession.setActionHandler('pause', function() { /* Code excerpted. */ });
+            // navigator.mediaSession.setActionHandler('seekbackward', function() { /* Code excerpted. */ });
+            // navigator.mediaSession.setActionHandler('seekforward', function() { /* Code excerpted. */ });
+            // navigator.mediaSession.setActionHandler('previoustrack', function() { /* Code excerpted. */ });
+            // navigator.mediaSession.setActionHandler('nexttrack', function() { /* Code excerpted. */ });
+
+          }
+        }
+    })
+  </script>
+</body>
+
+</html>
