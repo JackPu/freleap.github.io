@@ -33,7 +33,12 @@
       padding-top: 40px;
       text-align: center;
     }
-
+    p {
+      text-align: center;
+    }
+    .js-show{
+      display: none;
+    }
     .main {
       max-width: 720px;
       margin: 80px auto;
@@ -50,12 +55,16 @@
 
 <body class="doc">
   <h1>实现类似 BiLiBiLi 的播放浮层控制</h1>
-
+  <p>
+    <button class="js-hide">隐藏</button>
+    <button class="js-show">展示</button>
+  </p> 
   <div class="main">
     <video controls poster="https://img1.wxzxzj.com/vpc-example-cover-your-name-c.png"
       src="https://media.vued.vanthink.cn/sparkle_your_name_am360p.mp4" />
+    
   </div>
-
+  
   <script type="text/javascript">
 
     var mediaList = [{
@@ -76,6 +85,17 @@
 
     $(function () {
       var $video = document.querySelector('video')
+
+      $('.js-show').on('click', function() {
+        $($video).show()
+        $(this).hide()
+        $('.js-hide').show()
+      })
+      $('.js-hide').on('click', function() {
+        $($video).hide()
+        $(this).hide()
+        $('.js-show').show()
+      })
       var index = 1
       function playNext() {
         if (index === 2) {
