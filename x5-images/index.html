@@ -1,0 +1,98 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>X5 图片测试</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection" />
+    <link href="https://cdn.jsdelivr.net/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+      .bannar{
+        height: 320px;
+        background: #f9f5d9 url(http://img1.vued.vanthink.cn/vuedcea8da10d75fe1b118b29d9f05864912.png) no-repeat center bottom;
+      }
+      .doc{
+        max-width: 720px;
+        margin: 20px auto;
+      }
+      img {
+          width: 120px;
+      }
+      .main {
+          width: 100%;
+      }
+      ul {
+          float: left;
+          width: 50%;
+      }
+      ul li {
+          list-style: none;
+          text-align: center;
+          margin-bottom: 40px;
+      }
+      h1 {
+          text-align: center;
+      }
+      h2{
+          text-align: center;
+      }
+    </style>
+
+</head>
+
+<body>
+    <h1>X5 图片测试</h1>
+    <div class="main">
+        <ul>
+            <li>
+                <h2>PNG</h2>
+            </li>
+            <li>
+                <img src="comment.png" />
+            </li>
+            <li>
+                <img src="iconfinder_icon-help-circled_211674.png" />
+            </li>
+            <li>
+                <img src="rating.png" />
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <h2>SVG</h2>
+            </li>
+            <li>
+                <img src="comment.svg" />
+            </li>
+            <li>
+                <img src="iconfinder_icon-help-circled_211674.svg" />
+            </li>
+            <li>
+                <img src="rating.svg" />
+            </li>
+        </ul>
+    </div>
+
+<script src="//yfd1.fbcontent.cn/s/webview/webview-6.4.0.js"></script>
+<script>
+  window.onload = function() {
+    try {
+      // T.WebView.exec('setTitle', {
+      //     title: "我是标题"
+      // });
+      var obj = {arguments: [{title: 'title'}]};
+      var encoded = btoa(JSON.stringify(obj))
+      WebView.setTitle(encoded);
+    } catch (e){
+      console.log(e)
+    }
+  }
+</script>
+</body>
+
+</html>
