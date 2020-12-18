@@ -15,7 +15,7 @@
         window.startDate = Date.now()
     </script>
     <style type="text/css">
-      .bannar{
+      .bannar{ 
         height: 320px;
         background: #f9f5d9 url(http://img1.vued.vanthink.cn/vuedcea8da10d75fe1b118b29d9f05864912.png) no-repeat center bottom;
       }
@@ -59,30 +59,11 @@
         <p>
             <img src="https://img1.wxzxzj.com/thisistheway2019ssdsas.png" />
         </p>
+        <p><img src="https://res.allmacwallpaper.com/pic/Thumbnails/7270_728.jpg" /></p>
+        <p><img src="https://res.allmacwallpaper.com/pic/Thumbnails/3192_728.jpg" /></p>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
-<script>
-  function writeLog(str) {
-      var el = document.createElement("P")
-      var now = Date.now()
-      
-      el.innerText = str + ':' + now + ' (+' + (now - startDate) + ')'
-      var wrap = document.querySelector('#js-contents')
-      wrap.appendChild(el)
-  }
-  document.addEventListener('readystatechange', function() {
-    if (document.readyState == 'loading') {
-        writeLog("readystatechange-loading")
-    } else if (document.readyState == 'interactive') {
-        writeLog("readystatechange-interactive")
-    } else if (document.readyState == 'complete') {
-        writeLog("readystatechange-complete")
-    }
-  })
-  window.onload = function() {
-    writeLog("window onLoad")
-  }
+<script src="./test.js"></script>
 </script>
 </body>
-
 </html>
